@@ -3,32 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Buổi 1 - Bài 1</title>
     <link
       rel="stylesheet"
       href="../../src/icon/themify-icons/themify-icons.css"
     />
   </head>
   <body>
-    <!-- Tiêu đề -->
+
+    <!-- Trang web có một ý nghĩa nhất định, thẻ title của trang web giúp tóm tắt nội dung trang đó, 
+    cần phải đặt cho sát ý nghĩa với trang web nhất.Ở trường hợp này, Get the invite chưa đủ ý nghĩa 
+    làm một tiêu đề chính, dựa theo tiêu đề, và chỉ có một input nhập email, đây có thể là một form 
+    đăng ký thông báo thường có ở footer. Nên sử dụng <h2> thay vì <h1>. Vì đây là một biểu mẫu, nên 
+    bọc thẻ form vào. Thẻ input nên có thuộc tính name để khi submit form có thể lấy được giá trị đã nhập.
+    Đây là một input nhập email nên để type của input là email để có thể lấy được giá trị đúng định dạng. -->
+
+    <!-- Chỉ mục -->
     <div>
-      <h1>Buổi 1 - Bài 1</h1>
+      <p style="font-weight: 1000;">Buổi 1 - Bài 1</p>
       <button onclick="location.href='../'">Quay lại</button>
       <hr />
     </div>
 
     <!-- Bài tập -->
-    <div>
+    <form>
       <i class="ti-email"></i>
-      <h1>Get the invite</h1>
+      <h2>Get the invite</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-
-    <div>
-      <input type="text" placeholder="Enter Email" />
-      <div style="margin-top: 20px">
+      <input name="email" type="text" placeholder="Enter Email" />
+      <div style="margin-top: 20px;">
         <button>REQUEST INVITE</button>
       </div>
-    </div>
+    </form>
   </body>
 </html>
