@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../../src/icon/themify-icons/themify-icons.css"
+    />
+    <title>Buổi 3 - Bài 1</title>
+  </head>
+  <body>
+    <!-- Đề mục -->
+    <div>
+      <p style="font-weight: 1000">Buổi 3 - Bài 1</p>
+      <button onclick="location.href='../'">Quay lại</button>
+      <hr />
+    </div>
+
+    <style>
+      .contact {
+        margin: 0 10%;
+      }
+
+      h2 + hr {
+        width: 50px;
+        float: left;
+        border: 1px solid #feb738;
+      }
+
+      ul {
+        padding-inline-start: 0px;
+        color: #b6b6b6;
+      }
+
+      li {
+        align-items: center;
+        display: flex;
+        margin: 20px 0;
+      }
+
+      i {
+        padding: 0px 10px;
+      }
+
+      .col-40 {
+        float: left;
+        width: 40%;
+      }
+
+      .col-60 {
+        float: left;
+        width: 60%;
+      }
+
+      input {
+        display: block;
+        width: 95%;
+        margin: 10px 0px;
+        padding: 10px;
+        border: 1.5px solid #b6b6b6;
+        font-size: 11px;
+      }
+
+      input::placeholder {
+        color: #b6b6b6;
+      }
+      .form-button {
+        padding: 8px 12px;
+        background-color: #0cb8b6;
+        border: none;
+        color: white;
+      }
+
+      form input:nth-of-type(4) {
+        padding-bottom: 60px;
+      }
+    </style>
+    <!-- Bài tập -->
+    <div class="contact">
+      <div style="overflow: hidden">
+        <h2>CONTACT US</h2>
+        <hr />
+      </div>
+      <div class="col-40">
+        <h3>Contact Info</h3>
+        <ul>
+          <li>
+            <i class="ti-location-pin"></i>
+            321 Awesome Street <br />
+            New York, NY 17022
+          </li>
+          <li>
+            <i class="ti-email"></i>
+            Info@companyname.com
+          </li>
+          <li>
+            <i class="ti-tablet"></i>
+            +1 800 123 1234
+          </li>
+        </ul>
+      </div>
+      <div class="col-60">
+        <h3 style="margin-bottom: 30px">
+          Having Any Query! Or Book an appointment
+        </h3>
+        <form action="">
+          <input type="text" placeholder="Your Name" />
+          <input type="text" placeholder="Your Email" />
+          <input type="text" placeholder="Subject" />
+          <input type="text" placeholder="Message" />
+          <button class="form-button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
