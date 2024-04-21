@@ -3,17 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Buổi 3 - Bài 3</title>
   </head>
   <body>
     <!-- Đề mục -->
     <div>
-      <p style="font-weight: 1000">Buổi 2 - Bài 4</p>
+      <p style="font-weight: 1000">Buổi 3 - Bài 3</p>
       <button onclick="location.href='../'">Quay lại</button>
       <hr />
     </div>
 
     <!-- Bài tập -->
-    <div></div>
+    <style>
+      form {
+        margin: 50px;
+        width: 300px;
+      }
+
+      form div {
+        margin: 2px 0px;
+      }
+      label {
+        width: 100px;
+        display: inline-block;
+      }
+
+      .form-input {
+        display: flex;
+        align-items: center;
+      }
+
+      .form-button {
+        text-align: center;
+        margin-top: 16px;
+      }
+    </style>
+
+    <div>
+      <form action="">
+        <div class="form-input">
+          <label for="">Username:</label>
+          <div><input type="text" /></div>
+        </div>
+
+        <div class="form-input">
+          <label for="">Password:</label>
+          <div><input type="text" /></div>
+        </div>
+
+        <div class="form-input">
+          <label for="">City of Employment:</label>
+          <div><input type="text" /></div>
+        </div>
+
+        <div class="form-input">
+          <label for="">Web server:</label>
+          <select name="server" id="server">
+            <option value="">--Choose a server--</option>
+            <option value="global">Trái đất</option>
+            <option value="venus">Sao hoả</option>
+          </select>
+        </div>
+
+        <div class="form-input">
+          <label for="">Please specify your role:</label>
+          <div class="radio-input">
+            <div>
+              <input type="radio" id="admin" name="role" value="admin" />
+              <label for="admin">Admin</label>
+            </div>
+            <div>
+              <input type="radio" id="engineer" name="role" value="engineer" />
+              <label for="engineer">Engineer</label>
+            </div>
+            <div>
+              <input type="radio" id="manager" name="role" value="manager" />
+              <label for="manager">Manager</label>
+            </div>
+            <div>
+              <input type="radio" id="guest" name="role" value="guest" />
+              <label for="guest">Guest</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-input">
+          <label for="">Single Sign-on to the following:</label>
+          <div>
+            <div>
+              <input type="checkbox" name="sign-method" id="mail" />
+              <label for="mail">Mail</label>
+            </div>
+            <div>
+              <input type="checkbox" name="sign-method" id="payroll" />
+              <label for="payroll">Payroll</label>
+            </div>
+            <div>
+              <input type="checkbox" name="sign-method" id="self-service" />
+              <label for="self-service">Self-service</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-button">
+          <button>Login</button>
+          <button>Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Chân trang -->
   </body>
 </html>
