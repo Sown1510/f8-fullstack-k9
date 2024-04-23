@@ -3,10 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../../src/icon/themify-icons/themify-icons.css"
-    />
     <title>Buổi 3 - Bài 1</title>
   </head>
   <body>
@@ -19,103 +15,142 @@
 
     <!-- Bài tập -->
     <style>
-      .contact {
-        margin: 0 10%;
+      h3 {
+        font-size: 35px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        margin: 0px;
+      }
+
+      .form-container {
+        width: 70%;
+        background-color: #cccccc;
         overflow: hidden;
       }
 
-      h2 + hr {
-        width: 50px;
+      form {
+        padding: 5px 5px 40px 15px;
+      }
+
+      .row {
+        display: block;
+        width: 100%;
+      }
+
+      .col-2 {
         float: left;
-        border: 1px solid #feb738;
+        width: 50%;
       }
 
-      ul {
-        padding-inline-start: 0px;
-        color: #b6b6b6;
-      }
-
-      li {
-        align-items: center;
-        display: flex;
-        margin: 20px 0;
-      }
-
-      i {
-        padding: 0px 10px;
-      }
-
-      .col-40 {
-        float: left;
-        width: 40%;
-      }
-
-      .col-60 {
-        float: left;
-        width: 60%;
+      label {
+        font-weight: 500;
+        font-size: 15px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       }
 
       input {
-        display: block;
+        padding: 8px 0px 8px 5px;
+        border-radius: 3px;
+        border: 0;
         width: 90%;
-        margin: 10px 0px;
-        padding: 10px;
-        border: 1.5px solid #b6b6b6;
-        font-size: 11px;
+        margin: 5px 0px 15px 0px;
       }
 
-      input::placeholder {
-        color: #b6b6b6;
+      .select {
+        width: 100%;
       }
-      .form-button {
-        padding: 8px 12px;
-        background-color: #0cb8b6;
-        border: none;
+
+      select {
+        padding: 8px 0px 8px 5px;
+        border-radius: 3px;
+        border: 0;
+        width: 90%;
+        margin: 5px 0px 15px 0px;
+        height: 31px;
+      }
+
+      span {
+        color: #7b7b7b;
+      }
+
+      form button {
+        width: 95%;
+        padding: 10px 0;
         color: white;
-      }
-
-      form input:nth-of-type(4) {
-        padding-bottom: 60px;
+        background-color: #4cb050;
+        border: none;
       }
     </style>
 
-    <div class="contact">
-      <div style="overflow: hidden">
-        <h2>CONTACT US</h2>
-        <hr />
-      </div>
-      <div class="col-40">
-        <h3>Contact Info</h3>
-        <ul>
-          <li>
-            <i class="ti-location-pin"></i>
-            321 Awesome Street <br />
-            New York, NY 17022
-          </li>
-          <li>
-            <i class="ti-email"></i>
-            Info@companyname.com
-          </li>
-          <li>
-            <i class="ti-tablet"></i>
-            +1 800 123 1234
-          </li>
-        </ul>
-      </div>
-      <div class="col-60">
-        <h3 style="margin-bottom: 30px">
-          Having Any Query! Or Book an appointment
-        </h3>
-        <form action="">
-          <input type="text" placeholder="Your Name" />
-          <input type="text" placeholder="Your Email" />
-          <input type="text" placeholder="Subject" />
-          <input type="text" placeholder="Message" />
-          <button class="form-button">Send Message</button>
-        </form>
-      </div>
+    <div class="form-container">
+      <form action="">
+        <h3>Try a free sample</h3>
+        <p>
+          Sign up to get a coupon you can redeem at your nearest Dancing Goat
+          cafe for a sample of the Colombia Carlos Imbachi coffee. We'll also
+          make sure you don't miss out on news introducing the new coffees that
+          we add to our store regularly.
+        </p>
+        <div class="row">
+          <div class="col-2">
+            <div>
+              <label for="lbl-firstName">First name</label>
+              <div>
+                <input type="text" id="lbl-firstName" placeholder="John" />
+              </div>
+              <label for="lbl-email">Email address</label>
+              <div>
+                <input
+                  type="text"
+                  id="lbl-email"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <label for="lbl-city">City</label>
+              <div>
+                <input type="text" id="lbl-city" placeholder="London" />
+              </div>
+              <label for="lbl-zipCode">ZIP code</label>
+              <div>
+                <input type="text" id="lbl-zipCode" plhnceholder="EC2Y8DS" />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div>
+              <label for="lbl-lastName">Last Name</label>
+              <div>
+                <input type="text" id="lbl-lastName" placeholder="Smith" />
+              </div>
+              <label for="lbl-address">Address</label>
+              <div>
+                <input type="text" id="lbl-address" placeholder="Silk St" />
+              </div>
+              <label for="lbl-state">State <span>(optional)</span></label>
+              <div>
+                <input type="text" id="lbl-state" placeholder="" />
+              </div>
+              <label for="lbl-country">Country</label>
+              <div class="select">
+                <select name="country" id="lbl-country">
+                  <option value="0">---Select your country---</option>
+                  <option value="1">United Kingdom</option>
+                  <option value="2">China</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button>SEND ME FREE COFFEE</button>
+      </form>
     </div>
 
+    <div style="margin-top: 100px">
+      <img
+        src="https://files.fullstack.edu.vn/f8-prod/public-images/662756d95f62b.png"
+        alt=""
+      />
+    </div>
     <!-- Chân trang -->
   </body>
 </html>
