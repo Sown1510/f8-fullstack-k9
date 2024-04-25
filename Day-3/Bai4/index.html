@@ -15,82 +15,109 @@
 
     <!-- Bài tập -->
     <style>
-        .form-container {
-            background-color: #cccccc;
-        }
+      .form-container {
+        background-color: #cccccc;
+      }
 
-        form {
-            margin: 10px;
-        }
+      .form {
+        margin: 10px;
+      }
 
-        h2 {
-            padding-top: 10px;
-            margin: 0;
-        }
+      h2 {
+        padding-top: 10px;
+        margin: 0;
+      }
 
-        .row {
-            display: block;
-            width: 100%;
-            overflow: hidden;
-        }
+      .row {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+      }
 
-        .col-3 {
-            float: left;
-            width: 33%;
-        }
+      .col-3 {
+        float: left;
+        width: 33%;
+      }
 
-        .col-3 div {
-            margin: 20px 0px;
-        }
+      .col-3 div {
+        margin: 20px 0px;
+      }
 
-        input {
-            border-radius: 5px;
-            width: 70%;
-            padding: 5px;
-        }
+      input {
+        border-radius: 5px;
+        width: 70%;
+        padding: 5px;
+      }
 
-        textarea {
-            width: 80%;
-            border-radius: 4px;
-        }
+      textarea {
+        width: 80%;
+        border-radius: 4px;
+      }
 
-        .form-button {
-            margin-top: 16px;
-            padding-bottom: 40px;
-        }
+      .form-button {
+        margin-top: 16px;
+        padding-bottom: 40px;
+      }
 
-        form button {
-            background-color: #696969;
-            color: white;
-            border-radius: 4px;
-            padding: 5px 3px;
-            border: 0;
-        }
+      form button {
+        background-color: #696969;
+        color: white;
+        border-radius: 4px;
+        padding: 5px 3px;
+        border: 0;
+      }
     </style>
     <div class="form-container">
+      <div class="form">
+        <div>
+          <h2>Get in touch with us by filling contact form below</h2>
+        </div>
         <form action="">
-            <div>
-                <h2>Get in touch with us by filling contact form below</h2>
+          <div class="row">
+            <div class="col-3">
+              <div>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="*Enter your full name"
+                />
+              </div>
+              <div>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="*Enter your full name"
+                />
+              </div>
             </div>
-            <div class="row">
-                <div class="col-3">
-                    <div><input type="text" placeholder="*Enter your full name"></div>
-                    <div><input type="text" placeholder="*Enter your full name"></div>
-                </div>
-                <div class="col-3">
-                    <div><input type="text" placeholder="*Enter your full name"></div>
-                </div>
-                <div class="col-3"></div>
+            <div class="col-3">
+              <div>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="*Enter your full name"
+                />
+              </div>
             </div>
-            <div class="text-area">
-                <textarea name="" id="" cols="30" rows="10" placeholder="* Your message here"></textarea>
-            </div>
-            <div class="form-button">
-                <button>Send message</button>
-                <p style="display: inline;">*Please fill all require form field, thanks!</p>
-            </div>
+            <div class="col-3"></div>
+          </div>
+          <div class="text-area">
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="* Your message here"
+            ></textarea>
+          </div>
+          <div class="form-button">
+            <button type="submit">Send message</button>
+            <p style="display: inline">
+              *Please fill all require form field, thanks!
+            </p>
+          </div>
         </form>
-        
+      </div>
     </div>
 
     <!-- Chân trang -->

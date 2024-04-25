@@ -28,7 +28,7 @@
         overflow: hidden;
       }
 
-      form {
+      .form {
         padding: 5px 5px 40px 15px;
       }
 
@@ -83,66 +83,96 @@
     </style>
 
     <div class="form-container">
-      <form action="">
-        <h3>Try a free sample</h3>
-        <p>
-          Sign up to get a coupon you can redeem at your nearest Dancing Goat
-          cafe for a sample of the Colombia Carlos Imbachi coffee. We'll also
-          make sure you don't miss out on news introducing the new coffees that
-          we add to our store regularly.
-        </p>
-        <div class="row">
-          <div class="col-2">
-            <div>
-              <label for="lbl-firstName">First name</label>
-              <div>
-                <input type="text" id="lbl-firstName" placeholder="John" />
-              </div>
-              <label for="lbl-email">Email address</label>
-              <div>
-                <input
-                  type="text"
-                  id="lbl-email"
-                  placeholder="john@example.com"
-                />
-              </div>
-              <label for="lbl-city">City</label>
-              <div>
-                <input type="text" id="lbl-city" placeholder="London" />
-              </div>
-              <label for="lbl-zipCode">ZIP code</label>
-              <div>
-                <input type="text" id="lbl-zipCode" plhnceholder="EC2Y8DS" />
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div>
-              <label for="lbl-lastName">Last Name</label>
-              <div>
-                <input type="text" id="lbl-lastName" placeholder="Smith" />
-              </div>
-              <label for="lbl-address">Address</label>
-              <div>
-                <input type="text" id="lbl-address" placeholder="Silk St" />
-              </div>
-              <label for="lbl-state">State <span>(optional)</span></label>
-              <div>
-                <input type="text" id="lbl-state" placeholder="" />
-              </div>
-              <label for="lbl-country">Country</label>
-              <div class="select">
-                <select name="country" id="lbl-country">
-                  <option value="0">---Select your country---</option>
-                  <option value="1">United Kingdom</option>
-                  <option value="2">China</option>
-                </select>
-              </div>
-            </div>
-          </div>
+      <div class="form">
+        <div>
+          <h3>Try a free sample</h3>
+          <p>
+            Sign up to get a coupon you can redeem at your nearest Dancing Goat
+            cafe for a sample of the Colombia Carlos Imbachi coffee. We'll also
+            make sure you don't miss out on news introducing the new coffees
+            that we add to our store regularly.
+          </p>
         </div>
-        <button>SEND ME FREE COFFEE</button>
-      </form>
+        <form action="">
+          <div class="row">
+            <div class="col-2">
+              <div>
+                <label for="lbl-firstName">First name</label>
+                <div>
+                  <input
+                    required
+                    type="text"
+                    id="lbl-firstName"
+                    placeholder="John"
+                  />
+                </div>
+                <label for="lbl-email">Email address</label>
+                <div>
+                  <input
+                    required
+                    type="email"
+                    id="lbl-email"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                <label for="lbl-city">City</label>
+                <div>
+                  <input
+                    required
+                    type="text"
+                    id="lbl-city"
+                    placeholder="London"
+                  />
+                </div>
+                <label for="lbl-zipCode">ZIP code</label>
+                <div>
+                  <input
+                    required
+                    type="text"
+                    id="lbl-zipCode"
+                    placeholder="EC2Y8DS"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div>
+                <label for="lbl-lastName">Last Name</label>
+                <div>
+                  <input
+                    required
+                    type="text"
+                    id="lbl-lastName"
+                    placeholder="Smith"
+                  />
+                </div>
+                <label for="lbl-address">Address</label>
+                <div>
+                  <input
+                    required
+                    type="text"
+                    id="lbl-address"
+                    placeholder="Silk St"
+                  />
+                </div>
+                <label for="lbl-state">State <span>(optional)</span></label>
+                <div>
+                  <input required type="text" id="lbl-state" placeholder="" />
+                </div>
+                <label for="lbl-country">Country</label>
+                <div class="select">
+                  <select name="country" id="lbl-country" required>
+                    <option value="0">---Select your country---</option>
+                    <option value="1">United Kingdom</option>
+                    <option value="2">China</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button>SEND ME FREE COFFEE</button>
+        </form>
+      </div>
     </div>
     <!-- Chân trang -->
   </body>

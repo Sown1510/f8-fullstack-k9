@@ -42,22 +42,26 @@
     <div>
       <form action="">
         <div class="form-input">
-          <label for="">Username:</label>
-          <div><input type="text" /></div>
+          <label for="username">Username:</label>
+          <div>
+            <input id="username" name="username" type="text" required />
+          </div>
         </div>
 
         <div class="form-input">
-          <label for="">Password:</label>
-          <div><input type="text" /></div>
+          <label for="password">Password:</label>
+          <div>
+            <input id="password" name="password" type="password" required />
+          </div>
         </div>
 
         <div class="form-input">
-          <label for="">City of Employment:</label>
-          <div><input type="text" /></div>
+          <label for="city">City of Employment:</label>
+          <div><input id="city" name="city" type="text" /></div>
         </div>
 
         <div class="form-input">
-          <label for="">Web server:</label>
+          <label for="server">Web server:</label>
           <select name="server" id="server">
             <option value="">--Choose a server--</option>
             <option value="global">Trái đất</option>
@@ -106,8 +110,8 @@
         </div>
 
         <div class="form-button">
-          <button>Login</button>
-          <button>Reset</button>
+          <button type="submit">Login</button>
+          <button type="reset">Reset</button>
         </div>
       </form>
     </div>
