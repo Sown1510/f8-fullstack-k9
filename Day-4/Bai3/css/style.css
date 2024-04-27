@@ -1,0 +1,13 @@
+ul {
+    list-style: none;
+}
+
+li {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+ul li::before {
+    content: "🙂";
+    padding: 10px;
+}
