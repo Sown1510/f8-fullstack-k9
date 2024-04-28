@@ -1,0 +1,33 @@
+
+    blockquote {
+    font-family: serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 80px;
+    padding-right: 80px;
+    }
+
+    blockquote::before,
+    blockquote::after {
+    position: absolute;
+    content: '"';
+    }
+
+    blockquote::before {
+    border-radius: 50%;
+    background: #cccccc;
+    padding: 18px;
+    font-size: 30px;
+    left: 0;
+    }
+
+    blockquote::after {
+    border-radius: 50%;
+    background: #cccccc;
+    padding: 18px;
+    font-size: 30px;
+    right: 0;
+    }
