@@ -10,9 +10,16 @@
         position: relative;
     }
 
+    blockquote::before {
+        content: open-quote;
+    }
+
+    blockquote::after {
+        content: close-quote;
+    }
+
     blockquote::before,
     blockquote::after {
-        content: '"';
         border-radius: 50%;
         background: #cccccc;
         font-size: 30px;
