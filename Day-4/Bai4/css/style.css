@@ -31,10 +31,11 @@ h2+p > a {
 
 .article a {
     color: #4084de;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .article a > i {
     font-size: 10px;
+    font-weight: 800;
 }
 
