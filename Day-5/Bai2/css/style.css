@@ -1,0 +1,46 @@
+.container {
+    margin: 5px 0px;
+}
+
+.input-tag {
+    background: #d85924;
+    padding: 10px;
+    color: white;
+}
+
+label {
+    cursor: pointer;
+}
+
+.open-tag {
+    display: none;
+}
+
+.container input:checked+.input-tag i{
+    display: none;
+}
+
+.container input:checked+.input-tag .open-tag{
+    display: inline;
+}
+
+ol {
+    padding-inline-start: 16px;
+    margin: 0px;
+}
+
+.content-box {
+    padding-inline-start: 20px;
+    margin: 16px 0px;
+    display: none;
+}
+
+.content-box p {
+    margin: 0px;
+}
+
+.container input:checked~.content-box{
+    display: block;
+}
+
+

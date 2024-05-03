@@ -1,0 +1,45 @@
+
+
+.box {
+    display: flex;
+    position: relative;
+    width: 800px;
+    height: 450px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url(https://i.ytimg.com/vi/x0fSBAgBrOQ/maxresdefault.jpg);
+    background-size: contain;
+}
+
+.blurred-background {
+    position: absolute;
+    background: #9a93bc;
+    border-radius: 5px;
+    padding: 10px 20px 0px 20px;
+    top: 105px;
+    right: 208px;
+    text-align: center;
+} 
+
+.blurred-background p:first-child {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.blurred-background p:nth-child(2) {
+    margin: 5px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.blurred-background p:nth-child(2) span {
+    text-decoration: underline;
+}
+
+.react-word {
+    font-weight: 600;
+    font-size: 100px;
+    color: #b3eefc;
+    margin: 0px;
+    line-height: 1;
+}
