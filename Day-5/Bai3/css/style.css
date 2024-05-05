@@ -1,5 +1,6 @@
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
 }
 
 .heading {
@@ -12,7 +13,7 @@ body {
 }
 
 .heading p {
-    font-size: 10px;
+    font-size: 1rem;
     margin: 0px;
 }
 
@@ -44,14 +45,14 @@ body {
 
 .box i {
     color: #f2a93b;
-    font-size: 20px;
+    font-size: 2rem;
     padding: 20px;
     border: 1px solid #f2a93b;
     border-radius: 50%;
 }
 
 .box p {
-    font-size: 10px;
+    font-size: 1rem;
     color: #c0c4c9;
 }
 
@@ -62,5 +63,9 @@ body {
     background: #f2a93b;
     border: none;
     font-size: 10px;
+}
+
+.box button:hover {
+    cursor: pointer;;
 }
 

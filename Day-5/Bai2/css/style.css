@@ -1,10 +1,16 @@
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
 .container {
-    margin: 5px 0px;
+    margin: 0.5rem 0rem;
+    font-size: 1.6rem;
 }
 
 .input-tag {
     background: #d85924;
-    padding: 10px;
+    padding: 1rem;
     color: white;
 }
 
@@ -25,18 +31,18 @@ label {
 }
 
 ol {
-    padding-inline-start: 16px;
-    margin: 0px;
+    padding-inline-start: 1.6rem;
+    margin: 0rem;
 }
 
 .content-box {
-    padding-inline-start: 20px;
-    margin: 16px 0px;
+    padding-inline-start: 2rem;
+    margin: 1.6rem 0rem;
     display: none;
 }
 
 .content-box p {
-    margin: 0px;
+    margin: 0rem;
 }
 
 .container input:checked~.content-box{
