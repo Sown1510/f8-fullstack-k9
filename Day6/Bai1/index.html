@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buổi 6 - Bài 1</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="../../src/icon/themify-icons/themify-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Đề mục -->
+    <nav>
+      <p style="font-weight: 1000; font-size: 1.6rem">Buổi 6 - Bài 1</p>
+      <button onclick="location.href='../'">Quay lại</button>
+      <hr />
+    </nav>
+
+    <!-- Bài tập -->
+    <div class="form-container">
+      <div class="heading">
+        <h2>Hey there</h2>
+        <p>
+          <span>We'd like to hear from you.</span> Send us your message or just
+          say by with our contact form or directly via phone, we love to chat.
+        </p>
+      </div>
+      <form action="">
+        <div class="input-box">
+          <label for="lbl-name">
+            <span class="icon-begin"><i class="ti-user"></i></span>
+          </label>
+          <input
+            id="lbl-name"
+            type="text"
+            name="name-input"
+            placeholder="Your name"
+            required
+          />
+          <span class="icon-end"><i class="ti-star"></i></span>
+        </div>
+
+        <div class="input-box">
+          <label for="lbl-mail">
+            <span class="icon-begin"><i class="ti-email"></i></span>
+          </label>
+          <input
+            id="lbl-mail"
+            type="mail"
+            name="mail-input"
+            placeholder="your@domain.com"
+            required
+          />
+          <span class="icon-end"><i class="ti-star"></i></span>
+        </div>
+
+        <div class="input-box">
+          <label for="lbl-phone">
+            <span class="icon-begin"><i class="ti-mobile"></i></span>
+          </label>
+          <input
+            id="lbl-phone"
+            type="number"
+            name="phone-input"
+            placeholder="+44 00 123"
+          />
+          <!-- <span class="icon-end"><i class="ti-star"></i></span> -->
+        </div>
+
+        <div class="input-box">
+          <label for="lbl-subject">
+            <span class="icon-begin"><i class="ti-book"></i></span>
+          </label>
+          <select name="subject" id="lbl-subject">
+            <option value="0">Subject</option>
+            <option value="1">Math</option>
+            <option value="2">Physics</option>
+            <option value="3">Chemistry</option>
+          </select>
+          <!-- <span class="icon-end"><i class="ti-star"></i></span> -->
+        </div>
+
+        <div class="input-box text-area">
+          <label for="lbl-message">
+            <span class="icon-begin"><i class="ti-comment"></i></span>
+          </label>
+          <textarea name="message" id="lbl-message"></textarea>
+          <span class="icon-end"><i class="ti-star"></i></span>
+        </div>
+
+        <div class="end-form">
+          <input type="checkbox" id="lbl-checkbox" />
+          <label for="lbl-checkbox">Send me a copy of this message</label>
+          <button>SEND</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Chân trang -->
+  </body>
+</html>

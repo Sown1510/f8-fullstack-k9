@@ -51,21 +51,29 @@ html {
     border-radius: 50%;
 }
 
+.box h3~p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden
+
+}
+
 .box p {
     font-size: 1rem;
     color: #c0c4c9;
 }
 
-.box button {
+.box a {
     padding: 8px 15px;
-    margin-top: 20px;
+    margin-top: 30px;
     color: white;
     background: #f2a93b;
     border: none;
     font-size: 10px;
 }
 
-.box button:hover {
+.box a:hover {
     cursor: pointer;;
 }
 

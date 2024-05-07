@@ -20,21 +20,22 @@ html {
     top: 10.5rem;
     right: 20.8rem;
     text-align: center;
+    box-shadow: 2px black;
 } 
 
-.blurred-background p:first-child {
+.blurred-background h1 {
     margin: 0rem;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.blurred-background p:nth-child(2) {
+.blurred-background h2 {
     margin: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
 }
 
-.blurred-background p:nth-child(2) span {
+.blurred-background a {
     text-decoration: underline;
 }
 
