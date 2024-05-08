@@ -1,0 +1,83 @@
+html {
+    font-family: Roboto;
+    font-size: 62.5%;
+}
+
+body {
+    background: #ebf5fe;
+    color: #666666;
+}
+
+.color-red{
+    background: #e46e65;
+}
+.color-green{
+    background: #51a8a3;
+}
+.color-yellow{
+    background: #e79738;
+}
+.color-blue{
+    background: #4979dc;
+}
+.color-purple{
+    background: #7728ce;
+}
+.color-yellowGreen{
+    background: #6f9132;
+}
+
+.row {
+    display: block;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.col-3 {
+    float: left;
+    width: 25%;
+}
+
+.course-box {
+    background: white;
+    margin: 2rem 2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.course-box:hover {
+    outline: 2px solid currentColor;
+}
+
+.course-box .heading {
+    display: inline-flex;
+    align-items: center;
+}
+
+.course-box a:first-child {
+    display: inline-flex;
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+}
+
+.course-box .desc {
+    font-size: 1.2rem;
+}
+
+.course-box a:last-child {
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+
+
+
+
+

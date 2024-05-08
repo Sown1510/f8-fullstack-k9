@@ -4,7 +4,6 @@ html {
 }
 
 .form-container {
-    width: 80%;
     position: relative;
 }
 
@@ -26,9 +25,24 @@ html {
 .input-box {
     display: flex;
     align-items: stretch;
-    
     margin: 20px 0px;
     border: 1px solid #dddddd;
+}
+
+.input-box:focus-within {
+    outline: 1px solid black;
+}
+
+.input-box:focus-within .icon-begin {
+    background: black;
+}
+
+.input-box:focus-within .icon-end{
+    display: none;
+}
+
+.input-box:focus-within .icon-close{
+    display: flex;
 }
 
 .input-box:hover {
@@ -43,6 +57,7 @@ html {
     width: 100%;
     border: none;
     padding-left: 10px;
+    outline: unset;
 }
 
 .input-box .icon-begin {
@@ -62,6 +77,15 @@ html {
     padding: 10px 10px;
 }
 
+.input-box .icon-close {
+    font-size: 10px;
+    display: none;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
 .input-box select {
     width: 100%;
     border: none;
@@ -74,6 +98,7 @@ html {
     border: none;
     padding-left: 10px;
     resize: unset;
+    outline: unset;
 }
 
 .text-area .icon-begin {
@@ -84,10 +109,15 @@ html {
     align-items: start;
 }
 
+.text-area .icon-close {
+    align-items: start;
+}
+
 .end-form input {
     height: 2rem;
     width: 2rem;
     margin: 0px;
+    background: transparent;
 }
 
 .end-form label {
