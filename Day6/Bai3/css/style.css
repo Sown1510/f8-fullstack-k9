@@ -1,0 +1,57 @@
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+body nav:last-child {
+    display: inline-flex;
+}
+
+nav ul {
+    position: absolute;
+    display: inline-flex;
+    font-weight: 600;
+    font-size: 1.3rem;
+    justify-content: center;
+    left: 0;
+    right: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+    list-style: none;
+    cursor: pointer;
+}
+
+nav li i {
+    font-size: 0.8rem;
+}
+
+.category {
+    text-decoration: none;
+    display: inline-flex;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 30px;
+    color: black;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.category i {
+    padding: 0 5px;
+}
+
+.join-now-btn {
+    position: absolute;
+    right: 20px;
+    border: none;
+    background: linear-gradient(to right, #3c58ee, #b565e7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
