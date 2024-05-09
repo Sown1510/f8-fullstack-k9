@@ -10,21 +10,27 @@ body {
 
 .color-red{
     background: #e46e65;
+    box-shadow: 0px 0px 30px 1px #e46e65;
 }
 .color-green{
     background: #51a8a3;
+    box-shadow: 0px 0px 30px 1px #51a8a3;
 }
 .color-yellow{
     background: #e79738;
+    box-shadow: 0px 0px 30px 1px #e79738;
 }
 .color-blue{
     background: #4979dc;
+    box-shadow: 0px 0px 30px 1px #4979dc;
 }
 .color-purple{
     background: #7728ce;
+    box-shadow: 0px 0px 30px 1px #7728ce;
 }
 .color-yellowGreen{
     background: #6f9132;
+    box-shadow: 0px 0px 30px 1px #6f9132;
 }
 
 .row {
