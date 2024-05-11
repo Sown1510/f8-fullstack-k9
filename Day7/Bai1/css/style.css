@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Open Sans"
+}
+
+ul {
+    list-style: none;
+    background: white;
+    border: 1px solid #d3cece;
+    margin: 30px auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    font-size: 0;
+    width: 90%;
+}
+
+.navbar li {
+    display: inline-block;
+    border-right: 1px solid #d3cece;
+    font-size: 1.3rem;
+    position: relative;
+}
+
+.navbar>li:last-child {
+    float: right;
+    border-left: 1px solid #d3cece;
+    border-right: none;
+}
+
+.navbar .item-nav1>a {
+    display: inline-block;
+    color: black;
+    padding: 7px;
+    margin: 3px;
+}
+
+.navbar .item-nav1:hover>a {
+    color: white;
+    background: #54a3d5;
+}
+
+.navbar .item-nav1:hover>.navbar-2 {
+    display: block;
+}
+
+.navbar .item-nav1>a i {
+    padding: 0 7px;
+}
+
+.navbar a i:nth-child(2) {
+    font-size: 0.8rem;
+}
+
+.navbar-2 {
+    position: absolute;
+    width: 200px;
+    top: 10px;
+    display: none;
+    border: none;
+    box-shadow: 0 0 10px 0.1px #d3cece;
+}
+
+.navbar-2 .item-nav2 {
+    border-bottom: 1px solid #d3cece;
+}
+
+.navbar-2 .item-nav2:last-child {
+    border-bottom: none;
+}
+
+.navbar-2 .item-nav2>a {
+    color: black;
+    display: block;
+    padding: 8px;
+    margin: 2px;
+}
+
+.navbar-2 .item-nav2:hover>a{
+    color: white;
+    background: #54a3d5; 
+}
+
+.navbar-2 .item-nav2 i {
+    padding: 0 7px;
+}
+
+.navbar-2 li {
+    display: block;
+    border: none;
+}

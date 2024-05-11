@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Nunito";
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.row {
+    display: block;
+    width: 60%;
+    margin:auto;
+}
+
+.col-40 {
+    float: left;
+    width: 40%;
+}
+
+.col-60 {
+    float: left;
+    width: 60%;
+}
+
+.login-desc {
+    background: #ec6355;
+    text-align: center;
+}
+
+.login-desc span:first-child {
+    background: white;
+    padding: 1px;
+    border-radius: 3px;
+    font-size: 2rem;
+    color: #ec6355
+}
+
+.login-desc h1 {
+    display: inline-block;
+}
+
+.login-desc p {
+    margin: 0 10px;
+}
+
+.login-desc button {
+    padding: 5px 18px;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+.contact-box li {
+    display: inline-block;
+    padding: 5px;
+    background: #db5c4f;
+    border-radius: 3px;
+}
+
+.contact-box li i {
+    color: white;
+}
+
