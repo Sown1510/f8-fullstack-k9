@@ -34,13 +34,14 @@
     <!-- Bài tập -->
     <div class="login-box row">
       <div class="login-desc col-40">
-        <span>JL</span>
-        <h1>Just Log</h1>
+        <a class="icon" href="#"><i class="ti-arrow-right"></i></a>
+        <div class="heading">
+          <span>JL</span>
+          <h1>Just Log</h1>
+        </div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
-          repellendus ex dolorem voluptates ipsam eaque distinctio mollitia rem
-          itaque quis! Odit molestiae expedita repudiandae, eaque dolorem
-          delectus consequatur culpa voluptatum.
+          repellendus ex dolorem voluptates ipsam eaque.
         </p>
         <button>Read More</button>
         <div class="contact-box">
@@ -60,8 +61,8 @@
           </ul>
         </div>
       </div>
-      <div class="col-60">
-        <h2>Login to <span>your account</span></h2>
+      <div class="login-form col-60">
+        <div class="heading">Login to <span> <span>your</span> account</span></div>
         <form action="">
           <input
             type="email"
@@ -77,8 +78,11 @@
             required
             placeholder="Password"
           />
-          <input type="checkbox" id="remember-me" name="remember-me" />
-          <a href="#">Forgot Password</a>
+          <div class="form-assist">
+            <input class="remember-me" type="checkbox" id="lbl-remember-me" name="remember-me" />
+            <label for="lbl-remember-me">Remember me</label>
+            <a href="#">Forgot Password</a>
+          </div>
           <button>LOGIN</button>
           <div class="sign-up">
             Don't have an account? Register <a href="#">here</a>
@@ -87,7 +91,7 @@
       </div>
     </div>
 
-    <div>
+    <div style="position: absolute; bottom: 0;">
       <img
         src="https://files.fullstack.edu.vn/f8-prod/public-images/649426211292f.png"
         alt=""
