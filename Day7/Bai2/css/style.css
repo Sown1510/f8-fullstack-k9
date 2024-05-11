@@ -7,11 +7,16 @@
 
 html {
     font-size: 62.5%;
-    font-family: "Nunito";
+    font-family: sans-serif;
+    height: 100%;
 }
 
 body {
-    background: ;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: url(http://uiwebsoft.com/justlog/login-one/images/login-bg2.jpg) no-repeat center/cover;
 }
 
 ul {
@@ -25,7 +30,7 @@ a {
 
 .row {
     display: block;
-    width: 60%;
+    width: 50%;
     margin:auto;
 }
 
@@ -39,15 +44,11 @@ a {
     width: 60%;
 }
 
-body {
-    background: url(http://uiwebsoft.com/justlog/login-one/images/login-bg2.jpg) no-repeat center/cover;
-}
-
 .login-box {
     border-radius: 10px;
     overflow: auto;
     position: relative;
-    height: 400px;
+    height: 500px;
 }
 
 .login-desc {
@@ -55,39 +56,44 @@ body {
     text-align: center;
     /* padding-bottom: 50px; */
     height: 100%;
+    position: relative;
 }
 
 .login-desc .heading {
-    margin-top: 30px;
+    margin-top: 100px;
 }
 
 .login-desc span:first-child {
     background: white;
     padding: 1px;
     border-radius: 3px;
-    font-size: 2rem;
-    color: #ec6355
+    font-size: 3rem;
+    color: #ec6355;
+    font-weight: 600;
+    margin: 0 4px;
 }
 
 .login-desc h1 {
     display: inline-block;
     color: white;
+    font-size: 3rem;
 }
 
 .login-desc p {
     margin: 20px 10px 0px;
     color: white; 
     font-size: 1.5rem;
-    line-height: 1.3;
+    line-height: 1.5;
 }
 
 .login-desc button {
     margin-top: 20px;
-    padding: 5px 18px;
+    padding: 10px 25px;
     border-radius: 3px;
     font-size: 1rem;
     color: #ec6355;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .contact-box {
@@ -114,8 +120,8 @@ body {
 }
 
 .login-form .heading {
-    margin-top: 20px;
-    font-size: 1.8rem;
+    margin-top: 60px;
+    font-size: 2.3rem;
     font-weight: 600;
 }
 
@@ -130,56 +136,65 @@ body {
     
 }
 
-.login-form>h2> {
+.login-form>h2 {
     border-bottom: 1px solid #ec6355;
     color: black;
 }
 
 .login-form form {
     width: 80%;
-    margin: 30px auto;
+    margin: 40px auto;
     position: relative;
 }
 
 .login-form form input {
-    border: 1px solid gray;
-    margin-bottom: 15px;
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    margin-bottom: 20px;
     border-radius: 3px;
-    padding: 5px 10px;
+    padding: 15px 10px;
     display: block;
     width: 100%;
+    box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.219);
 }
 
 .login-form .form-assist{
+    margin-top: 30px;
+    font-size: 1.5rem;
     text-align: start;
+    color: gray;
 }
 
-.login-form .remember-me {
+.login-form .form-assist input {
     margin-bottom: 0px;
     display: inline-block;
     width: fit-content;
+    cursor: pointer;
+    
 }
 
-.login-form label {
-    font-size: 1.2rem;
+.login-form .form-assist label {
+    cursor: pointer;
 }
 
 .login-form .form-assist a {
     float: right;
+    color: gray;
 }
 
 .login-form button {
-    margin-top: 10px;
+    margin-top: 35px;
     width: 100%;
     background: #ec6355;
-    padding: 8px 0;
-    font-size: 1rem;
+    padding: 20px 0;
+    font-size: 1.3rem;
     color: white;
+    cursor: pointer;
 }
 
 .login-form .sign-up {
-    margin-top: 10px;
+    margin-top: 25px;
     color: gray;
+    font-size: 1.5rem;
 }
 
 .login-form .sign-up>a {
@@ -193,8 +208,11 @@ body {
     display: flex;
     align-items: center;
     position: absolute;
-    background: black;
+    background: white;
     border-radius: 50%;
     color: #ec6355;
     font-size: 1.5rem;
+    left: 96%;
+    top: 45%;
+    box-shadow: 3px 0 10px 1px rgba(128, 128, 128, 0.158);
 }
