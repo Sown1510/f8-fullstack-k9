@@ -72,6 +72,17 @@ a {
     box-shadow: 0 0 10px 0.1px #d3cece;
 }
 
+.navbar-2::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 8px solid;
+    top: -16px;
+    left: 15px;
+    border-color: transparent transparent white transparent;
+}
+
 .navbar-2 .item-nav2 {
     border-bottom: 1px solid #d3cece;
 }
