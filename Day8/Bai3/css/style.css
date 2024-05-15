@@ -17,7 +17,7 @@ a {
 }
 
 .col-3 {
-    width: 30%;
+    width: 32%;
 }
 
 .container {
@@ -34,16 +34,17 @@ ul {
 
 .heading h2 {
     position: relative;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: inline-block;
-    top: 8px;
+    top: 10px;
     background: #f3f2f0;
     padding-right: 10px;
+    text-transform: uppercase;
 }
 
 .heading ul {
     padding-top: 20px;
-    border-top: 1px solid rgba(128, 128, 128, 0.637);
+    border-top: 2px solid rgba(128, 128, 128, 0.11);
 
 }
 
@@ -56,8 +57,14 @@ ul {
     padding: 10px 0;
 }
 
+.heading li:hover,
+.heading li:hover a {
+    color: white;
+    background: #af7c37;
+}
+
 .heading li a {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     color: black;
     font-weight: 600;
 }
@@ -93,8 +100,56 @@ ul {
 }
 
 .banners li a{
+    border-radius: 5px;
     display: block;
-    height: 200px;
-    background: no-repeat url(https://fastly.picsum.photos/id/584/300/200.jpg?hmac=xaPgk5Utn9dbG0qYAwN6tDYk6IJm_8euQ8RltlLfQAQ) center / cover;
+    height: 300px;
 }
 
+.banner a:hover{
+    opacity: 0.8;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner h3 {
+    font-size: 2.6rem;
+    color: white;
+    text-shadow: 0 0 2px black;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.banner p {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    font-size: 1.5rem;
+    color: white; 
+}
+
+.banner p>span {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.banner .item-1 {
+    background: no-repeat url(https://fastly.picsum.photos/id/690/450/300.jpg?hmac=7gJWQdaAuCQO-Qh9Nq9yeLMtDvbfEsb3WDtIfcGwIf4) center / cover;
+}
+.banner .item-2 {
+    background: no-repeat url(https://fastly.picsum.photos/id/412/450/300.jpg?hmac=sr3EJeduahDEhIPYerlzAKv8jBnjzYPAGd2miSKTzM4) center / cover;
+}
+.banner .item-3 {
+    background: no-repeat url(https://fastly.picsum.photos/id/448/450/300.jpg?hmac=itaaLb_XPSrb-W5VEZuyV_hW7nPnW0supz55685Qgq4) center / cover;
+}
+.banner .item-4 {
+    background: no-repeat url(https://fastly.picsum.photos/id/984/450/300.jpg?hmac=qakm-X994jXcU4TqMxCIC_0PqUdDOD1HcmqhuWHvSxk) center / cover;
+}
+.banner .item-5 {
+    background: no-repeat url(https://fastly.picsum.photos/id/670/450/300.jpg?hmac=O1ZIX-y44VLybLUpCKyhcshaSqZXH17lNCDNrQblwi4) center / cover;
+}
+.banner .item-6 {
+    background: no-repeat url(https://fastly.picsum.photos/id/321/450/300.jpg?hmac=rmO8-kUsqDhR84Iu2AhGTQnYWy7AMiBoVLtQ6FHE3XM) center / cover;
+}
