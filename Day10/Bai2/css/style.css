@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.section .box {
+    overflow: hidden;
+    border: 1px solid black;
+    padding: 15px 15px;
+    width: 300px;
+}
+
+.section .box:hover {
+    background: no-repeat url(https://fastly.picsum.photos/id/909/300/200.jpg?hmac=KA_47FNe3iWg6PLVYLhWOoAQPkO6pByurD0_H_K2phA) center/ cover;
+}
+
+.section .box .border_box {
+    height: 190px;
+    padding: 15px;
+}
+
+.section .box:hover .border_box {
+    border: 1px solid white;
+}
+
+.section .box .border_box>i {
+    font-size: 5rem;
+    color: brown;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.section .box:hover .border_box>i {
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+.section .box h3 {
+    position: relative;
+    top: 0px;
+    margin-top: 25px;   
+    font-size: 2rem;
+    transition: top 0.3s ease-in-out;
+}
+
+.section .box:hover h3 {
+    top: -60px;
+}
+
+.section .box p {
+    position: relative;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    top: 0px;
+    transition: top 0.3s ease-in-out;
+
+}
+
+.section .box:hover p {
+    top: -60px;
+}
+
+.section .box a {
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    margin-top: 20px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: top 0.3s ease-in-out;
+
+}
+
+.section .box:hover a {
+    top: -50px;
+}
+
+.section .box a>i {
+    margin-left: 5px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 50%;
+    color: white;
+    transition: background 0.3s, color 0.3s;
+}
+
+.section .box a:hover>i {
+    background: white;
+    color: black;
+}

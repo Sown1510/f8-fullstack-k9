@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-family: "Space Grotesk"
+}
+
+p {
+    font-family: Inter;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main {
+    position: relative;
+}
+
+.section {
+    display: block;
+    width: 700px;
+    overflow: auto;
+    cursor: pointer;
+}
+
+.section:hover .section_info a{
+    background: #a26f5a;
+    color: white;
+}
+
+.section .section_info {
+    float: left;
+    width: 70%;
+    padding: 5px 50px 100px 50px;
+}
+
+.section .section_info h2 {
+    font-size: 2rem;
+    text-align: right;
+    font-weight: 700;
+}
+
+.section .section_info p {
+    font-size: 1rem;
+    padding-left: 220px;
+    text-align: right;
+    line-height: 1.8;
+}
+
+.section .section_info a {
+    margin-top: 10px;
+    float: right;
+    padding: 5px 10px;
+    background: rgba(128, 128, 128, 0.197);
+    border-radius: 99px;
+    color: black;
+}
+
+.section .section_duration {
+    position: relative;
+    float: left;
+    width: 30%;
+    padding: 10px;
+}
+
+.section .section_duration i::before {
+    display: inline-block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: green;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 7px rgba(0, 128, 0, 0.103);
+}
+
+.section .section_duration span {
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+
+.section .section_duration .line {
+    display: block;
+    margin-top: 10px;    
+    margin-left: 5px;
+    height: 150px;
+    width: 50px;
+    border-left: 2px solid rgba(0, 0, 0, 0.23);
+}
+
+img {
+    position: absolute;
+    top: 150px;
+    right: 170px;
+}
