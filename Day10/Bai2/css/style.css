@@ -21,6 +21,7 @@ a {
 }
 
 .section .box {
+    position: relative;
     overflow: hidden;
     border: 1px solid black;
     padding: 15px 15px;
@@ -32,21 +33,24 @@ a {
 }
 
 .section .box .border_box {
-    height: 190px;
+    position: absolute;
+    inset: 0;
     padding: 15px;
+    transition: inset 0.3s ease-in-out
 }
 
 .section .box:hover .border_box {
-    border: 1px solid white;
+    outline: 1px solid white;
+    inset: 10px;
 }
 
-.section .box .border_box>i {
+.section .box>i {
     font-size: 5rem;
     color: brown;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.section .box:hover .border_box>i {
+.section .box:hover>i {
     transform: scale(0);
     opacity: 0;
 }
@@ -102,7 +106,7 @@ a {
     transition: background 0.3s, color 0.3s;
 }
 
-.section .box a:hover>i {
+.section .box a:hover i {
     background: white;
     color: black;
 }
