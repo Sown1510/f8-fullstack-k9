@@ -1,0 +1,127 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+.box {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.box h2 {
+    font-size: 4rem;
+}
+
+.box p {
+    margin-top: 20px;
+    font-size: 1.8rem;
+}
+
+.box .section {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.section .input_box {
+    position: relative;
+}
+
+.section .input_box label {
+    position: absolute;
+    font-size: 1.5rem;
+    top: 13px;
+    left: 15px;
+    transition: font-size 0.1s ease-in-out, top 0.1s ease-in-out;
+}
+
+.section input, .section select{
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.095);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.045);
+}
+
+.section select {
+    font-size: 1.5rem;
+    padding: 0 10px;
+}
+
+.section select:valid {
+    background: #edf0ff;
+}
+
+.section select:focus {
+    outline: 1px solid #5159efa0;
+
+}
+
+.section .input_box input {
+    padding: 15px 15px 5px 15px;
+    font-size: 1.5rem;
+}
+
+.section .input_box input:focus {
+    outline: 1px solid #5159efa0;
+}
+
+.section .input_box input:valid {
+    background: #edf0ff;
+}
+
+.section .input_box input:focus ~ label {
+    font-size: 1rem;
+    top: 5px;
+}
+
+.section .input_box input:valid ~ label {
+    font-size: 1rem;
+    top: 5px;
+}
+
+.section textarea {
+    width: 620px;
+    height: 100px;
+    resize: none;
+    padding: 15px 15px 5px 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.095);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.045);
+}
+
+.section textarea:valid {
+    background: #edf0ff;
+}
+
+.section textarea:focus {
+    outline: 1px solid #5159efa0;
+}
+
+.section textarea:focus ~ label {
+    font-size: 1rem;
+    top: 5px;
+    
+}
+
+.section textarea:valid ~ label {
+    font-size: 1rem;
+    top: 5px;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 99px;
+    border: none;
+    background: #4d77d9;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}

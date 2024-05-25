@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buổi 10 - Bài 3</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <h2>Drop Us a Line</h2>
+      <p>
+        Reach out to us from our contact form and we will get back to you
+        shortly.
+      </p>
+      <form action="">
+        <div class="section">
+          <div class="input_box">
+            <input id="first_name-lbl" name="first_name" required type="text" />
+            <label for="first_name-lbl">First Name *</label>
+          </div>
+          <div class="input_box">
+            <input id="last_name-lbl" name="last_name" required type="text" />
+            <label for="last_name-lbl">Last Name *</label>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="input_box">
+            <input id="email-lbl" name="email" required type="email" />
+            <label for="email-lbl">Email *</label>
+          </div>
+          <select name="sales" id="sales-lbl" required>
+            <option value="">Sales</option>
+            <option value="1">Sale1</option>
+            <option value="2">Sale2</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <div class="input_box">
+            <textarea name="message" id="message-lbl" required></textarea>
+            <label for="message-lbl">Message *</label>
+          </div>
+        </div>
+        <button>Send message</button>
+      </form>
+    </div>
+  </body>
+</html>
