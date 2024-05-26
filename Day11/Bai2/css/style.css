@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background: rgba(128, 128, 128, 0.103);
+}
+
+.container {
+    margin: 50px auto;
+    width: 800px;
+}
+
+nav {
+    display: block;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    background: white;
+}
+
+
+nav ul li {
+    flex-grow: 1; 
+    padding: 5px;
+    margin: 0px;  
+    box-shadow: 0 0 1px 1px rgba(128, 128, 128, 0.13);
+}
+
+nav ul li:hover {
+    background: #3397da3b;
+}
+
+nav ul li label {
+    display: block;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.info {
+    width: 100%;
+    position: relative;
+}
+
+.info .box{
+    position: absolute;
+    background: white;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 0 1px 1px rgba(128, 128, 128, 0.13);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    clip-path: polygon(0% 0, 100% 0%, 90% 100%, 10% 100%);
+}
+
+.option1 {
+    visibility: hidden;
+}
+.option2 {
+    visibility: hidden;
+}
+.option3 {
+    visibility: hidden;
+}
+.option4 {
+    visibility: hidden;
+}
+
+#option1:checked ~ .info .option1 {
+    visibility: visible;
+    opacity: 1;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
+}
+#option2:checked ~ .info .option2 {
+    visibility: visible;
+    opacity: 1;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
+}
+#option3:checked ~ .info .option3 {
+    visibility: visible;
+    opacity: 1;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
+}
+#option4:checked ~ .info .option4 {
+    visibility: visible;
+    opacity: 1;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
+}
+
+#option1:checked ~ nav ul li:first-child label {
+    background: #3398da;
+}
+#option2:checked ~ nav ul li:nth-child(2) label {
+    background: #3398da;
+}
+#option3:checked ~ nav ul li:nth-child(3) label {
+    background: #3398da;
+}
+#option4:checked ~ nav ul li:last-child label {
+    background: #3398da;
+}
+
+#option1:checked ~ nav ul li:first-child:hover {
+    background: transparent;
+}
+#option2:checked ~ nav ul li:nth-child(2):hover {
+    background: transparent;
+}
+#option3:checked ~ nav ul li:nth-child(3):hover {
+    background: transparent; 
+}
+#option4:checked ~ nav ul li:last-child:hover {
+    background: transparent;
+}
