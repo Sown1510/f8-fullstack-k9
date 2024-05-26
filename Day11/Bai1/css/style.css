@@ -15,12 +15,12 @@ ul {
     list-style: none;
 }
 
-a {
-    text-decoration: none;
-}
 
 .main {
     position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .slide {
@@ -71,6 +71,8 @@ a {
     color: #05a8f5;
     font-weight: 800;
     cursor: pointer;
+    transform: rotate(-180deg);
+    transition: all 0.2s ease-in-out;
 }
 
 .menu-button .ti-menu {
@@ -79,16 +81,19 @@ a {
 
 .menu-button .ti-arrow-left {
     visibility: hidden;
+    font-weight: 600;
 }
 
 .overlay {
     visibility: hidden;
     position: absolute;
     background: white;
-   
-    transition-property: height, width;
-    transition-duration: 1s;
-    
+    top: -100vh;
+    left: -50vw;
+    width: 0px;
+    height: 0px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 90%;
 }
 
 nav {
@@ -96,31 +101,28 @@ nav {
     position: absolute;
     top: 70px;
     left: 0px;
+    z-index: 1;
 }
 
-nav .ti-arrow-left {
-    font-size: 3rem;
-    font-weight: 600;
-    color:#05a8f5;
-}
 
-nav ul li>a {
+nav ul li label {
     display: inline-block;
     font-size: 2rem;
     font-weight: 600;
     color: #05a8f5;
     cursor: pointer;
+    width: 200px;
     padding: 5px 100px 5px 75px;
     margin: 10px 0;
 }
 
-nav ul li>a:active {
-    background: rgba(128, 128, 128, 0.293);
-    color: black;
-}
 
 input:checked ~ .menu-button {
-    background: transparent; 
+    /* background: transparent;  */
+}
+
+input:checked ~ .menu-button label {
+    transform: rotate(0);
 }
 
 input:checked ~ .menu-button .ti-menu {
@@ -129,12 +131,13 @@ input:checked ~ .menu-button .ti-menu {
 
 input:checked ~ .menu-button .ti-arrow-left {
     visibility: visible;
+    transform: rotate(0);
 }
 
 input:checked ~ .overlay {
     visibility: visible;
-    height: 100vh;
-    width: 100vw;
+    height: 300vh;
+    width: 200vw;
 }
 
 input:checked ~ nav {
@@ -145,4 +148,10 @@ input {
     position: absolute;
     right: 0;
 }
+
+input[type="radio"]:checked ~ label{
+    background: rgba(128, 128, 128, 0.293);
+    color: black;
+}
+
 
