@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vikinger</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="landing">
+      <!-- INPUT RADIO -->
+      <input type="radio" id="login" name="option" checked hidden />
+      <input type="radio" id="register" name="option" hidden />
+      <!-- /INPUT RADIO -->
+
+      <!-- LANDING INFO-->
+      <div class="landing__info">
+        <!-- LANDING LOGO -->
+        <div class="landing__logo">
+          <img src="/Day13/Bai1/static/img/logo.png" alt="logo" />
+        </div>
+        <!-- /LANDING LOGO -->
+        <!-- LANDING PRETITLE -->
+        <h2 class="landing__pretitle mt-10">Welcome to</h2>
+        <!-- /LANDING PRETITILE -->
+        <!-- LANDING TITLE -->
+        <h1 class="landing__title mt-0">Vikinger</h1>
+        <!-- /LANDING TITLE -->
+        <!-- LANDING TEXT -->
+        <p class="landing__text mt-50">
+          The next generation social network & community! Connect with your
+          friends and play with our quests and badges gamification system!
+        </p>
+        <!-- /LANDING TEXT -->
+        <!-- TAB SWITCH -->
+        <div class="landing__tabswitch mt-40">
+          <label class="landing__tabswitch--login" for="login">Login</label>
+          <label class="landing__tabswitch--register" for="register"
+            >Register</label
+          >
+        </div>
+        <!-- /TAB SWITCH -->
+      </div>
+      <!-- /LANDING INFO-->
+
+      <!-- LANDING FORM -->
+
+      <!-- LANDING DECORATION -->
+      <div class="landing__decoration"></div>
+      <!-- /LANDING DECORATION -->
+
+      <!-- LOGIN FORM -->
+      <div class="landing__form--login">
+        <!-- FORM STICKER -->
+        <div class="loginform__sticker">
+          <img
+            src="https://odindesignthemes.com/vikinger/img/landing/rocket.png"
+            alt="sticker"
+          />
+        </div>
+        <!-- /FORM STICKER -->
+        <!-- LOGIN FORM TITLE -->
+        <div class="loginform__title mt-50">
+          <h2>Account Login</h2>
+        </div>
+        <!-- /LOGIN FORM TITLE -->
+        <!-- LOGIN FORM INPUT -->
+        <div class="loginform__input mt-50">
+          <form action="">
+            <div class="loginform__input--username mt-30">
+              <input type="text" id="username" autofocus />
+              <label for="username">Username or Email</label>
+            </div>
+            <div class="loginform__input--password mt-30">
+              <input type="text" id="password" />
+              <label for="password">Password</label>
+            </div>
+            <div class="loginform__additional mt-40">
+              <div class="rememberMe">
+                <input type="checkbox" id="rememberMe" hidden />
+                <label for="rememberMe">
+                  <div class="checkbox"><i class="fa-solid fa-xmark"></i></div>
+                  Remember Me</label
+                >
+              </div>
+              <a class="forgotPassword" href="#">Forgot Password</a>
+            </div>
+            <button class="mt-40">Login to your Account</button>
+          </form>
+        </div>
+        <!-- /LOGIN FORM INPUT -->
+        <!-- LOGIN FORM SOCIAL -->
+        <div class="loginform__social mt-40">
+          <p>Login with your Social Account</p>
+          <ul>
+            <li class="loginform__social--item">
+              <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+            </li>
+            <li class="loginform__social--item">
+              <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+            </li>
+            <li class="loginform__social--item">
+              <a href="#"><i class="fa-brands fa-twitch"></i></a>
+            </li>
+            <li class="loginform__social--item">
+              <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
+            </li>
+          </ul>
+        </div>
+        <!-- /LOGIN FORM SOCIAL -->
+      </div>
+      <!-- /LOGIN FORM -->
+
+      <!-- REGISTER FORM -->
+      <div class="landing__form--register">
+        <!-- FORM STICKER -->
+        <div class="loginform__sticker">
+          <img
+            src="https://odindesignthemes.com/vikinger/img/landing/rocket.png"
+            alt="sticker"
+          />
+        </div>
+        <!-- /FORM STICKER -->
+        <!-- REGISTER FORM TITLE -->
+        <div class="registerform__title mt-50">
+          <h2>Create your Account</h2>
+        </div>
+        <!-- /REGISTER FORM TITLE -->
+        <!-- REGISTER FORM INPUT -->
+        <div class="registerform__input mt-50">
+          <form action="">
+            <div class="registerform__input--username mt-30">
+              <input type="text" id="your_email" autofocus />
+              <label for="username">Your Email</label>
+            </div>
+            <div class="registerform__input--password mt-30">
+              <input type="text" id="username" />
+              <label for="password">Username</label>
+            </div>
+            <div class="registerform__input--password mt-30">
+              <input type="text" id="password" />
+              <label for="password">Password</label>
+            </div>
+            <div class="registerform__input--password mt-30">
+              <input type="text" id="repeat_password" />
+              <label for="password">Repeat Password</label>
+            </div>
+            <div class="registerform__additional mt-40">
+              <div class="send_news">
+                <input type="checkbox" id="send_news" hidden />
+                <label for="send_news">
+                  <div class="checkbox"><i class="fa-solid fa-xmark"></i></div>
+                  Send me news and updates via email</label
+                >
+              </div>
+            </div>
+            <button class="mt-40">Register Now!</button>
+          </form>
+        </div>
+        <!-- /REGISTER FORM INPUT -->
+        <!-- REGISTER FORM SOCIAL -->
+        <div class="registerform__text mt-40">
+          <p>
+            You'll receive a confirmation email in your inbox with a link to
+            activate your account. If you have any problems,
+            <a href="#">contact us</a>!
+          </p>
+        </div>
+        <!-- /REGISTER FORM SOCIAL -->
+      </div>
+      <!-- /REGISTER FORM -->
+
+      <!-- /LANDING FORM -->
+    </div>
+  </body>
+</html>
