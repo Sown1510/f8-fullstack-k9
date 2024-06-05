@@ -1,0 +1,77 @@
+header {
+  background: #363636;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+}
+.header .header__menu--btn {
+  color: white;
+  font-size: 2.5rem;
+}
+.header .header__logo a {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+.header .header__logo a span {
+  color: #ffa500;
+}
+.header .header__navbar ul {
+  display: none;
+}
+.header .header__dark-light-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30%;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ffa500;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .header__dark-light-button label i {
+  font-size: 2rem;
+  color: #ffa500;
+}
+.header .header__dark-light-button .fa-moon {
+  display: none;
+}
+.header .header__dark-light-button input:checked ~ label .fa-sun {
+  display: none;
+}
+.header .header__dark-light-button input:checked ~ label .fa-moon {
+  display: block;
+}
+.header .header__order-now a {
+  padding: 10px;
+  border-radius: 99px;
+  background: #ffa500;
+  color: black;
+  font-size: 1.76rem;
+}
+@media screen and (min-width: 769px) {
+  .header .header__menu--btn {
+    display: none;
+  }
+  .header .header__dark-light-button {
+    right: 20%;
+  }
+  .header .header__navbar ul {
+    display: flex;
+    gap: 15px;
+  }
+  .header .header__navbar ul li a {
+    color: white;
+    font-size: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
