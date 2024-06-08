@@ -1,0 +1,242 @@
+@import "reset.scss";
+
+html {
+    font-family: sans-serif;
+}
+
+.container {
+    // overflow: hidden;
+    height: 100%
+}
+
+
+
+.col-2 {
+    position: relative;
+}
+.outline {
+    visibility: hidden;
+    position: absolute;
+    inset: 0;
+    background: rgba(128, 128, 128, 0.197);
+}
+
+.sidebar {
+    transition: all 0.2s linear;
+    .logo {
+        img {
+            height: 46px;
+        }
+    }
+    h3 {
+        font-size: 3rem;
+    }
+    nav {
+        li {
+            margin: 30px 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+            &:first-child {
+                &::before {
+                    margin-right: 10px;
+                    content: "\f0e7";
+                    font-family: 'Font Awesome 5 Free'; 
+                    font-weight: 900;
+                }
+            }
+            &:nth-child(2) {
+                &::before {
+                    margin-right: 10px;
+                    content: "\f0e7";
+                    font-family: 'Font Awesome 5 Free'; 
+                    font-weight: 900;
+                }
+            }
+            &:nth-child(3) {
+                &::before {
+                    margin-right: 10px;
+                    content: "\f0e7";
+                    font-family: 'Font Awesome 5 Free'; 
+                    font-weight: 900;
+                }
+            }
+            &:nth-child(4) {
+                &::before {
+                    margin-right: 10px;
+                    content: "\f0e7";
+                    font-family: 'Font Awesome 5 Free'; 
+                    font-weight: 900;
+                }
+            }
+            &:nth-child(5) {
+                &::before {
+                    margin-right: 10px;
+                    content: "\f0e7";
+                    font-family: 'Font Awesome 5 Free'; 
+                    font-weight: 900;
+                }
+            }
+            &:nth-child(6) {
+                &::before {
+                    margin-right: 10px;
+                    content: "\f0e7";
+                    font-family: 'Font Awesome 5 Free'; 
+                    font-weight: 900;
+                }
+            }
+            &:last-child {
+                &::before {
+                    margin-right: 10px;
+                    content: "\f0e7";
+                    font-family: 'Font Awesome 5 Free'; 
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+    .help__center {
+        position: absolute;
+        bottom: 5%;
+        display: flex;
+        gap: 0 15px;
+        font-size: 1.5rem;
+        align-items: center;
+        .icon {
+            padding: 10px;
+            background: rgba(128, 128, 128, 0.112);
+            border-radius: 50%;
+        }
+    }
+    @media screen and (max-width: 992px) {
+        position: absolute;
+        visibility: hidden;
+        background: gray;
+        height: 100vh;
+        left: -200%;
+        width: 200px;
+        padding: 0 40px 0 20px ;
+        z-index: 99;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #open-sidebar:checked {
+        ~.outline {
+            visibility: visible;
+        }
+        &~.col-2 {
+            .sidebar {
+                visibility: visible;
+                left: -10px;
+            }
+        }
+    }
+}
+
+.header { 
+    $font-size: 1.3rem;
+    font-size: $font-size;
+    position: relative;
+    .header__action {
+        display: flex;
+        width: 100%;
+        align-items: baseline;
+        justify-content: space-between;
+        .action__search {
+            button {
+                margin-right: 10px;
+            }
+            input {
+                border: none;
+                outline: none;
+                &::placeholder {
+                    font-weight: 600;
+                }
+            }
+        }
+        .action__user {
+            display: flex;
+            gap: 0 20px;
+        }
+    }
+    
+    .header__nav {
+        position: absolute;
+        top: 0;
+        right: 20%;
+        ul {
+            display: flex;
+            gap:0 50px;
+            li {
+                font-size: $font-size;
+                color: black;
+                font-weight: 600;
+                height: 25px;
+                &:hover {
+                    border-bottom: 2px solid black;
+                }
+            }
+        }
+        @media screen and (max-width: 992px) {
+            position: unset;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            ul {
+                display: block;
+            }
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        #open-menu:checked {
+            &~nav {
+                display: block;
+            }
+        }
+    }
+    
+}
+
+.main {
+    
+    .event-box-wrapper {
+        @mixin event-box-style {
+            width: 100%;
+            border-radius: 10px;
+            @media screen and (max-width: 768px) {
+                width: fit-content;
+                margin: 10px auto;
+            }
+        } 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .event-box-1 {
+            @include event-box-style();
+            background: #bce7f0;
+        }
+        .event-box-2 {
+            @include event-box-style();
+            background: #c3e9ff;
+        }
+        .event-box-3 {
+            @include event-box-style();
+            background: #f4de4d;
+        }
+        .event-box-4 {
+            @include event-box-style();
+            background: #e9e5e2;
+        }
+    }
+
+    .image-wrapper {
+        display: flex;
+        gap: 0 20px;
+        justify-content: center;
+        .image-box {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Website UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- SIDEBAR -->
+        <input type="checkbox" id="open-sidebar" hidden />
+        <label class="outline" for="open-sidebar"></label>
+        <div class="col-2">
+          <aside class="sidebar">
+            <div class="logo mt-10">
+              <img src="static/image/logo.png" alt="logo" />
+            </div>
+            <h3 class="mt-80">Explore</h3>
+
+            <nav class="mt-50">
+              <ul>
+                <li><a href="#">New In</a></li>
+                <li><a href="#">Clothing</a></li>
+                <li><a href="#">Shoes</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Activewear</a></li>
+                <li><a href="#">Gifts & Living</a></li>
+                <li><a href="#">Inspiration</a></li>
+              </ul>
+            </nav>
+            <div class="help__center">
+              <div class="icon">
+                <i class="fa-solid fa-comment"></i>
+              </div>
+              <a href="#">Help Center</a>
+            </div>
+          </aside>
+        </div>
+        <!-- /SIDEBAR -->
+        <div class="col-8 col-lg-10">
+          <!-- HEADER -->
+          <div class="row">
+            <div class="col-10">
+              <header class="header mt-30">
+                <div class="header__action">
+                  <label class="d-none d-lg-block" for="open-sidebar"
+                    ><i class="fa-solid fa-layer-group"></i
+                  ></label>
+                  <form action="" class="action__search">
+                    <button>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <input type="text" placeholder="Search store" />
+                  </form>
+                  <div class="action__user">
+                    <label class="d-none d-lg-block" for="open-menu"
+                      ><i class="fa-solid fa-bars"></i
+                    ></label>
+                    <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                    <a href="#"><i class="fa-regular fa-user"></i></a>
+                  </div>
+                </div>
+                <input type="checkbox" id="open-menu" hidden />
+                <nav class="header__nav d-lg-none">
+                  <ul>
+                    <li><a href="#">products</a></li>
+                    <li><a href="#">story</a></li>
+                    <li><a href="#">manufacturing</a></li>
+                    <li><a href="#">packaging</a></li>
+                  </ul>
+                </nav>
+              </header>
+            </div>
+          </div>
+          <!-- /HEADER -->
+          <!-- MAIN -->
+          <div class="row mt-50">
+            <main class="main col-10">
+              <div class="row">
+                <div class="col-5 col-md-10 event-box-wrapper">
+                  <div class="event-box-1">
+                    <img src="static/svg/event1.svg" alt="" />
+                  </div>
+                  <div class="event-box-2">
+                    <img src="static/svg/event2.svg" alt="" />
+                  </div>
+                </div>
+                <div class="col-5 col-md-10">
+                  <div class="image-wrapper">
+                    <div class="image-box">
+                      <img src="static/image/image 33.png" alt="image 33" />
+                    </div>
+                    <div class="image-box">
+                      <img src="static/image/image 34.png" alt="image 34" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5 col-md-10">
+                  <div class="image-wrapper">
+                    <div class="image-box">
+                      <img src="static/image/image 35.png" alt="image 33" />
+                    </div>
+                    <div class="image-box">
+                      <img src="static/image/image 36.png" alt="image 34" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5 col-md-10 event-box-wrapper">
+                  <div class="event-box-3">
+                    <img src="static/svg/event4.svg" alt="" />
+                  </div>
+                  <div class="event-box-4">
+                    <img src="static/svg/event5.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+          <!-- /MAIN -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
