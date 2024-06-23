@@ -79,12 +79,30 @@ checkPrime(4);
 var N = 10;
 let count = 1;
 for (let i = 1; i <= N; i++) {
-  let row = "";
+  let line = "";
   for (let j = 1; j <= i; j++) {
-    row += `${count} `;
+    line += `${count} `;
     count++;
   }
-  console.log(row);
+  console.log(line);
 }
 
 // Bài 6: Vẽ bàn cờ vua
+function createTable() {
+  var table = document.getElementById("table");
+
+  for (let i = 0; i < 8; i++) {
+    var row = document.createElement("tr");
+    for (var j = 0; j < 8; j++) {
+      var cell = document.createElement("td");
+      if ((i + j) % 2 === 0) {
+        cell.style.backgroundColor = "white";
+      } else {
+        cell.style.backgroundColor = "black";
+      }
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
+}
+window.onload = createTable;
