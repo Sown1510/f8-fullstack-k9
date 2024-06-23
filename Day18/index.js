@@ -105,4 +105,30 @@ function createTable() {
     table.appendChild(row);
   }
 }
-window.onload = createTable;
+
+// Bài 7: Vẽ bảng cửu chương
+function taoBangCuuChuong() {
+  var row = document.getElementById("row");
+  for (var i = 1; i <= 10; i++) {
+    var col2 = document.createElement("div");
+    var box = document.createElement("div");
+    var ul = document.createElement("ul");
+    col2.className = "col-2";
+    box.className = "box";
+    for (var j = 1; j <= 10; j++) {
+      var li = document.createElement("li");
+      li.innerText = `${i} x ${j} = ${i * j}`;
+      ul.appendChild(li);
+    }
+    box.appendChild(ul);
+    col2.appendChild(box);
+    row.appendChild(col2);
+  }
+}
+
+function init() {
+  taoBangCuuChuong();
+  createTable();
+}
+
+window.onload = init;
