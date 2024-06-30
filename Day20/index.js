@@ -24,6 +24,6 @@ let show = setInterval(function () {
     content.slice(start, end) +
     `</span>` +
     content.slice(end);
-  document.getElementById("content-container").innerHTML = newContent;
+  document.getElementById("content").innerHTML = newContent;
   time++;
 }, 1000);
