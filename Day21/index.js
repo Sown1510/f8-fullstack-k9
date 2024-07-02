@@ -87,4 +87,42 @@ function removeElement(index, array) {
 
 console.log(searchDuplicate());
 
-// Bài 4:
+// Bài 4: Sắp xếp mảng và thêm phần tử
+function changePosition(array, a, b) {
+  let temp = array[a];
+  array[a] = array[b];
+  array[b] = temp;
+  return array;
+}
+function insertToArray(array, insertNumber, index) {
+  let newArray = [];
+  for (let i = 0; i <= array.length; i++) {
+    if (i < index) {
+      newArray[i] = array[i];
+    } else {
+      if (i === index) {
+        newArray[i] = insertNumber;
+      } else {
+        newArray[i] = array[i - 1];
+      }
+    }
+  }
+  return newArray;
+}
+function sortAndInsert(array, insertNumber) {
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] > array[j]) {
+        array = changePosition(array, i, j);
+      }
+    }
+  }
+  for (var index = 0; index < array.length; index++) {
+    if (insertNumber <= array[index]) {
+      array = insertToArray(array, insertNumber, index);
+      break;
+    }
+  }
+  return array;
+}
+console.log(sortAndInsert([2, 5, 1, 4], 5));
