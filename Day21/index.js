@@ -1,6 +1,15 @@
+//Hàm Dùng chung
+function checkInteger(array) {
+  for (let index in array) {
+    if (array[index] % 1 !== 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
 // Bài 1: Tìm Min Max
 var number = [2, 3, 10, 5, 8, 9];
-
 function minMax() {
   let max = number[0];
   let min = number[0];
@@ -18,12 +27,15 @@ function minMax() {
   }
   return { max: max, maxIndex: maxIndex, min: min, minIndex: minIndex };
 }
-
-console.log(
-  `so lon nhat: ${minMax().max} o vi tri ${minMax().maxIndex}, so nho nhat: ${
-    minMax().min
-  } o vi tri ${minMax().minIndex}`
-);
+if (checkInteger(number)) {
+  console.log(
+    `so lon nhat: ${minMax().max} o vi tri ${minMax().maxIndex}, so nho nhat: ${
+      minMax().min
+    } o vi tri ${minMax().minIndex}`
+  );
+} else {
+  console.log("Invalid Array");
+}
 
 // Bài 2: Tính trung bình các số nguyên tố
 var num = [2, 3, 5, 10, 20, 13, 15];
@@ -55,7 +67,11 @@ function primeAverage() {
   }
 }
 
-console.log(primeAverage());
+if (checkInteger(num)) {
+  console.log(primeAverage());
+} else {
+  console.log("Invalid Array");
+}
 
 // Bài 3: Lọc phần tử trùng
 let array = [2, 3, 2, 1, 4, 3, 2, 1, "a", "a", "a", "b", "a"];
