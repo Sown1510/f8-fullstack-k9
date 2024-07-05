@@ -86,6 +86,7 @@ let arrayOfTypes = [];
 array = array.flat();
 array.forEach(function (value) {
   if (!arrayOfTypes.includes(typeof value)) {
+    ``;
     arrayOfTypes.push(typeof value);
   }
 });
@@ -98,3 +99,5 @@ arrayOfTypes.forEach(function (type, index) {
 });
 
 console.log(newArray);
+
+// Bài 4: Đổ dữ liệu lên giao diện
