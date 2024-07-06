@@ -38,8 +38,8 @@ function removeElement(array, removePosition) {
   return newArray;
 }
 
-console.log("--------Bài 1--------");
 //Bài 1: Tìm giao giữa 2 mảng
+console.log("--------Bài 1--------");
 function arrayIntersection(arrA, arrB) {
   let intersectionArray = [];
   for (let i in arrA) {
@@ -57,8 +57,8 @@ let arrA = [1, 2, 3, 5, 1, 2];
 let arrB = [2, 3, 1, 8, 9];
 console.log(arrayIntersection(arrA, arrB));
 
-console.log("--------Bài 2--------");
 // Bài 2: Làm phẳng mảng
+console.log("--------Bài 2--------");
 let arr = [1, 2, [2, 3], 3];
 function flatArray(array) {
   let newArray = [];
@@ -78,8 +78,8 @@ function flatArray(array) {
 }
 console.log(flatArray(arr));
 
-console.log("--------Bài 3--------");
 // Bài 3: Tách phần tử mảng theo đúng kiểu dữ liệu
+console.log("--------Bài 3--------");
 
 var array = [
   ["a", 1, true],
@@ -103,8 +103,8 @@ arrayOfTypes.forEach(function (type, index) {
 
 console.log(newArray);
 
-console.log("--------Bài 4--------");
 // Bài 4: Đổ dữ liệu lên giao diện
+console.log("--------Bài 4--------");
 let articles = [
   [
     "https://fastly.picsum.photos/id/256/450/300.jpg?hmac=9vNpxPtspzpwe-6V28qLbFhM4CsAXw_js_x_ozsmjcE",
