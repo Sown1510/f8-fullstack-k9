@@ -105,7 +105,7 @@ console.log(newArray);
 
 // Bài 4: Đổ dữ liệu lên giao diện
 console.log("--------Bài 4--------");
-let articles = [
+const articles = [
   [
     "https://fastly.picsum.photos/id/256/450/300.jpg?hmac=9vNpxPtspzpwe-6V28qLbFhM4CsAXw_js_x_ozsmjcE",
     "Tiêu đề bài viết 1",
@@ -123,39 +123,26 @@ let articles = [
   ],
 ];
 
-let container = document.getElementById("container");
+const container = document.getElementById("container");
 let content = ``;
 articles.forEach(function (article, index) {
-  if (index % 2 !== 0) {
-    content += `
-    <hr>
+  content += `
+    ${index % 2 !== 0 ? "<hr>" : ""}
     <div class='row'>
-      <div class='col-4 col-md-12 d-none d-md-block'>
+      <div class='${
+        index % 2 !== 0 ? "d-none d-md-block" : ""
+      } col-4 col-md-12  '>
         <img src='${article[0]}'>
       </div>
       <div class='col-8 col-md-12'>
         <h2>${article[1]}</h2>
         <p>${article[2]}</p>
       </div>
-      <div class='col-4 col-md-12 d-md-none'>
+      <div class='${index % 2 !== 0 ? "d-md-none" : "d-none"} col-4 col-md-12 '>
         <img src='${article[0]}'>
       </div>
     </div>
-    <hr>
+    ${index % 2 !== 0 ? "<hr>" : ""}
   `;
-  } else {
-    content += `
-    <div class='row'>
-      <div class='col-4 col-md-12'>
-        <img src='${article[0]}'>
-      </div>
-      <div class='col-8 col-md-12'>
-        <h2>${article[1]}</h2>
-        <p>${article[2]}</p>
-      </div>
-    </div>
-
-  `;
-  }
 });
 container.innerHTML = content;
