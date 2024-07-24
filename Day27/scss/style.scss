@@ -6,15 +6,28 @@ body {
     width: 100vw;
 }
 
+.show_sign_in-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
 .overlay {
     position: fixed;
-    display: block;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(128, 128, 128, 0.342);
-    z-index: -1;
+    z-index: 0;
+    display: none;
 }
 
 .form-box {
@@ -27,6 +40,7 @@ body {
     top: 50%;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.275);
     padding: 10px 0;
+    display: none;
     .logo {
         margin-top: 20px;
         display: flex;
@@ -40,6 +54,11 @@ body {
         display: block;
     }
 }
+
+.show {
+    display: block;
+}
+
 nav {
     margin-top: 20px;
     display: flex;
@@ -63,6 +82,7 @@ nav {
     }
 }
 
+// SIGN IN 
 .sign_in-box {
     display: none;
     padding: 0 10px;
@@ -86,6 +106,7 @@ nav {
             border-radius: 3px;
             align-items: center;
             font-size: 1rem;
+            gap: 5px;
             i {
                 font-size: 1.3rem;
             }
@@ -156,6 +177,7 @@ nav {
     }
 }
 
+// SIGN UP
 .sign_up-box {
     display: none;
     padding: 0 10px;

@@ -19,15 +19,28 @@ body {
   width: 100vw;
 }
 
+.show_sign_in-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
 .overlay {
   position: fixed;
-  display: block;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(128, 128, 128, 0.342);
-  z-index: -1;
+  z-index: 0;
+  display: none;
 }
 
 .form-box {
@@ -40,6 +53,7 @@ body {
   top: 50%;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.275);
   padding: 10px 0;
+  display: none;
 }
 .form-box .logo {
   margin-top: 20px;
@@ -50,6 +64,10 @@ body {
   width: 100px;
 }
 .form-box .active {
+  display: block;
+}
+
+.show {
   display: block;
 }
 
@@ -101,6 +119,7 @@ nav .active {
   border-radius: 3px;
   align-items: center;
   font-size: 1rem;
+  gap: 5px;
 }
 .sign_in-box .social_method .google i,
 .sign_in-box .social_method .facebook i {
