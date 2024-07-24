@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.overlay {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(128, 128, 128, 0.342);
+  z-index: -1;
+}
+
+.form-box {
+  background: white;
+  position: absolute;
+  z-index: 99;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  top: 50%;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.275);
+  padding: 10px 0;
+}
+.form-box .logo {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.form-box .logo img {
+  width: 100px;
+}
+.form-box .active {
+  display: block;
+}
+
+nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(128, 128, 128, 0.122);
+}
+nav .sign_in {
+  width: 50%;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+nav .sign_up {
+  width: 50%;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+nav .active {
+  background: green;
+  color: white;
+}
+
+.sign_in-box {
+  display: none;
+  padding: 0 10px;
+}
+.sign_in-box .desc {
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.sign_in-box .social_method {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.sign_in-box .social_method .google,
+.sign_in-box .social_method .facebook {
+  width: 40%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background: #e2e8f0;
+  border-radius: 3px;
+  align-items: center;
+  font-size: 1rem;
+}
+.sign_in-box .social_method .google i,
+.sign_in-box .social_method .facebook i {
+  font-size: 1.3rem;
+}
+.sign_in-box form {
+  border-top: 1px solid rgba(128, 128, 128, 0.411);
+  margin: 0 5px;
+  margin-top: 20px;
+  position: relative;
+}
+.sign_in-box form .or {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 0 5px;
+}
+.sign_in-box form .input-box {
+  margin-top: 20px;
+}
+.sign_in-box form .email-input,
+.sign_in-box form .password-input {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: solid 1px rgba(128, 128, 128, 0.432);
+}
+.sign_in-box form .email-input input,
+.sign_in-box form .password-input input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.sign_in-box form .password-input {
+  position: relative;
+}
+.sign_in-box form .password-input i {
+  position: absolute;
+  right: 8px;
+  cursor: pointer;
+  display: none;
+}
+.sign_in-box form .password-input .active {
+  display: inline-block;
+}
+.sign_in-box form .forget_password {
+  margin-top: 10px;
+  color: rgba(128, 128, 128, 0.414);
+  font-style: italic;
+  display: block;
+  width: 100%;
+  text-align: end;
+}
+.sign_in-box form button {
+  cursor: pointer;
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background: green;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.sign_up-box {
+  display: none;
+  padding: 0 10px;
+}
+.sign_up-box .desc {
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.sign_up-box .social_method {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.sign_up-box .social_method .google,
+.sign_up-box .social_method .facebook {
+  width: 40%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background: #e2e8f0;
+  border-radius: 3px;
+  align-items: center;
+  font-size: 1rem;
+}
+.sign_up-box .social_method .google i,
+.sign_up-box .social_method .facebook i {
+  font-size: 1.3rem;
+}
+.sign_up-box form {
+  margin: 0 5px;
+  margin-top: 20px;
+  position: relative;
+}
+.sign_up-box form .or {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 0 5px;
+}
+.sign_up-box form .input-box {
+  margin-top: 20px;
+}
+.sign_up-box form .fullname-input,
+.sign_up-box form .email-input,
+.sign_up-box form .password-input {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: solid 1px rgba(128, 128, 128, 0.432);
+}
+.sign_up-box form .fullname-input input,
+.sign_up-box form .email-input input,
+.sign_up-box form .password-input input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.sign_up-box form .password-input {
+  position: relative;
+}
+.sign_up-box form .password-input i {
+  position: absolute;
+  right: 8px;
+  cursor: pointer;
+  display: none;
+}
+.sign_up-box form .password-input .active {
+  display: inline-block;
+}
+.sign_up-box form .policy {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  text-align: start;
+}
+.sign_up-box form .policy a {
+  color: blue;
+}
+.sign_up-box form button {
+  cursor: pointer;
+  margin: auto;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background: green;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+/*# sourceMappingURL=style.css.map */
