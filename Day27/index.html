@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <button>Đăng nhập</button>
+    <button class="show_sign_in-btn">Đăng nhập</button>
     <div class="overlay"></div>
     <div class="form-box">
       <a class="logo" href="#"
         ><img src="./static/icon/c7b827391b2f30b6fbaf.png" alt="logo"
       /></a>
       <nav>
-        <div class="sign_in">Đăng nhập</div>
-        <div class="sign_up active">Đăng ký</div>
+        <div class="sign_in active">Đăng nhập</div>
+        <div class="sign_up">Đăng ký</div>
       </nav>
 
       <!-- SIGN IN -->
-      <div class="sign_in-box">
+      <div class="sign_in-box active">
         <p class="desc">với các tài khoản mạng xã hội</p>
         <div class="social_method">
           <a class="google" href="#"
@@ -52,7 +52,7 @@
                 required
               />
               <i class="fa-regular fa-eye active"></i>
-              <i class="fa-regular fa-eye-slash"></i>
+              <i class="fa-regular fa-eye-slash "></i>
             </div>
           </div>
           <a class="forget_password" href="#">Quên mật khẩu?</a>
@@ -61,7 +61,7 @@
       </div>
 
       <!-- SIGN UP -->
-      <div class="sign_up-box active">
+      <div class="sign_up-box ">
         <p class="desc">Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay!</p>
         <form action="">
           <div class="input-box">
@@ -78,7 +78,7 @@
           <div class="input-box">
             <label for="email-lbl">Email</label>
             <div class="email-input">
-              <input type="email" placeholder="Email" id="email-lbl" required />
+              <input type="email" placeholder="Email" id="sign_up-email-lbl" required />
             </div>
           </div>
           <div class="input-box">
@@ -86,12 +86,12 @@
             <div class="password-input">
               <input
                 type="password"
-                id="password-lbl"
+                id="sign_up-password-lbl"
                 placeholder="Mật khẩu"
                 required
               />
               <i class="fa-regular fa-eye active"></i>
-              <i class="fa-regular fa-eye-slash"></i>
+              <i class="fa-regular fa-eye-slash "></i>
             </div>
           </div>
           <p class="policy">
@@ -102,5 +102,6 @@
         </form>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
