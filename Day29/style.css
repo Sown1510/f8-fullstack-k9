@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 img {
     max-width: 100%;
     height: auto;
@@ -47,4 +48,25 @@ img {
 
 .carousel .carousel-nav span.next {
     right: 5px;
+}
+
+.carousel-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background: rgba(128, 128, 128, 0.63);
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 2px;
+}   
+
+.dot.active {
+    background: yellow;
 }
