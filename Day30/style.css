@@ -45,10 +45,6 @@
     padding: 0 3px;
 }
 
-.progress-bar:hover .timer-popup {
-    display: block;
-}
-
 .progress-bar .progress {
     position: absolute;
     left: 0;

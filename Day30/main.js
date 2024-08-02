@@ -19,12 +19,20 @@ progressBar.addEventListener("mousedown", function (e) {
     });
   }
 });
-
+var timerPopup = progress.previousElementSibling;
 progressBar.addEventListener("mouseover", function () {
+  console.log("true2");
+  timerPopup.style.display = "block";
   progressBar.addEventListener("mousemove", handleDragTime);
+  progressBar.addEventListener("mouseout", function () {
+    timerPopup.style.display = "none";
+  });
 });
 
-var timerPopup = progress.previousElementSibling;
+spanBtn.addEventListener("mouseover", function (e) {
+  e.stopPropagation();
+});
+
 function handleDragTime(e) {
   timerPopup.style.left = `${e.offsetX - timerPopup.clientWidth / 2}px`;
   timerPopup.innerHTML = getTimeFormat(
