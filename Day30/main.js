@@ -50,10 +50,10 @@ function handleDrag(e) {
   if (rate > 100) {
     rate = 100;
   }
-  audio.currentTime = (rate / 100) * audio.duration;
   progress.style.width = `${rate}%`;
   document.addEventListener("mouseup", function () {
     offsetLeft = e.clientX - pointStart;
+    audio.currentTime = (rate / 100) * audio.duration;
   });
 }
 
@@ -96,6 +96,9 @@ audio.addEventListener("play", function () {
 });
 audio.addEventListener("pause", function () {
   playAction.classList.replace("fa-pause", "fa-play");
+  if (audio.currentTime === audio.duration) {
+    audio.currentTime = 0;
+  }
 });
 audio.addEventListener("timeupdate", function () {
   currentTimeEl.innerText = getTimeFormat(audio.currentTime);
