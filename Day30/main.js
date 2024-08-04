@@ -12,10 +12,11 @@ progressBar.addEventListener("mousedown", function (e) {
     progress.style.width = `${(e.offsetX / progressBar.clientWidth) * 100}%`;
     pointStart = e.clientX;
     offsetLeft = e.offsetX;
-    audio.currentTime = (offsetLeft / progressBar.clientWidth) * audio.duration;
     document.addEventListener("mousemove", handleDrag);
     document.addEventListener("mouseup", function () {
       document.removeEventListener("mousemove", handleDrag);
+      audio.currentTime =
+        (offsetLeft / progressBar.clientWidth) * audio.duration;
     });
   }
 });
