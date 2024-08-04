@@ -12,17 +12,16 @@ progressBar.addEventListener("mousedown", function (e) {
     progress.style.width = `${(e.offsetX / progressBar.clientWidth) * 100}%`;
     pointStart = e.clientX;
     offsetLeft = e.offsetX;
+    let temp = (offsetLeft / progressBar.clientWidth) * audio.duration;
     document.addEventListener("mousemove", handleDrag);
     document.addEventListener("mouseup", function () {
+      audio.currentTime = temp;
       document.removeEventListener("mousemove", handleDrag);
-      audio.currentTime =
-        (offsetLeft / progressBar.clientWidth) * audio.duration;
     });
   }
 });
 var timerPopup = progress.previousElementSibling;
 progressBar.addEventListener("mouseover", function () {
-  console.log("true2");
   timerPopup.style.display = "block";
   progressBar.addEventListener("mousemove", handleDragTime);
   progressBar.addEventListener("mouseout", function () {
@@ -51,10 +50,13 @@ function handleDrag(e) {
   if (rate > 100) {
     rate = 100;
   }
+  let temp = (rate / 100) * audio.duration;
   progress.style.width = `${rate}%`;
+  isMouseDown = true;
   document.addEventListener("mouseup", function () {
     offsetLeft = e.clientX - pointStart;
-    audio.currentTime = (rate / 100) * audio.duration;
+    audio.currentTime = temp;
+    isMouseDown = false;
   });
 }
 
@@ -101,8 +103,12 @@ audio.addEventListener("pause", function () {
     audio.currentTime = 0;
   }
 });
+
+let isMouseDown = false;
 audio.addEventListener("timeupdate", function () {
   currentTimeEl.innerText = getTimeFormat(audio.currentTime);
   var rate = (audio.currentTime / audio.duration) * 100;
-  progress.style.width = `${rate}%`;
+  if (!isMouseDown) {
+    progress.style.width = `${rate}%`;
+  }
 });
