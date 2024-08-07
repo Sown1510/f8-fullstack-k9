@@ -1,0 +1,57 @@
+.table-1, .table-2 {
+    border-collapse: collapse;
+    width: 100%;
+
+    th {
+        text-align: center;
+        border: 1px solid black;
+        &:first-child {
+            width: 5%;
+        }
+        &:nth-child(2) {
+            width: 70%;
+        }
+        &:nth-child(3) {
+            width: 20%;
+        }
+    }
+    tr {
+        border: 1px solid black;
+    }
+    td {
+        border: 1px solid black;
+        text-align: left;
+        padding: 10px;
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    }   
+}
+
+.table-2 {
+    border-collapse: collapse;
+    width: 100%;
+    tr{
+      
+    }
+    th {
+        text-align: center;
+        border: 1px solid black;
+        &:first-child {
+            width: 5%;
+        }
+        &:nth-child(2) {
+            width: 30%;
+        }
+        &:nth-child(4) {
+            width: 20%;
+        }
+        &:last-child {
+            width: 5%
+        }
+    }
+    td {
+        padding: 3px;
+    }
+}

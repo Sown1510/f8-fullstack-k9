@@ -1,0 +1,55 @@
+.table-1, .table-2 {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table-1 th, .table-2 th {
+  text-align: center;
+  border: 1px solid black;
+}
+.table-1 th:first-child, .table-2 th:first-child {
+  width: 5%;
+}
+.table-1 th:nth-child(2), .table-2 th:nth-child(2) {
+  width: 70%;
+}
+.table-1 th:nth-child(3), .table-2 th:nth-child(3) {
+  width: 20%;
+}
+.table-1 tr, .table-2 tr {
+  border: 1px solid black;
+}
+.table-1 td, .table-2 td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 10px;
+}
+.table-1 td form, .table-2 td form {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-2 {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table-2 th {
+  text-align: center;
+  border: 1px solid black;
+}
+.table-2 th:first-child {
+  width: 5%;
+}
+.table-2 th:nth-child(2) {
+  width: 30%;
+}
+.table-2 th:nth-child(4) {
+  width: 20%;
+}
+.table-2 th:last-child {
+  width: 5%;
+}
+.table-2 td {
+  padding: 3px;
+}
+
+/*# sourceMappingURL=style.css.map */
