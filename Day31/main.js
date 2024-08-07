@@ -1,4 +1,10 @@
 var productsTable = document.querySelector(".table-1");
+var productQuantEdit = [];
+var cartTable = document.querySelector(".table-2");
+var notice = document.querySelector(".empty-cart");
+var updateCartBtn = document.querySelector(".updateCart");
+var deleteCartBtn = document.querySelector(".deleteCart");
+var cart = [];
 var productList = [
   {
     id: 1,
@@ -20,18 +26,8 @@ var productList = [
     name: "Sản phẩm 4",
     price: 4000,
   },
-  {
-    id: 5,
-    name: "Sản phẩm 5",
-    price: 5000,
-  },
-  {
-    id: 6,
-    name: "Sản phẩm 6",
-    price: 6000,
-  },
 ];
-var cart = [];
+
 productList.forEach((product, index) => {
   var tr = document.createElement("tr");
   var td = document.createElement("td");
@@ -80,10 +76,9 @@ function handleRemoveFromCart(e) {
   updateCart();
 }
 
-var productQuantEdit = [];
-var cartTable = document.querySelector(".table-2");
-var notice = document.querySelector(".empty-cart");
 cartTable.style.display = "none";
+updateCartBtn.style.display = "none";
+deleteCartBtn.style.display = "none";
 function updateCart() {
   if (cart.length != 0) {
     notice.style.display = "none";
@@ -150,14 +145,16 @@ function updateCart() {
     totalRow.append(td);
     cartTable.append(totalRow);
     productQuantEdit = document.querySelectorAll(".quant_edit");
+    updateCartBtn.style.display = "inline-block";
+    deleteCartBtn.style.display = "inline-block";
   } else {
     notice.style.display = "block";
     cartTable.style.display = "none";
+    updateCartBtn.style.display = "none";
+    deleteCartBtn.style.display = "none";
   }
 }
 
-var updateCartBtn = document.querySelector(".updateCart");
-var deleteCartBtn = document.querySelector(".deleteCart");
 updateCartBtn.addEventListener("click", handleUpdateCart);
 deleteCartBtn.addEventListener("click", handleDeleteCart);
 
@@ -168,7 +165,10 @@ function handleDeleteCart() {
 
 function handleUpdateCart() {
   productQuantEdit.forEach((dataInput) => {
-    let dataId = Number(dataInput.value);
-    console.log(cart.find((product) => Number(product.id) === dataId));
+    let dataId = Number(dataInput.id);
+    let productEdit = cart.find((product) => product.id === dataId);
+    productEdit.quantity = Number(dataInput.value);
+    console.log(dataInput.value);
   });
+  updateCart();
 }
