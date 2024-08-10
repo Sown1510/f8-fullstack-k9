@@ -9,7 +9,10 @@ var timerPopup = progress.previousElementSibling;
 var closeKaraoke = document.querySelector(".karaoke-header .close");
 var karaokeBox = document.querySelector(".karaoke-box");
 var showKaraokeBtn = document.querySelector(".karaoke");
-var karaokeInner = document.querySelector(".karaoke-inner");
+var karaokeInnerLine1 = document.querySelector(".karaoke-inner .line1");
+var karaokeInnerLine2 = document.querySelector(".karaoke-inner .line2");
+var lastSentence = "";
+let i = 0;
 
 import { lyric } from "./static/lyric.js";
 let isMouseDown = false;
@@ -25,10 +28,12 @@ progressBar.addEventListener("mousedown", function (e) {
     offsetLeft = e.offsetX;
     let temp = (offsetLeft / progressBar.clientWidth) * audio.duration;
     document.addEventListener("mousemove", handleDrag);
-    document.addEventListener("mouseup", function () {
+    let handleMouseUp = () => {
       audio.currentTime = temp;
       document.removeEventListener("mousemove", handleDrag);
-    });
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+    document.addEventListener("mouseup", handleMouseUp);
   }
 });
 
@@ -64,11 +69,13 @@ function handleDrag(e) {
   let temp = (rate / 100) * audio.duration;
   progress.style.width = `${rate}%`;
   isMouseDown = true;
-  document.addEventListener("mouseup", function () {
+  let handleMouseUp = () => {
     offsetLeft = e.clientX - pointStart;
     audio.currentTime = temp;
     isMouseDown = false;
-  });
+    document.removeEventListener("mouseup", handleMouseUp);
+  };
+  document.addEventListener("mouseup", handleMouseUp);
 }
 
 spanBtn.addEventListener("mousedown", function (e) {
@@ -120,6 +127,28 @@ audio.addEventListener("timeupdate", function () {
   if (!isMouseDown) {
     progress.style.width = `${rate}%`;
   }
+  var currentTimeMiliseconds = audio.currentTime * 1000;
+
+  lyric.data.sentences.forEach((sentence) => {
+    var words = sentence.words;
+    var startSentence = words[0].startTime;
+    var endSentence = words[words.length - 1].endTime;
+    if (
+      currentTimeMiliseconds > startSentence &&
+      currentTimeMiliseconds < endSentence
+    ) {
+      var currentSentence = sentence.words.map((word) => word.data).join(" ");
+      if (!(lastSentence === currentSentence)) {
+        lastSentence = currentSentence;
+        i++;
+        if (i % 2 === 0) {
+          karaokeInnerLine1.innerText = lastSentence;
+        } else {
+          karaokeInnerLine2.innerText = lastSentence;
+        }
+      }
+    }
+  });
 });
 
 closeKaraoke.addEventListener("click", function () {
