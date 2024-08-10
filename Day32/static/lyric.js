@@ -1,6 +1,8 @@
 export var lyric = {
   err: 0,
   msg: "Success",
+  name: "Cứ Ngỡ Là Anh",
+  singer: "Đinh Tùng Huy",
   data: {
     sentences: [
       {

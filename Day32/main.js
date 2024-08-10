@@ -1,3 +1,4 @@
+import { lyric } from "./static/lyric.js";
 var spanBtn = document.querySelector(".progress-bar .progress span");
 var progressBar = document.querySelector(".progress-bar");
 var progress = document.querySelector(".progress-bar .progress");
@@ -12,9 +13,8 @@ var showKaraokeBtn = document.querySelector(".karaoke");
 var karaokeInnerLine1 = document.querySelector(".karaoke-inner .line1");
 var karaokeInnerLine2 = document.querySelector(".karaoke-inner .line2");
 var lastSentence = "";
-let i = 0;
+let i = 1;
 
-import { lyric } from "./static/lyric.js";
 let isMouseDown = false;
 let pointStart = 0;
 let rate = 0;
@@ -121,14 +121,22 @@ audio.addEventListener("pause", function () {
   }
 });
 
+karaokeInnerLine1.innerText = lyric.name;
+karaokeInnerLine2.innerText = `Ca sĩ: ${lyric.singer}`;
+let showInfo = true;
+var lastTime = 0;
 audio.addEventListener("timeupdate", function () {
-  currentTimeEl.innerText = getTimeFormat(audio.currentTime);
-  var rate = (audio.currentTime / audio.duration) * 100;
+  var currentTime = audio.currentTime;
+
+  currentTimeEl.innerText = getTimeFormat(currentTime);
+
   if (!isMouseDown) {
+    var rate = (currentTime / audio.duration) * 100;
     progress.style.width = `${rate}%`;
   }
-  var currentTimeMiliseconds = audio.currentTime * 1000;
-
+  if (currentTime - lastTime < 0.25) return;
+  var currentTimeMiliseconds = currentTime * 1000;
+  lastTime = currentTime;
   lyric.data.sentences.forEach((sentence) => {
     var words = sentence.words;
     var startSentence = words[0].startTime;
@@ -138,14 +146,16 @@ audio.addEventListener("timeupdate", function () {
       currentTimeMiliseconds < endSentence
     ) {
       var currentSentence = sentence.words.map((word) => word.data).join(" ");
-      if (!(lastSentence === currentSentence)) {
+      if (lastSentence !== currentSentence) {
+        if (showInfo) {
+          karaokeInnerLine1.innerText = "";
+          karaokeInnerLine2.innerText = "";
+          showInfo = false;
+        }
         lastSentence = currentSentence;
         i++;
-        if (i % 2 === 0) {
-          karaokeInnerLine1.innerText = lastSentence;
-        } else {
-          karaokeInnerLine2.innerText = lastSentence;
-        }
+        var targetLine = i % 2 === 0 ? karaokeInnerLine1 : karaokeInnerLine2;
+        targetLine.innerText = lastSentence;
       }
     }
   });
