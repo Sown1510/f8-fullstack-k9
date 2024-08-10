@@ -5,6 +5,7 @@ var notice = document.querySelector(".empty-cart");
 var updateCartBtn = document.querySelector(".updateCart");
 var deleteCartBtn = document.querySelector(".deleteCart");
 var cart = [];
+
 var productList = [
   {
     id: 1,
