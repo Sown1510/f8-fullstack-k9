@@ -1,4 +1,6 @@
 import { lyric } from "./static/lyric.js";
+
+// Lấy phần tử DOM
 var spanBtn = document.querySelector(".progress-bar .progress span");
 var progressBar = document.querySelector(".progress-bar");
 var progress = document.querySelector(".progress-bar .progress");
@@ -37,6 +39,7 @@ progressBar.addEventListener("mousedown", function (e) {
   }
 });
 
+// Xử lý hiện timer tooltip
 progressBar.addEventListener("mouseover", function () {
   timerPopup.style.display = "block";
   progressBar.addEventListener("mousemove", handleDragTime);
@@ -45,10 +48,12 @@ progressBar.addEventListener("mouseover", function () {
   });
 });
 
+// Ngăn sự kiên mouseover lan ra ngoài
 spanBtn.addEventListener("mouseover", function (e) {
   e.stopPropagation();
 });
 
+// Xử lý di chuyển hiện thời gian tooltip
 function handleDragTime(e) {
   timerPopup.style.left = `${e.offsetX - timerPopup.clientWidth / 2}px`;
   timerPopup.innerHTML = getTimeFormat(
@@ -56,7 +61,7 @@ function handleDragTime(e) {
   );
 }
 
-// Xử lý kéo
+// Xử lý kéo thanh progressBar để thay đổi thời gian phát nhạc
 function handleDrag(e) {
   rate =
     ((e.clientX - pointStart + offsetLeft) / progressBar.clientWidth) * 100;
@@ -78,6 +83,7 @@ function handleDrag(e) {
   document.addEventListener("mouseup", handleMouseUp);
 }
 
+// Xử lý nhấn chuột xuống trên nút span
 spanBtn.addEventListener("mousedown", function (e) {
   if (e.which === 1) {
     e.stopPropagation();
@@ -90,6 +96,7 @@ spanBtn.addEventListener("mousedown", function (e) {
   }
 });
 
+// Đinh dạng thời gian từ giây sang phút:giây
 var getTimeFormat = function (seconds) {
   var mins = Math.floor(seconds / 60);
   seconds = Math.floor(seconds - mins * 60);
@@ -98,10 +105,12 @@ var getTimeFormat = function (seconds) {
   }`;
 };
 
+// Cập nhật thời gian tổng của audio
 audio.addEventListener("canplay", function () {
   durationEl.innerText = getTimeFormat(audio.duration);
 });
 
+// Xử lý click phát/tạm dừng nhạc
 playAction.addEventListener("click", function () {
   if (audio.paused) {
     audio.play();
@@ -110,10 +119,12 @@ playAction.addEventListener("click", function () {
   }
 });
 
+// Cập nhật icon play
 audio.addEventListener("play", function () {
   playAction.classList.replace("fa-play", "fa-pause");
 });
 
+// Cập nhật icon pause
 audio.addEventListener("pause", function () {
   playAction.classList.replace("fa-pause", "fa-play");
   if (audio.currentTime === audio.duration) {
@@ -121,10 +132,13 @@ audio.addEventListener("pause", function () {
   }
 });
 
+// Hiện thông tin bài hát
 karaokeInnerLine1.innerText = lyric.name;
 karaokeInnerLine2.innerText = `Ca sĩ: ${lyric.singer}`;
 let showInfo = true;
 var lastTime = 0;
+
+// Cập nhật thời gian hiện tại và lời bài hát
 audio.addEventListener("timeupdate", function () {
   var currentTime = audio.currentTime;
 
@@ -134,7 +148,7 @@ audio.addEventListener("timeupdate", function () {
     var rate = (currentTime / audio.duration) * 100;
     progress.style.width = `${rate}%`;
   }
-  if (currentTime - lastTime < 0.25) return;
+  if (Math.abs(currentTime - lastTime) < 0.25) return;
   var currentTimeMiliseconds = currentTime * 1000;
   lastTime = currentTime;
   lyric.data.sentences.forEach((sentence) => {
@@ -161,10 +175,12 @@ audio.addEventListener("timeupdate", function () {
   });
 });
 
+// Đóng karaoke
 closeKaraoke.addEventListener("click", function () {
   karaokeBox.style.top = "2000px";
 });
 
+// Mở karaoke
 showKaraokeBtn.addEventListener("click", function () {
   karaokeBox.style.top = "0";
 });
