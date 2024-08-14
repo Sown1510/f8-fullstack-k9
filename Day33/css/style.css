@@ -1,33 +1,36 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    position: relative;
+  position: relative;
 }
 
 .container {
-    margin: 20px;
-    width: 600px;
-    background: #4286f4;
-    padding: 15px;
-    .lesson, .module {
-        padding: 8px 10px;
-        border: 1px solid white;
-        margin-bottom: 2px;
-        p {
-            user-select: none;
-        }
+  margin: 20px;
+  width: 600px;
+  background: #4286f4;
+  padding: 15px;
+  .lesson,
+  .module {
+    padding: 8px 10px;
+    border: 1px solid white;
+    margin-bottom: 2px;
+    p {
+      user-select: none;
     }
-    .lesson {
-        background: #8bb3f4;
-    }
-    .module {
-        background: #ff6f00;
-    }
-    .shadow {
-        position: absolute;
-    }
+  }
+  .lesson {
+    background: #8bb3f4;
+  }
+  .module {
+    background: #ff6f00;
+  }
+  .shadow {
+    position: absolute;
+    opacity: 0.6;
+    border: none;
+  }
 }
