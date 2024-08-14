@@ -25,10 +25,11 @@ function renderLesson() {
 
 renderLesson();
 
-// Hàm xử lý nhấn chuột vào 1 chủ để
+function handleOver(e) {
+  console.log(e.currentTarget);
+}
 
-// Hàm xử lý hành động kéo 1 chủ đề
-
+// Hàm xử lý kéo thả
 function handleDrag(e) {
   elementTarget = e.currentTarget;
   shadowElementTarget = document.createElement("div");
@@ -41,11 +42,22 @@ function handleDrag(e) {
   document.addEventListener("mouseup", handleMouseUp);
 }
 
+// Xử lý khi kéo chủ đề qua
+function handleMouseOver(e) {
+  console.log(1);
+}
+
+// Hàm xử lý kéo
 function handleMouseMove(e) {
+  var id = elementTarget.id;
+  elementTargetIndex = lessonList.findIndex((lesson) => lesson.id == id);
   shadowElementTarget.style.top = `${e.clientY - offsetY}px`;
   shadowElementTarget.style.left = `${e.clientX - offsetX}px`;
   elementTarget.style.opacity = "0.5";
   lessonContainer.append(shadowElementTarget);
+  lessonListEl.forEach((lessonEl) =>
+    lessonEl.addEventListener("mouseover", handleMouseOver)
+  );
 }
 
 // Hàm xử lý hành động nhả chuột ra khỏi chủ đề
@@ -53,6 +65,9 @@ function handleMouseUp() {
   elementTarget.style.opacity = "1";
   shadowElementTarget.remove();
   document.removeEventListener("mousemove", handleMouseMove);
+  // lessonListEl.forEach((lessonEl) =>
+  //   lessonEl.removeEventListener("mouseover", handleMouseOver)
+  // );
 }
 
 // Hàm kiểm tra type có phải lesson không
