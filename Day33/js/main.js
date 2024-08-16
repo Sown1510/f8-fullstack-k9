@@ -5,6 +5,7 @@ var elementTarget;
 var shadowElementTarget;
 var offsetY;
 var offsetX;
+
 // Hiện thị danh sách bài học
 function renderLesson() {
   var lessonCount = 0;
@@ -14,6 +15,7 @@ function renderLesson() {
     lessonEl.addEventListener("mousedown", handleDrag);
     lessonEl.id = content.id;
     lessonEl.classList = content.type;
+    lessonEl.dataset.index = `${index}`;
     var isALesson = isLesson(content); //Kiểm tra type của content
     lessonEl.innerHTML = `<p>${isALesson ? "Bài" : "Module"}<span> ${
       isALesson ? ++lessonCount : ++moduleCount
@@ -24,10 +26,6 @@ function renderLesson() {
 }
 
 renderLesson();
-
-function handleOver(e) {
-  console.log(e.currentTarget);
-}
 
 // Hàm xử lý kéo thả
 function handleDrag(e) {
@@ -42,11 +40,6 @@ function handleDrag(e) {
   document.addEventListener("mouseup", handleMouseUp);
 }
 
-// Xử lý khi kéo chủ đề qua
-function handleMouseOver(e) {
-  console.log(1);
-}
-
 // Hàm xử lý kéo
 function handleMouseMove(e) {
   var id = elementTarget.id;
@@ -55,9 +48,6 @@ function handleMouseMove(e) {
   shadowElementTarget.style.left = `${e.clientX - offsetX}px`;
   elementTarget.style.opacity = "0.5";
   lessonContainer.append(shadowElementTarget);
-  lessonListEl.forEach((lessonEl) =>
-    lessonEl.addEventListener("mouseover", handleMouseOver)
-  );
 }
 
 // Hàm xử lý hành động nhả chuột ra khỏi chủ đề
@@ -65,15 +55,9 @@ function handleMouseUp() {
   elementTarget.style.opacity = "1";
   shadowElementTarget.remove();
   document.removeEventListener("mousemove", handleMouseMove);
-  // lessonListEl.forEach((lessonEl) =>
-  //   lessonEl.removeEventListener("mouseover", handleMouseOver)
-  // );
 }
 
 // Hàm kiểm tra type có phải lesson không
 function isLesson(content) {
-  if (content.type === "lesson") {
-    return true;
-  }
-  return false;
+  return content.type === "lesson";
 }
