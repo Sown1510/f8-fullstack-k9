@@ -4,10 +4,6 @@
   margin: 0;
 }
 
-body {
-  position: relative;
-}
-
 .container {
   margin: 20px;
   width: 600px;
@@ -28,9 +24,7 @@ body {
   .module {
     background: #ff6f00;
   }
-  .shadow {
-    position: absolute;
+  .dragging {
     opacity: 0.6;
-    border: none;
   }
 }
