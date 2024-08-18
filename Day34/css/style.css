@@ -1,113 +1,120 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 .container {
-    width: 1200px;
-    margin: 5px auto
+  width: 1200px;
+  margin: 5px auto;
 }
 
 .heading {
-    border-bottom: 2px solid rgba(128, 128, 128, 0.663);
-    padding: 10px 0;
-    h2 {
-        font-size: 1.5rem;
-    }
+  border-bottom: 2px solid rgba(128, 128, 128, 0.663);
+  padding: 10px 0;
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 
 .toolbar {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    height: 40px;
-    .file-save-wrapper {
-        .save-file-button {
-            display: inline-block;
-            height: 100%;
-            width: 60px;
-            border-radius: 5px;
-            border: none;
-            background: #0b5ed7;
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            &:hover {
-                opacity: 0.8;
-            }
-        }
-        .file-name {
-            height: 100%;
-            width: 200px;
-            margin-left: 10px;
-        }
-        .save-file-type {
-            display: none;
-            position: absolute;
-            background: #fff;
-            padding: 10px 0;
-            border-radius: 5px;
-            background: #fff;
-            border: 1px solid gray;
-            .type-new,.type-txt,.type-pdf{
-                height: 30px;
-                padding: 10px 40px 10px 10px;
-                cursor: pointer;
-                align-content: center;
-                line-height: 10px;
-                &:hover {
-                    background: rgba(128, 128, 128, 0.222);
-                }
-            }
-        }
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  height: 40px;
+  .file-save-wrapper {
+    .save-file-button {
+      display: inline-block;
+      height: 100%;
+      width: 60px;
+      border-radius: 5px;
+      border: none;
+      background: #0b5ed7;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
     }
+    .file-name {
+      height: 100%;
+      width: 200px;
+      margin-left: 10px;
+    }
+    .save-file-type {
+      display: none;
+      position: absolute;
+      background: #fff;
+      padding: 10px 0;
+      border-radius: 5px;
+      background: #fff;
+      border: 1px solid gray;
+      .type-new,
+      .type-txt,
+      .type-pdf {
+        height: 30px;
+        padding: 10px 40px 10px 10px;
+        cursor: pointer;
+        align-content: center;
+        line-height: 10px;
+        &:hover {
+          background: rgba(128, 128, 128, 0.222);
+        }
+      }
+    }
+    .active {
+      display: block;
+    }
+  }
 
-    .text-format-wrapper {
-        display: flex;
-        gap: 10px;
-        .bold,.underline,.italic {
-            height: 100%;
-            width: 50px;
-            border: 1px solid black;
-            border-radius: 5px;
-            text-align: center;
-            align-content: center;
-            background: #000;
-            color: #fff;
-            cursor: pointer;
-            &:hover {
-                opacity: 0.8;
-            }
-        }
-        .color {
-            height: 100%;
-            border-radius: 2px;
-            border: 1px solid black;
-        }
+  .text-format-wrapper {
+    display: flex;
+    gap: 10px;
+    .bold,
+    .underline,
+    .italic {
+      height: 100%;
+      width: 50px;
+      border: 1px solid black;
+      border-radius: 5px;
+      text-align: center;
+      align-content: center;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
     }
+    .color {
+      height: 100%;
+      border-radius: 2px;
+      border: 1px solid black;
+    }
+  }
 }
 
 .text-input {
-    margin-top: 20px;
-    textarea  {
-        width: 100%;
-        height: 300px;
-        border: none;
-        border-radius: 5px;
-        box-shadow: 0px 0px 20px 1px #00000076 ;
-        outline: none;
-        padding: 25px 20px;
-        font-size: 1rem;
-    }
-    .count-text {
-        display: flex;
-        gap: 20px;
-        float: right;
-        margin-top: 25px;
-    }
+  margin-top: 20px;
+  .textarea {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 1px #00000076;
+    outline: none;
+    padding: 25px 20px;
+    font-size: 1rem;
+  }
+  .count-text {
+    display: flex;
+    gap: 20px;
+    float: right;
+    margin-top: 25px;
+  }
 }
