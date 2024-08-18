@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADING -->
+      <div class="heading">
+        <h2>Doc Editor</h2>
+      </div>
+      <!-- /HEADING -->
+
+      <!-- TOOLBAR -->
+      <div class="toolbar">
+        <!-- chọn loại save file -->
+        <div class="file-save-wrapper">
+          <button class="save-file-button">
+            File <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="save-file-type">
+            <div class="type-new">New</div>
+            <div class="type-txt">Save as TXT</div>
+            <div class="type-pdf">Save as PDF</div>
+          </div>
+          <input type="text" class="file-name" value="untitled" />
+        </div>
+        <!-- / -->
+        <!-- định dạng dữ liệu nhập -->
+        <div class="text-format-wrapper">
+          <div class="bold" style="font-weight: 1000">b</div>
+          <div class="underline" style="text-decoration: underline">u</div>
+          <div class="italic" style="font-style: italic">i</div>
+          <input type="color" id="color-btn" class="color" />
+        </div>
+        <!-- / -->
+      </div>
+      <!-- /TOOLBAR -->
+
+      <!-- TEXTINPUT -->
+      <div class="text-input">
+        <textarea
+          name="text-input"
+          id="text-input"
+          style="resize: none"
+        ></textarea>
+        <div class="count-text">
+          <p>Số ký tự: <span class="character">0</span></p>
+          <p>Số từ: <span class="word">0</span></p>
+        </div>
+      </div>
+      <!-- /TEXTINPUT -->
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
