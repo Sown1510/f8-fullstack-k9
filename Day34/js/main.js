@@ -102,6 +102,7 @@ function handleColorType() {
 function handleCreateNew() {
   textAreaInput.innerText = "";
   colorTypeButton.value = "#000000";
+  fileNameInput.value = "untitled";
   saveFileTypeContainer.classList.remove("active");
 }
 
