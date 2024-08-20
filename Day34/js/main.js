@@ -14,8 +14,10 @@ var saveFileButton = document.querySelector(
 var saveFileTypeContainer = document.querySelector(
   ".file-save-wrapper .save-file-type"
 );
-var textInputValue;
-var textInputSelected;
+var createNewButton = document.querySelector(".save-file-type .type-new");
+var exportTXTbutton = document.querySelector(".save-file-type .type-txt");
+var exportPDFbutton = document.querySelector(".save-file-type .type-pdf");
+var fileNameInput = document.querySelector(".file-save-wrapper .file-name");
 
 // Lắng nghe sự kiện ở DOM
 textAreaInput.addEventListener("keyup", handleCountText);
@@ -24,6 +26,7 @@ document.addEventListener("click", handleClickOutSaveFileContainer);
 boldTypeButton.addEventListener("click", handleBoldType);
 italicTypeButton.addEventListener("click", handleItalicType);
 underlineTypeButton.addEventListener("click", handleUnderlineType);
+colorTypeButton.addEventListener("click", handleColorType);
 textAreaInput.addEventListener("select", grabTextHighlight);
 boldTypeButton.addEventListener("mousedown", (e) => {
   e.preventDefault();
@@ -37,11 +40,18 @@ underlineTypeButton.addEventListener("mousedown", (e) => {
 colorTypeButton.addEventListener("mousedown", (e) => {
   e.preventDefault();
 });
-document.addEventListener("mouseup", grabTextHighlight);
-// document.addEventListener("keyup", grabTextHighlight);
+createNewButton.addEventListener("click", handleCreateNew);
+exportTXTbutton.addEventListener("click", exportTXT);
+exportPDFbutton.addEventListener("click", exportPDF);
 
 // Hàm xử lý đếm từ và ký tự
-function handleCountText() {}
+function handleCountText() {
+  var dataInputArray = textAreaInput.innerText.split(" ");
+  var characterCount = dataInputArray.join("").trim().length;
+  var wordCount = dataInputArray.length;
+  countCharacter.innerText = characterCount;
+  countWord.innerText = wordCount;
+}
 
 // Hàm xử lý lưu file
 function handleSaveFile() {
@@ -67,10 +77,52 @@ function grabTextHighlight() {
 }
 
 // Xử lý bôi đậm
-function handleBoldType(e) {}
+function handleBoldType() {
+  document.execCommand("bold");
+}
 
 // Xử lý gạch chân
-function handleUnderlineType(e) {}
+function handleUnderlineType() {
+  document.execCommand("underline");
+}
 
 // Xử lý chữ nghiêng
-function handleItalicType(e) {}
+function handleItalicType() {
+  document.execCommand("italic");
+}
+
+// Xử lý màu chữ
+function handleColorType() {
+  colorTypeButton.addEventListener("input", function () {
+    document.execCommand("foreColor", false, colorTypeButton.value);
+  });
+}
+
+// Hàm xử lý tạo mới
+function handleCreateNew() {
+  textAreaInput.innerText = "";
+  colorTypeButton.value = "#000000";
+  saveFileTypeContainer.classList.remove("active");
+}
+
+// Hàm xuất txt
+function exportTXT() {
+  var data = textAreaInput.innerText;
+  var blob = new Blob([data], { type: "text/plain" });
+  var link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `${fileNameInput.value}.txt`;
+  link.click();
+}
+
+// Hàm xuất pdf
+function exportPDF() {
+  const options = {
+    margin: 1,
+    filename: `${fileNameInput.value}.pdf`,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+  };
+  html2pdf().from(textAreaInput).set(options).save();
+}
