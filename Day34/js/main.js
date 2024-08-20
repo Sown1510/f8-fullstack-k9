@@ -46,9 +46,14 @@ exportPDFbutton.addEventListener("click", exportPDF);
 
 // Hàm xử lý đếm từ và ký tự
 function handleCountText() {
-  var dataInputArray = textAreaInput.innerText.split(" ");
-  var characterCount = dataInputArray.join("").trim().length;
-  var wordCount = dataInputArray.length;
+  var textContent = textAreaInput.innerText;
+  var textWithoutSpace = textContent.replace(/\s+/g, "");
+  var characterCount = textWithoutSpace.length;
+  var cleanContent = textContent
+    .replace(/\n+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  var wordCount = cleanContent ? cleanContent.split(" ").length : 0;
   countCharacter.innerText = characterCount;
   countWord.innerText = wordCount;
 }
@@ -103,6 +108,7 @@ function handleCreateNew() {
   textAreaInput.innerText = "";
   colorTypeButton.value = "#000000";
   fileNameInput.value = "untitled";
+  handleCountText();
   saveFileTypeContainer.classList.remove("active");
 }
 
@@ -127,3 +133,10 @@ function exportPDF() {
   };
   html2pdf().from(textAreaInput).set(options).save();
 }
+
+// Xử lý sự kiện paste để chỉ dán văn bản thuần
+textAreaInput.addEventListener("paste", function (e) {
+  e.preventDefault();
+  var text = (e.clipboardData || window.clipboardData).getData("text");
+  document.execCommand("insertText", false, text);
+});
