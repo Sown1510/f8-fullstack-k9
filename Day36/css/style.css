@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 40px auto;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+button {
+  display: block;
+  font-size: 2rem;
+  color: white;
+  background: red;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 5px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background: green;
+  }
+}
+
+.listening,
+.listened {
+  color: red;
+  text-align: center;
+  font-size: 1.5rem;
+  display: none;
+}
+
+.listening {
+  color: red;
+}
+
+.listened {
+  color: green;
+}
+
+.status {
+  margin-top: 10px;
+  border: 1px solid green;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  padding: 8px 0;
+  text-align: center;
+  display: none;
+}
+
+.active {
+  display: block;
+}
