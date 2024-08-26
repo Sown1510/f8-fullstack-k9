@@ -38,6 +38,7 @@ function handleListening() {
     };
 
     recognition.onend = (e) => {
+      var keywords = ["Chỉ đường", "Chỉ đường tới", "Tới", "Đường tới"];
       switch (keySearch) {
         case "Google":
           window.open("https://www.google.co.uk/");
@@ -59,9 +60,11 @@ function handleListening() {
           window.open("https://www.google.com/maps");
           handleStatus();
           break;
-        case "Vinhomes Smartcity Tây Mỗ":
-          window.open("https://www.google.com/maps");
-          handleStatus();
+        case keywords.some((keyword) => keySearch.includes(keyword)):
+          keywords.forEach((keyword) => {
+            keySearch.replace(keyword, "");
+          });
+          window.open("");
           break;
         default:
           statusPending.classList.remove("active");
