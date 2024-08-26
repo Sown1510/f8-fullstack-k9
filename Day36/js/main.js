@@ -38,7 +38,9 @@ function handleListening() {
     };
 
     recognition.onend = (e) => {
-      var keywords = ["Chỉ đường", "Chỉ đường tới", "Tới", "Đường tới"];
+      var keywordsMap = ["chỉ đường", "chỉ đường tới", "tới", "đường tới"];
+      var keywordsMusic = ["bài hát", "mở bài hát", "nghe bài hát"];
+      var keywordsVideo = ["video", "mở video", "xem video"];
       switch (keySearch) {
         case "Google":
           window.open("https://www.google.co.uk/");
@@ -60,21 +62,60 @@ function handleListening() {
           window.open("https://www.google.com/maps");
           handleStatus();
           break;
-        case keywords.some((keyword) => keySearch.includes(keyword)):
-          keywords.forEach((keyword) => {
-            keySearch.replace(keyword, "");
-          });
-          window.open(
-            `https://www.google.com/maps/search/?api=1&query=${keySearch.replace(
-              " ",
-              "+"
-            )}`
-          );
-          break;
         default:
-          statusPending.classList.remove("active");
-          statusError.classList.add("active");
-          break;
+          if (
+            keywordsMap.some((keyword) =>
+              keySearch.toLowerCase().includes(keyword)
+            )
+          ) {
+            keywordsMap.forEach((keyword) => {
+              keySearch.replace(keyword, "");
+            });
+            window.open(
+              `https://www.google.com/maps/search/?api=1&query=${keySearch.replace(
+                " ",
+                "+"
+              )}`
+            );
+            handleStatus();
+            break;
+          } else if (
+            keywordsMusic.some((keyword) =>
+              keySearch.toLowerCase().includes(keyword)
+            )
+          ) {
+            keywordsMusic.forEach((keyword) => {
+              keySearch.replace(keyword, "");
+            });
+            window.open(
+              `https://zingmp3.vn/tim-kiem/tat-ca?q=${keySearch.replace(
+                " ",
+                "+"
+              )}`
+            );
+            handleStatus();
+            break;
+          } else if (
+            keywordsVideo.some((keyword) =>
+              keySearch.toLowerCase().includes(keyword)
+            )
+          ) {
+            keywordsVideo.forEach((keyword) => {
+              keySearch.replace(keyword, "");
+            });
+            window.open(
+              `https://www.youtube.com/results?search_query=${keySearch.replace(
+                " ",
+                "+"
+              )}`
+            );
+            handleStatus();
+            break;
+          } else {
+            statusPending.classList.remove("active");
+            statusError.classList.add("active");
+            break;
+          }
       }
     };
 
