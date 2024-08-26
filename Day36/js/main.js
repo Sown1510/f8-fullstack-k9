@@ -64,7 +64,12 @@ function handleListening() {
           keywords.forEach((keyword) => {
             keySearch.replace(keyword, "");
           });
-          window.open("");
+          window.open(
+            `https://www.google.com/maps/search/?api=1&query=${keySearch.replace(
+              " ",
+              "+"
+            )}`
+          );
           break;
         default:
           statusPending.classList.remove("active");
