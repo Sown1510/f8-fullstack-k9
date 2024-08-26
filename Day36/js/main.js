@@ -55,6 +55,14 @@ function handleListening() {
           window.open("https://www.google.com/drive/");
           handleStatus();
           break;
+        case "Google Maps":
+          window.open("https://www.google.com/maps");
+          handleStatus();
+          break;
+        case "Vinhomes Smartcity Tây Mỗ":
+          window.open("https://www.google.com/maps");
+          handleStatus();
+          break;
         default:
           statusPending.classList.remove("active");
           statusError.classList.add("active");
