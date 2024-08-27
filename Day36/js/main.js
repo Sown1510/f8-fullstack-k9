@@ -63,6 +63,7 @@ function handleListening() {
           handleStatus();
           break;
         default:
+          // Chỉ đường
           if (
             keywordsMap.some((keyword) =>
               keySearch.toLowerCase().includes(keyword)
@@ -79,7 +80,9 @@ function handleListening() {
             );
             handleStatus();
             break;
-          } else if (
+          }
+          // Tìm nhạc
+          else if (
             keywordsMusic.some((keyword) =>
               keySearch.toLowerCase().includes(keyword)
             )
@@ -95,7 +98,9 @@ function handleListening() {
             );
             handleStatus();
             break;
-          } else if (
+          }
+          // Tìm video
+          else if (
             keywordsVideo.some((keyword) =>
               keySearch.toLowerCase().includes(keyword)
             )
