@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.zoom-container {
+  display: flex;
+}
+
+img {
+  margin: 0;
+  border: none;
+  display: block;
+}
+
+.image-box {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  border: 3px solid red;
+}
+
+.lens {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  border: 3px solid blue;
+  display: none;
+}
+
+.image-zoomed {
+  width: 600px;
+  height: 400px;
+  background-size: 200%;
+  border: 3px solid green;
+  background-image: url(https://fastly.picsum.photos/id/8/1000/800.jpg?hmac=LnjQiCGwHZgdL4vYZKG8GA5o0CUGMEpfvYK5JygaYjs);
+  background-repeat: no-repeat;
+}
