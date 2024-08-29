@@ -47,8 +47,10 @@ function handleMouseOut() {
 
 // Hàm xử lý zoom ảnh
 function handleZoomImage(x, y) {
+  let height = lens.clientHeight;
+  let width = lens.clientWidth;
   let rect = image.getBoundingClientRect();
-  let startX = ((x - rect.left) / image.offsetWidth) * 100;
-  let startY = ((y - rect.top) / image.offsetHeight) * 100;
+  let startX = ((x - rect.left + width / 2) / image.offsetWidth) * 100;
+  let startY = ((y - rect.top + height / 2) / image.offsetHeight) * 100;
   imageZoom.style.backgroundPosition = `${startX}% ${startY}%`;
 }
