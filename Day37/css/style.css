@@ -30,9 +30,9 @@ img {
 }
 
 .image-zoomed {
-  width: 600px;
-  height: 400px;
-  background-size: 200%;
+  width: 900px;
+  height: 600px;
+  background-size: 300%;
   border: 3px solid green;
   background-image: url(https://fastly.picsum.photos/id/8/1000/800.jpg?hmac=LnjQiCGwHZgdL4vYZKG8GA5o0CUGMEpfvYK5JygaYjs);
   background-repeat: no-repeat;

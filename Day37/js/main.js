@@ -11,6 +11,7 @@ imageBox.addEventListener("mouseout", handleMouseOut);
 
 // Hàm xử lý khi di chuột vào ảnh
 function handleMouseEnter() {
+  imageZoom.style.display = "block";
   lens.style.display = "block";
   function handleMouseMove(e) {
     if (e.clientX + lens.clientWidth / 2 + 6 >= imageBox.clientWidth) {
@@ -33,7 +34,7 @@ function handleMouseEnter() {
       y = e.clientY - lens.clientHeight / 2;
       lens.style.top = `${y}px`;
     }
-    handleZoomImage(x, y);
+    handleZoomImage(e.clientX, e.clientY);
   }
   document.addEventListener("mousemove", handleMouseMove);
 }
@@ -41,13 +42,13 @@ function handleMouseEnter() {
 // Hàm xử lý khi di chuột ra ngoài ảnh
 function handleMouseOut() {
   lens.style.display = "none";
+  imageZoom.style.display = "none";
 }
 
 // Hàm xử lý zoom ảnh
 function handleZoomImage(x, y) {
-  let startX = x;
-  let startY = y;
-  let width = lens.clientWidth;
-  let height = lens.clientHeight;
-  imageZoom.style.backgroundPosition = `-${startX}px -${startY}px`;
+  let rect = image.getBoundingClientRect();
+  let startX = ((x - rect.left) / image.offsetWidth) * 100;
+  let startY = ((y - rect.top) / image.offsetHeight) * 100;
+  imageZoom.style.backgroundPosition = `${startX}% ${startY}%`;
 }
