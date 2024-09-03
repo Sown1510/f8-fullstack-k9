@@ -34,7 +34,7 @@ function handleMouseEnter() {
       y = e.clientY - lens.clientHeight / 2;
       lens.style.top = `${y}px`;
     }
-    handleZoomImage(e.clientX, e.clientY);
+    handleZoomImage(x, y);
   }
   document.addEventListener("mousemove", handleMouseMove);
 }
@@ -47,10 +47,11 @@ function handleMouseOut() {
 
 // Hàm xử lý zoom ảnh
 function handleZoomImage(x, y) {
+  let startX = x;
+  let startY = y;
+  console.log(x, y);
   let height = lens.clientHeight;
   let width = lens.clientWidth;
   let rect = image.getBoundingClientRect();
-  let startX = ((x - rect.left) / image.offsetWidth) * 100;
-  let startY = ((y - rect.top) / image.offsetHeight) * 100;
-  imageZoom.style.backgroundPosition = `${startX}% ${startY}%`;
+  imageZoom.style.backgroundPosition = `-${startX}px -${startY}px`;
 }

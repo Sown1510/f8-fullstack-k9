@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  height: 100vh;
+  position: relative;
+}
+
+.todo-app {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 736px;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.header {
+  h1 {
+    font-size: 3.6rem;
+  }
+  span {
+    background: linear-gradient(90deg, #60a5fa, #059669);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+.todo-actions {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  .search-box {
+    width: 100%;
+    position: relative;
+    .search-input {
+      padding: 16px;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .search-btn {
+      position: absolute;
+      background: #1d4ed8;
+      border: none;
+      padding: 13px 16px;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 8px;
+      cursor: pointer;
+      color: #ffffff;
+    }
+  }
+  .add-todo {
+    align-content: center;
+    .add-todo-btn {
+      background: #047857;
+      border-radius: 8px;
+      padding: 13px 16px;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.todo-lists-wrapper {
+  width: 100%;
+  .todo-lists {
+    margin-top: 24px;
+    width: 100%;
+    .task {
+      margin-top: 12px;
+      display: flex;
+      width: 100%;
+      box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.322);
+      gap: 16px;
+      justify-content: space-between;
+      padding: 13px 16px;
+      border-radius: 8px;
+      p {
+        width: 100%;
+        align-content: center;
+        font-size: 1.6rem;
+        overflow: auto;
+      }
+      .task-action {
+        white-space: nowrap;
+        button {
+          width: 40px;
+          height: 40px;
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+          color: #fff;
+        }
+        .delete {
+          background: #be123c;
+        }
+        .edit {
+          background: #1d4ed8;
+        }
+        .check {
+          background: #9ca3af;
+        }
+      }
+    }
+  }
+}
+
+.completed-todos-wrapper {
+  width: 100%;
+  margin-top: 12px;
+  .show-completed-todos-btn {
+    width: fit-content;
+    color: #ffffff;
+    font-size: 1.6rem;
+    background: #047857;
+    padding: 13px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    .fa-circle-arrow-right {
+      display: none;
+      margin-left: 5px;
+    }
+    .fa-circle-arrow-down {
+      display: none;
+      margin-left: 5px;
+    }
+    .active {
+      display: inline-block;
+    }
+  }
+  .completed-todos {
+    .task {
+      margin-top: 12px;
+      display: flex;
+      width: 100%;
+      box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.322);
+      gap: 16px;
+      justify-content: space-between;
+      padding: 13px 16px;
+      border-radius: 8px;
+      p {
+        overflow: auto;
+        width: 100%;
+        align-content: center;
+        font-size: 1.6rem;
+      }
+      .task-action {
+        white-space: nowrap;
+        button {
+          width: 40px;
+          height: 40px;
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+          color: #fff;
+        }
+        .delete {
+          background: #be123c;
+        }
+        .edit {
+          background: #1d4ed8;
+        }
+        .check {
+          background: #047857;
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(128, 128, 128, 0.253);
+  z-index: 9999;
+  .todo-input-box {
+    background: #ffffff;
+    border-radius: 8px;
+    .todo-input {
+      padding: 24px;
+      input {
+        padding: 16px;
+        width: 400px;
+        border-radius: 8px;
+        border: 1px solid rgba(128, 128, 128, 0.349);
+        font-size: 1.6rem;
+      }
+    }
+    .add-todo-action {
+      padding: 16px;
+      border-top: 1px solid rgba(128, 128, 128, 0.158);
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      button {
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.6rem;
+      }
+      .save {
+        background: #047857;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.overlay.active {
+  visibility: visible;
+}
