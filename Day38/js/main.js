@@ -41,8 +41,8 @@ showCompletedTodosBtn.addEventListener("click", handleShowCompletedTask);
 
 // Hàm render dữ liệu
 (async function renderData() {
-  const getTaskResponse = await fetch("http://localhost:3000/tasks");
-  const getDoneTaskResponse = await fetch("http://localhost:3000/done");
+  const getTaskResponse = await fetch("http://r104.uk.to:6868/tasks");
+  const getDoneTaskResponse = await fetch("http://r104.uk.to:6868/done");
   const tasks = await getTaskResponse.json();
   const done = await getDoneTaskResponse.json();
   doneTaskQuantity = done.length;
@@ -179,7 +179,7 @@ function handleSaveData(e) {
     path = "done";
   }
   if (taskId) {
-    const url = `http://localhost:3000/${path}/${taskId}`;
+    const url = `http://r104.uk.to:6868/${path}/${taskId}`;
     const options = {
       method: "PUT",
       headers: {
@@ -191,7 +191,7 @@ function handleSaveData(e) {
     };
     commitData(url, options);
   } else {
-    const url = "http://localhost:3000/tasks";
+    const url = "http://r104.uk.to:6868/tasks";
     const options = {
       method: "POST",
       headers: {
@@ -220,7 +220,7 @@ function handleDeleteTask(e) {
   const isDoneTask = taskTarget.classList.contains("done-task");
   let path = "tasks";
   if (isDoneTask) path = "done";
-  const url = `http://localhost:3000/${path}/${taskTargetId}`;
+  const url = `http://r104.uk.to:6868/${path}/${taskTargetId}`;
   const options = {
     method: "DELETE",
   };
@@ -236,7 +236,7 @@ function handleCheckTask(e) {
   const isDoneTask = taskTarget.classList.contains("done-task");
   let path = "done";
   if (isDoneTask) path = "tasks";
-  const url = `http://localhost:3000/${path}`;
+  const url = `http://r104.uk.to:6868/${path}`;
   const options = {
     method: "POST",
     headers: {
