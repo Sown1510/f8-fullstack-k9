@@ -150,6 +150,7 @@ ul {
     }
   }
   .completed-todos {
+    visibility: hidden;
     .task {
       margin-top: 12px;
       display: flex;
@@ -187,6 +188,9 @@ ul {
       }
     }
   }
+}
+.completed-todos.active {
+  visibility: visible;
 }
 
 .overlay {

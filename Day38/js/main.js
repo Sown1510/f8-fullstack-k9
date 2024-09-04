@@ -9,6 +9,9 @@ const completedTodoListEl = document.querySelector(
 );
 const countTaskEl = document.querySelector(".show-completed-todos-btn span");
 const saveDataBtn = addTaskBoxEl.querySelector(".add-todo-action .save");
+const showCompletedTodosBtn = document.querySelector(
+  ".show-completed-todos-btn"
+);
 let editTaskBtn = document.querySelectorAll(
   ".todo-lists-wrapper .todo-lists .task .task-action .edit"
 );
@@ -33,6 +36,7 @@ let doneTaskQuantity;
 addTaskBtn.addEventListener("click", handleAddTask);
 cancelAddTaskBtn.addEventListener("click", handleCancelAddTask);
 saveDataBtn.addEventListener("click", handleSaveData);
+showCompletedTodosBtn.addEventListener("click", handleShowCompletedTask);
 // CÁC HÀM XỬ LÝ
 
 // Hàm render dữ liệu
@@ -42,7 +46,7 @@ saveDataBtn.addEventListener("click", handleSaveData);
   const tasks = await getTaskResponse.json();
   const done = await getDoneTaskResponse.json();
   doneTaskQuantity = done.length;
-  tasks.forEach((task) => {
+  tasks.reverse().forEach((task) => {
     const newTask = document.createElement("li");
     newTask.dataset.id = task.id;
     newTask.classList.add("task");
@@ -62,7 +66,7 @@ saveDataBtn.addEventListener("click", handleSaveData);
     `;
     todoListsEl.append(newTask);
   });
-  done.forEach((task) => {
+  done.reverse().forEach((task) => {
     const doneTask = document.createElement("li");
     doneTask.dataset.id = task.id;
     doneTask.classList.add("task");
@@ -199,6 +203,13 @@ function handleSaveData(e) {
     };
     commitData(url, options);
   }
+}
+
+// Hàm show completed task
+function handleShowCompletedTask() {
+  completedTodoListEl.classList.toggle("active");
+  showCompletedTodosBtn.children[1].classList.toggle("active");
+  showCompletedTodosBtn.children[2].classList.toggle("active");
 }
 
 // Xử lý xoá dữ liệu
