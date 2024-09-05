@@ -41,8 +41,8 @@ showCompletedTodosBtn.addEventListener("click", handleShowCompletedTask);
 
 // Hàm render dữ liệu
 (async function renderData() {
-  const getTaskResponse = await fetch("http://171.237.239.230:6868/tasks");
-  const getDoneTaskResponse = await fetch("http://171.237.239.230:6868/done");
+  const getTaskResponse = await fetch("https://sw3lqn-8080.csb.app/tasks");
+  const getDoneTaskResponse = await fetch("https://sw3lqn-8080.csb.app/done");
   const tasks = await getTaskResponse.json();
   const done = await getDoneTaskResponse.json();
   doneTaskQuantity = done.length;
@@ -179,7 +179,7 @@ function handleSaveData(e) {
     path = "done";
   }
   if (taskId) {
-    const url = `http://171.237.239.230:6868/${path}/${taskId}`;
+    const url = `https://sw3lqn-8080.csb.app/${path}/${taskId}`;
     const options = {
       method: "PUT",
       headers: {
@@ -191,7 +191,7 @@ function handleSaveData(e) {
     };
     commitData(url, options);
   } else {
-    const url = "http://171.237.239.230:6868/tasks";
+    const url = "https://sw3lqn-8080.csb.app/tasks";
     const options = {
       method: "POST",
       headers: {
@@ -220,7 +220,7 @@ function handleDeleteTask(e) {
   const isDoneTask = taskTarget.classList.contains("done-task");
   let path = "tasks";
   if (isDoneTask) path = "done";
-  const url = `http://171.237.239.230:6868/${path}/${taskTargetId}`;
+  const url = `https://sw3lqn-8080.csb.app/${path}/${taskTargetId}`;
   const options = {
     method: "DELETE",
   };
@@ -236,7 +236,7 @@ function handleCheckTask(e) {
   const isDoneTask = taskTarget.classList.contains("done-task");
   let path = "done";
   if (isDoneTask) path = "tasks";
-  const url = `http://171.237.239.230:6868/${path}`;
+  const url = `https://sw3lqn-8080.csb.app/${path}`;
   const options = {
     method: "POST",
     headers: {
