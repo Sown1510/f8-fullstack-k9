@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-app">
+        <!-- HEADER -->
+        <div class="header">
+          <h1><span>Smatyx</span> Todos App</h1>
+        </div>
+        <!-- /HEADER -->
+        <!-- TODO ACTIONS -->
+        <div class="todo-actions">
+          <!-- SEARCH BOX -->
+          <div class="search-box">
+            <input
+              type="search"
+              class="search-input"
+              placeholder="Search Todos"
+              aria-label="Search"
+            />
+            <button class="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <!-- /SEARCH BOX -->
+          <!-- ADD TODO -->
+          <div class="add-todo">
+            <button class="add-todo-btn">Add Todos</button>
+          </div>
+          <!-- /ADD TODO -->
+        </div>
+        <!-- /TODO ACTIONS -->
+        <!-- TODO LISTS -->
+        <div class="todo-lists-wrapper">
+          <ul class="todo-lists">
+            <!-- <li class="task" data-id="1">
+              <p>Smatyx Todos Apps</p>
+              <div class="task-action">
+                <button class="delete">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+                <button class="edit">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="check">
+                  <i class="fa-solid fa-check-to-slot"></i>
+                </button>
+              </div>
+            </li>
+            <li class="task" data-id="2">
+              <p>Smatyx Todos Apps</p>
+              <div class="task-action">
+                <button class="delete">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+                <button class="edit">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="check">
+                  <i class="fa-solid fa-check-to-slot"></i>
+                </button>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+        <!-- /TODO LISTS -->
+        <!-- COMPLETED TODOS -->
+        <div class="completed-todos-wrapper">
+          <div class="show-completed-todos-btn">
+            Completed Todos <span></span
+            ><i class="fa-solid fa-circle-arrow-right active"></i
+            ><i class="fa-solid fa-circle-arrow-down"></i>
+          </div>
+          <ul class="completed-todos">
+            <!-- <li class="task">
+              <p>Smatyx Todos Apps</p>
+              <div class="task-action">
+                <button class="delete">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+                <button class="edit">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="check done">
+                  <i class="fa-solid fa-check-to-slot"></i>
+                </button>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+        <!-- /COMPLETED TODOS -->
+      </div>
+      <!-- OVERLAY ADD TASK -->
+      <div class="overlay">
+        <div class="todo-input-box">
+          <div class="todo-input">
+            <input type="text" placeholder="Add Todos" />
+          </div>
+          <div class="add-todo-action">
+            <button class="save">Save</button>
+            <button class="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <!-- /OVERLAY ADD TASK -->
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
