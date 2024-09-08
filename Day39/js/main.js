@@ -2,6 +2,7 @@
 const endPoint = "https://sw3lqn-8080.csb.app";
 const newTaskPath = "/tasks";
 const doneTaskPath = "/done";
+var reRender = false;
 var newTasks = [];
 var doneTasks = [];
 const searchInputEl = document.querySelector(".search-input");
@@ -150,9 +151,10 @@ function renderData(newTasks, doneTasks) {
 }
 
 // Hàm xử lý dữ liệu với db
-async function commitData(url, options) {
+async function commitData(url, options, reRender) {
   const response = await fetch(url, options);
-  getData();
+  if (reRender) getData();
+  reRender = false;
 }
 
 // Hàm thêm task vào todo
@@ -214,7 +216,23 @@ function handleSaveData(e) {
         value: value,
       }),
     };
-    commitData(url, options);
+    commitData(url, options, reRender);
+    if (isDoneTask) {
+      doneTasks.forEach((task) => {
+        if (task.id == taskId) {
+          task.value = value;
+          return;
+        }
+      });
+    } else {
+      newTasks.forEach((task) => {
+        if (task.id == taskId) {
+          task.value = value;
+          return;
+        }
+      });
+    }
+    renderData(newTasks, doneTasks);
   } else {
     const url = `${endPoint + newTaskPath}`;
     const options = {
@@ -226,9 +244,11 @@ function handleSaveData(e) {
         value: value,
       }),
     };
-    commitData(url, options);
+    reRender = true;
+    commitData(url, options, reRender);
   }
   addTaskBoxEl.classList.remove("active");
+  inputEl.value = "";
 }
 
 // Hàm show completed task
@@ -250,7 +270,15 @@ function handleDeleteTask(e) {
   const options = {
     method: "DELETE",
   };
-  commitData(url, options);
+  commitData(url, options, reRender);
+  if (isDoneTask) {
+    const index = doneTasks.findIndex((task) => task.id == taskTargetId);
+    doneTasks.splice(index, 1);
+  } else {
+    const index = newTasks.findIndex((task) => task.id == taskTargetId);
+    newTasks.splice(index, 1);
+  }
+  renderData(newTasks, doneTasks);
 }
 
 // Xử lý đánh dấu hoàn thành task
@@ -273,7 +301,12 @@ function handleCheckTask(e) {
       id: taskTargetId,
     }),
   };
-  commitData(url, options);
+  commitData(url, options, reRender);
+  if (isDoneTask) {
+    newTasks.push({ value: `${value}`, id: taskTargetId });
+  } else {
+    doneTasks.push({ value: `${value}`, id: taskTargetId });
+  }
   handleDeleteTask(e);
 }
 
