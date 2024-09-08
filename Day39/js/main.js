@@ -2,6 +2,7 @@
 const endPoint = "https://sw3lqn-8080.csb.app";
 const newTaskPath = "/tasks";
 const doneTaskPath = "/done";
+var isNewTask = false;
 var reRender = false;
 var newTasks = [];
 var doneTasks = [];
@@ -160,6 +161,7 @@ async function commitData(url, options, reRender) {
 
 // Hàm thêm task vào todo
 function handleAddNewTask(e) {
+  isNewTask = true;
   addTaskBoxEl.classList.add("active");
   addTaskInput.focus();
 }
@@ -206,7 +208,7 @@ function handleSaveData(e) {
   if (isDoneTask) {
     path = "done";
   }
-  if (taskId) {
+  if (taskId && !isNewTask) {
     const url = `${endPoint}/${path}/${taskId}`;
     const options = {
       method: "PUT",
@@ -247,6 +249,7 @@ function handleSaveData(e) {
     };
     reRender = true;
     commitData(url, options, reRender);
+    isNewTask = false;
   }
   addTaskBoxEl.classList.remove("active");
   inputEl.value = "";
