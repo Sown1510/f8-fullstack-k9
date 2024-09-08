@@ -1,5 +1,13 @@
 // Lấy các phần tử DOM
-const addTaskBtn = document.querySelector(".add-todo .add-todo-btn");
+const endPoint = "https://sw3lqn-8080.csb.app";
+const newTaskPath = "/tasks";
+const doneTaskPath = "/done";
+var newTasks = [];
+var doneTasks = [];
+const searchInputEl = document.querySelector(".search-input");
+const searchBtn = document.querySelector(".search-btn");
+const searchForm = document.querySelector(".search-box");
+const addNewTaskBtn = document.querySelector(".add-todo .add-todo-btn");
 const addTaskBoxEl = document.querySelector(".overlay");
 const cancelAddTaskBtn = addTaskBoxEl.querySelector(".add-todo-action .cancel");
 const addTaskInput = addTaskBoxEl.querySelector(".todo-input input");
@@ -33,61 +41,76 @@ let checkDoneTaskBtn = document.querySelectorAll(
 let doneTaskQuantity;
 
 // Lắng nghe sự kiện
-addTaskBtn.addEventListener("click", handleAddTask);
+addNewTaskBtn.addEventListener("click", handleAddNewTask);
 cancelAddTaskBtn.addEventListener("click", handleCancelAddTask);
 saveDataBtn.addEventListener("click", handleSaveData);
 showCompletedTodosBtn.addEventListener("click", handleShowCompletedTask);
-// CÁC HÀM XỬ LÝ
+searchBtn.addEventListener("click", handleSearch);
+searchInputEl.addEventListener("blur", handleSearch);
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+const createNewTaskHTML = (tasks) => {
+  let data = "";
+  tasks.forEach((task) => {
+    data += `
+      <li data-id="${task.id}" class="task">
+        <p>${task.value}</p>
+        <div class="task-action">
+            <button class="delete">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+            <button class="edit">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="check">
+                <i class="fa-solid fa-check-to-slot"></i>
+            </button>
+        </div>
+      </li>
+    `;
+  });
+  return data;
+};
 
-// Hàm render dữ liệu
-(async function renderData() {
-  const getTaskResponse = await fetch("https://sw3lqn-8080.csb.app/tasks");
-  const getDoneTaskResponse = await fetch("https://sw3lqn-8080.csb.app/done");
-  const tasks = await getTaskResponse.json();
-  const done = await getDoneTaskResponse.json();
-  doneTaskQuantity = done.length;
-  tasks.reverse().forEach((task) => {
-    const newTask = document.createElement("li");
-    newTask.dataset.id = task.id;
-    newTask.classList.add("task");
-    newTask.innerHTML = `
-            <p>${task.value}</p>
-            <div class="task-action">
-                <button class="delete">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
-                <button class="edit">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button class="check">
-                    <i class="fa-solid fa-check-to-slot"></i>
-                </button>
-            </div>
+const createDoneTaskHTML = (tasks) => {
+  let data = "";
+  tasks.forEach((task) => {
+    data += `
+    <li data-id="${task.id}" class="task done-task">
+      <p>${task.value}</p>
+      <div class="task-action">
+          <button class="delete">
+              <i class="fa-solid fa-trash-can"></i>
+          </button>
+          <button class="edit">
+              <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="check done">
+              <i class="fa-solid fa-check-to-slot"></i>
+          </button>
+      </div>
+    </li>
     `;
-    todoListsEl.append(newTask);
   });
-  done.reverse().forEach((task) => {
-    const doneTask = document.createElement("li");
-    doneTask.dataset.id = task.id;
-    doneTask.classList.add("task");
-    doneTask.classList.add("done-task");
-    doneTask.innerHTML = `
-            <p>${task.value}</p>
-            <div class="task-action">
-                <button class="delete">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
-                <button class="edit">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button class="check done">
-                    <i class="fa-solid fa-check-to-slot"></i>
-                </button>
-            </div>
-    `;
-    completedTodoListEl.append(doneTask);
-  });
+  return data;
+};
+
+const getData = async () => {
+  const getNewTaskResponse = await fetch(`${endPoint + newTaskPath}`);
+  newTasks = await getNewTaskResponse.json();
+  const getDoneTaskResponse = await fetch(`${endPoint + doneTaskPath}`);
+  doneTasks = await getDoneTaskResponse.json();
+  renderData(newTasks, doneTasks);
+};
+getData();
+
+function renderData(newTasks, doneTasks) {
+  todoListsEl.innerHTML = createNewTaskHTML(newTasks);
+  doneTaskQuantity = doneTasks.length;
+  completedTodoListEl.innerHTML = createDoneTaskHTML(doneTasks);
   countTaskEl.innerText = doneTaskQuantity;
+
   editTaskBtn = document.querySelectorAll(
     ".todo-lists-wrapper .todo-lists .task .task-action .edit"
   );
@@ -107,7 +130,7 @@ showCompletedTodosBtn.addEventListener("click", handleShowCompletedTask);
     ".completed-todos-wrapper .completed-todos .task .task-action .check"
   );
   editTaskBtn.forEach((editBtn) =>
-    editBtn.addEventListener("click", handleEditTask)
+    editBtn.addEventListener("click", handleEditNewTask)
   );
   deleteTaskBtn.forEach((deleteBtn) =>
     deleteBtn.addEventListener("click", handleDeleteTask)
@@ -124,15 +147,16 @@ showCompletedTodosBtn.addEventListener("click", handleShowCompletedTask);
   checkDoneTaskBtn.forEach((checkBtn) =>
     checkBtn.addEventListener("click", handleCheckTask)
   );
-})();
+}
 
 // Hàm xử lý dữ liệu với db
 async function commitData(url, options) {
   const response = await fetch(url, options);
+  getData();
 }
 
 // Hàm thêm task vào todo
-function handleAddTask(e) {
+function handleAddNewTask(e) {
   addTaskBoxEl.classList.add("active");
   addTaskInput.focus();
 }
@@ -144,7 +168,7 @@ function handleCancelAddTask() {
 }
 
 // Hàm xử lý chỉnh sửa task
-function handleEditTask(e) {
+function handleEditNewTask(e) {
   const btnTarget = e.currentTarget;
   const taskTarget = btnTarget.parentElement.parentElement;
   let value = taskTarget.querySelector("p").innerText;
@@ -173,13 +197,14 @@ function handleSaveData(e) {
   const inputEl = saveBtn.parentElement.previousElementSibling.children[0];
   const taskId = inputEl.dataset.id;
   const value = inputEl.value;
+  if (!value) return;
   const isDoneTask = inputEl.classList.contains("done-task");
   let path = "tasks";
   if (isDoneTask) {
     path = "done";
   }
   if (taskId) {
-    const url = `https://sw3lqn-8080.csb.app/${path}/${taskId}`;
+    const url = `${endPoint}/${path}/${taskId}`;
     const options = {
       method: "PUT",
       headers: {
@@ -191,7 +216,7 @@ function handleSaveData(e) {
     };
     commitData(url, options);
   } else {
-    const url = "https://sw3lqn-8080.csb.app/tasks";
+    const url = `${endPoint + newTaskPath}`;
     const options = {
       method: "POST",
       headers: {
@@ -203,6 +228,7 @@ function handleSaveData(e) {
     };
     commitData(url, options);
   }
+  addTaskBoxEl.classList.remove("active");
 }
 
 // Hàm show completed task
@@ -220,7 +246,7 @@ function handleDeleteTask(e) {
   const isDoneTask = taskTarget.classList.contains("done-task");
   let path = "tasks";
   if (isDoneTask) path = "done";
-  const url = `https://sw3lqn-8080.csb.app/${path}/${taskTargetId}`;
+  const url = `${endPoint}/${path}/${taskTargetId}`;
   const options = {
     method: "DELETE",
   };
@@ -249,4 +275,19 @@ function handleCheckTask(e) {
   };
   commitData(url, options);
   handleDeleteTask(e);
+}
+
+function handleSearch() {
+  const searchKey = searchInputEl.value.toLowerCase();
+  if (!searchKey) {
+    renderData(newTasks, doneTasks);
+  } else {
+    const filterNewTasks = newTasks.filter((task) => {
+      return task.value.toLowerCase().includes(searchKey);
+    });
+    const filterDoneTasks = doneTasks.filter((task) => {
+      return task.value.toLowerCase().includes(searchKey);
+    });
+    renderData(filterNewTasks, filterDoneTasks);
+  }
 }
