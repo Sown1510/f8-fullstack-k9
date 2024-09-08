@@ -216,7 +216,7 @@ function handleSaveData(e) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        value: value,
+        value: escapeHTML(value),
       }),
     };
     commitData(url, options, reRender);
@@ -244,7 +244,7 @@ function handleSaveData(e) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        value: value,
+        value: escapeHTML(value),
       }),
     };
     reRender = true;
@@ -315,7 +315,7 @@ function handleCheckTask(e) {
 }
 
 function handleSearch() {
-  const searchKey = searchInputEl.value.toLowerCase();
+  const searchKey = escapeHTML(searchInputEl.value.toLowerCase());
   if (!searchKey) {
     renderData(newTasks, doneTasks);
   } else {
@@ -327,4 +327,13 @@ function handleSearch() {
     });
     renderData(filterNewTasks, filterDoneTasks);
   }
+}
+
+function escapeHTML(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
 }
