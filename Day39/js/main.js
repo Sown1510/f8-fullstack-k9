@@ -201,7 +201,7 @@ function handleSaveData(e) {
   const saveBtn = e.currentTarget;
   const inputEl = saveBtn.parentElement.previousElementSibling.children[0];
   const taskId = inputEl.dataset.id;
-  const value = inputEl.value;
+  const value = escapeHTML(inputEl.value);
   if (!value) return;
   const isDoneTask = inputEl.classList.contains("done-task");
   let path = "tasks";
@@ -216,7 +216,7 @@ function handleSaveData(e) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        value: escapeHTML(value),
+        value: value,
       }),
     };
     commitData(url, options, reRender);
@@ -244,7 +244,7 @@ function handleSaveData(e) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        value: escapeHTML(value),
+        value: value,
       }),
     };
     reRender = true;
