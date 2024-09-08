@@ -103,6 +103,7 @@ const getData = async () => {
   const getDoneTaskResponse = await fetch(`${endPoint + doneTaskPath}`);
   doneTasks = await getDoneTaskResponse.json();
   renderData(newTasks, doneTasks);
+  reRender = false;
 };
 getData();
 
@@ -153,8 +154,8 @@ function renderData(newTasks, doneTasks) {
 // Hàm xử lý dữ liệu với db
 async function commitData(url, options, reRender) {
   const response = await fetch(url, options);
+  console.log(reRender);
   if (reRender) getData();
-  reRender = false;
 }
 
 // Hàm thêm task vào todo
