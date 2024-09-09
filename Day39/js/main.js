@@ -47,11 +47,12 @@ addNewTaskBtn.addEventListener("click", handleAddNewTask);
 cancelAddTaskBtn.addEventListener("click", handleCancelAddTask);
 saveDataBtn.addEventListener("click", handleSaveData);
 showCompletedTodosBtn.addEventListener("click", handleShowCompletedTask);
-searchBtn.addEventListener("click", handleSearch);
-searchInputEl.addEventListener("blur", handleSearch);
+// searchBtn.addEventListener("click", handleSearch);
+// searchInputEl.addEventListener("blur", handleSearch);
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
 });
+searchInputEl.addEventListener("input", handleSearch);
 const createNewTaskHTML = (tasks) => {
   let data = "";
   tasks.forEach((task) => {
