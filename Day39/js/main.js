@@ -290,7 +290,7 @@ function handleCheckTask(e) {
   const checkBtnTarget = e.currentTarget;
   const taskTarget = checkBtnTarget.parentElement.parentElement;
   const taskTargetId = taskTarget.dataset.id;
-  const value = taskTarget.children[0].innerText;
+  const value = escapeHTML(taskTarget.children[0].innerText);
   const isDoneTask = taskTarget.classList.contains("done-task");
   let path = "done";
   if (isDoneTask) path = "tasks";
