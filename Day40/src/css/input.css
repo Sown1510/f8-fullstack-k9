@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.total-score::before {
+  content: "Score: ";
+}
+
+.streak-progress {
+  border: 1px solid white;
+  width: 300px;
+  border-radius: 99px;
+  padding: 0 10px;
+}
+
+.wrong-answer {
+  background: red;
+}
+
+.right-answer {
+  background: green;
+}

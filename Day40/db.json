@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "content": "Việt Nam có thủ đô là:",
+      "answers": [
+        { "idA": "1", "content": "Quảng Ninh" },
+        { "idA": "2", "content": "Hà Nội" },
+        { "idA": "3", "content": "Đà Nẵng" },
+        { "idA": "4", "content": "Tuyên Quang" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "2",
+      "content": "Thành phố lớn nhất Việt Nam là:",
+      "answers": [
+        { "idA": "1", "content": "Hà Nội" },
+        { "idA": "2", "content": "Đà Nẵng" },
+        { "idA": "3", "content": "Hồ Chí Minh" },
+        { "idA": "4", "content": "Hải Phòng" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "3",
+      "content": "Dãy núi cao nhất Việt Nam là:",
+      "answers": [
+        { "idA": "1", "content": "Bạch Mã" },
+        { "idA": "2", "content": "Tam Đảo" },
+        { "idA": "3", "content": "Hoàng Liên Sơn" },
+        { "idA": "4", "content": "Ba Vì" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "4",
+      "content": "Sông dài nhất Việt Nam là:",
+      "answers": [
+        { "idA": "1", "content": "Sông Hồng" },
+        { "idA": "2", "content": "Sông Mekong" },
+        { "idA": "3", "content": "Sông Đồng Nai" },
+        { "idA": "4", "content": "Sông Cả" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "5",
+      "content": "Quốc gia có diện tích lớn nhất thế giới là:",
+      "answers": [
+        { "idA": "1", "content": "Mỹ" },
+        { "idA": "2", "content": "Canada" },
+        { "idA": "3", "content": "Nga" },
+        { "idA": "4", "content": "Trung Quốc" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "6",
+      "content": "Loài vật nhanh nhất trên cạn là:",
+      "answers": [
+        { "idA": "1", "content": "Báo đốm" },
+        { "idA": "2", "content": "Ngựa" },
+        { "idA": "3", "content": "Sư tử" },
+        { "idA": "4", "content": "Hươu cao cổ" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "7",
+      "content": "Nguyên tố chiếm nhiều nhất trong không khí là:",
+      "answers": [
+        { "idA": "1", "content": "Oxy" },
+        { "idA": "2", "content": "Nitơ" },
+        { "idA": "3", "content": "Carbon dioxide" },
+        { "idA": "4", "content": "Hydro" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "8",
+      "content": "Thế vận hội Olympic được tổ chức bao nhiêu năm một lần:",
+      "answers": [
+        { "idA": "1", "content": "2 năm" },
+        { "idA": "2", "content": "3 năm" },
+        { "idA": "3", "content": "4 năm" },
+        { "idA": "4", "content": "5 năm" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "9",
+      "content": "Cơ quan nào lớn nhất trên cơ thể người:",
+      "answers": [
+        { "idA": "1", "content": "Tim" },
+        { "idA": "2", "content": "Gan" },
+        { "idA": "3", "content": "Da" },
+        { "idA": "4", "content": "Phổi" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "10",
+      "content": "Châu lục nào có diện tích lớn nhất:",
+      "answers": [
+        { "idA": "1", "content": "Châu Á" },
+        { "idA": "2", "content": "Châu Âu" },
+        { "idA": "3", "content": "Châu Mỹ" },
+        { "idA": "4", "content": "Châu Phi" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "11",
+      "content": "Người phát minh ra bóng đèn điện là:",
+      "answers": [
+        { "idA": "1", "content": "Nikola Tesla" },
+        { "idA": "2", "content": "Alexander Graham Bell" },
+        { "idA": "3", "content": "Thomas Edison" },
+        { "idA": "4", "content": "Isaac Newton" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "12",
+      "content": "Thể tích của một hình cầu được tính bằng công thức nào:",
+      "answers": [
+        { "idA": "1", "content": "4/3πr³" },
+        { "idA": "2", "content": "2πr²" },
+        { "idA": "3", "content": "πr²h" },
+        { "idA": "4", "content": "πd²/4" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "13",
+      "content": "Thành phố có dân số đông nhất thế giới là:",
+      "answers": [
+        { "idA": "1", "content": "Tokyo" },
+        { "idA": "2", "content": "New York" },
+        { "idA": "3", "content": "Thượng Hải" },
+        { "idA": "4", "content": "Mumbai" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "14",
+      "content": "Quốc gia có GDP lớn nhất thế giới hiện nay là:",
+      "answers": [
+        { "idA": "1", "content": "Trung Quốc" },
+        { "idA": "2", "content": "Mỹ" },
+        { "idA": "3", "content": "Nhật Bản" },
+        { "idA": "4", "content": "Đức" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "15",
+      "content": "Hành tinh nào trong hệ Mặt trời có kích thước lớn nhất:",
+      "answers": [
+        { "idA": "1", "content": "Sao Hỏa" },
+        { "idA": "2", "content": "Sao Kim" },
+        { "idA": "3", "content": "Sao Mộc" },
+        { "idA": "4", "content": "Sao Thổ" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "16",
+      "content": "Động vật lớn nhất hành tinh là:",
+      "answers": [
+        { "idA": "1", "content": "Cá voi xanh" },
+        { "idA": "2", "content": "Voi châu Phi" },
+        { "idA": "3", "content": "Khủng long" },
+        { "idA": "4", "content": "Cá mập trắng" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "17",
+      "content": "Thành phố nào được mệnh danh là Thành phố ngàn hoa ở Việt Nam:",
+      "answers": [
+        { "idA": "1", "content": "Đà Nẵng" },
+        { "idA": "2", "content": "Đà Lạt" },
+        { "idA": "3", "content": "Nha Trang" },
+        { "idA": "4", "content": "Hội An" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "18",
+      "content": "Quốc gia nào có dân số lớn nhất thế giới:",
+      "answers": [
+        { "idA": "1", "content": "Ấn Độ" },
+        { "idA": "2", "content": "Trung Quốc" },
+        { "idA": "3", "content": "Mỹ" },
+        { "idA": "4", "content": "Indonesia" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "19",
+      "content": "Người Việt Nam đầu tiên bay vào vũ trụ là:",
+      "answers": [
+        { "idA": "1", "content": "Phạm Tuân" },
+        { "idA": "2", "content": "Võ Nguyên Giáp" },
+        { "idA": "3", "content": "Nguyễn Văn Linh" },
+        { "idA": "4", "content": "Trần Đại Quang" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "20",
+      "content": "Kim tự tháp lớn nhất Ai Cập là:",
+      "answers": [
+        { "idA": "1", "content": "Kim tự tháp Giza" },
+        { "idA": "2", "content": "Kim tự tháp Khafre" },
+        { "idA": "3", "content": "Kim tự tháp Menkaure" },
+        { "idA": "4", "content": "Kim tự tháp Djoser" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "21",
+      "content": "Đơn vị đo lường tốc độ truyền tải dữ liệu trên internet là:",
+      "answers": [
+        { "idA": "1", "content": "Gigahertz" },
+        { "idA": "2", "content": "Megabit" },
+        { "idA": "3", "content": "Megabyte" },
+        { "idA": "4", "content": "Gigabit" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "22",
+      "content": "Hành tinh nào được mệnh danh là 'Hành tinh Đỏ':",
+      "answers": [
+        { "idA": "1", "content": "Sao Hỏa" },
+        { "idA": "2", "content": "Sao Mộc" },
+        { "idA": "3", "content": "Sao Thủy" },
+        { "idA": "4", "content": "Sao Kim" }
+      ],
+      "correctId": ["1"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "23",
+      "content": "Ai là nhà phát minh ra điện thoại di động:",
+      "answers": [
+        { "idA": "1", "content": "Alexander Graham Bell" },
+        { "idA": "2", "content": "Martin Cooper" },
+        { "idA": "3", "content": "Steve Jobs" },
+        { "idA": "4", "content": "Nikola Tesla" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "24",
+      "content": "Tác phẩm văn học 'Chiến tranh và Hòa bình' là của ai:",
+      "answers": [
+        { "idA": "1", "content": "Fyodor Dostoevsky" },
+        { "idA": "2", "content": "Leo Tolstoy" },
+        { "idA": "3", "content": "Charles Dickens" },
+        { "idA": "4", "content": "Victor Hugo" }
+      ],
+      "correctId": ["2"],
+      "numberCorrect": 1
+    },
+    {
+      "id": "25",
+      "content": "Thành phố nào được mệnh danh là 'Thành phố ánh sáng':",
+      "answers": [
+        { "idA": "1", "content": "New York" },
+        { "idA": "2", "content": "Tokyo" },
+        { "idA": "3", "content": "Paris" },
+        { "idA": "4", "content": "London" }
+      ],
+      "correctId": ["3"],
+      "numberCorrect": 1
+    }
+  ]
+}
