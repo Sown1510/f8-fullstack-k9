@@ -13,7 +13,6 @@
   border-radius: 99px;
   overflow: hidden;
   span {
-    
     padding: 0 10px;
   }
 }
@@ -37,4 +36,19 @@
   top: 0;
   left: 0;
   border-radius: 99px;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  z-index: 9999;
 }
