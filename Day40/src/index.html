@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="./css/output.css" />
   </head>
   <body>
-    <div id="app" class="h-screen bg-black"></div>
-    <script src="./components/quizz.js"></script>
+    <div id="app" class="h-screen bg-black">
+      <div class="quizz-header flex bg-black text-white p-2 px-6 justify-between">
+        <div class="progress flex gap-10">
+          <div class="question-process bg-gray-400 p-1 rounded-sm font-bold"><span class="current-question">${currentQuestion}</span>/<span class="total-question">${totalQuestions}</span></div>
+          <div class="streak-progress content-center bg-opacity-0">
+            <div class="streak-point">
+              <span>Streak</span>
+            </div>
+          </div>
+          <span class="point content-center font-bold">+0</span>
+        </div>
+        <span class="total-score content-center">800</span>
+      </div>
+    </div>
+
+    <!-- <script src="./components/quizz.js"></script> -->
   </body>
 </html>

@@ -7,10 +7,15 @@
 }
 
 .streak-progress {
+  position: relative;
   border: 1px solid white;
   width: 300px;
   border-radius: 99px;
-  padding: 0 10px;
+  overflow: hidden;
+  span {
+    
+    padding: 0 10px;
+  }
 }
 
 .wrong-answer {
@@ -19,4 +24,17 @@
 
 .right-answer {
   background: green;
+}
+
+.hidden-answer {
+  visibility: hidden;
+}
+
+.streak-point {
+  background: orange;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 99px;
 }
