@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/output.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="overlay" class="bg-gray-300 w-screen h-screen flex justify-center items-center">
+        <div id="register" class="rounded-lg bg-green-300 p-[30px] w-fit h-fit">
+          <h2 class="text-center">Create new account</h2>
+          <form action="submit" class="mt-[20px]">
+            <div id="name" class="border-solid border-black rounded-lg">
+              <label for="name-lbl">Name</label>
+              <input type="text" id="name-lbl" />
+            </div>
+            <div id="email" class="border-solid border-black rounded-lg">
+              <label for="email-lbl">Email</label>
+              <input type="email" id="email-lbl" />
+            </div>
+            <div id="password" class="border-solid border-black rounded-lg">
+              <label for="password-lbl">Password</label>
+              <input type="text" id="password-lbl" />
+            </div>
+            <div id="action">
+              <button id="back-btn">Back</button>
+              <button id="register-btn">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
