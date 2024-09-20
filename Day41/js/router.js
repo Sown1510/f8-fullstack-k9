@@ -1,17 +1,17 @@
-const router = new Navigo("/f8-fullstack-k9/", { hash: true });
+const router = new Navigo("/", { hash: true });
 
 const app = document.getElementById("app");
 
 router.on({
-  "/login": () => {
+  login: () => {
     console.log("login");
     Login();
   },
-  "/register": () => {
+  register: () => {
     console.log("register");
     Register();
   },
-  "/": () => {
+  "": () => {
     openUserHome();
   },
 });

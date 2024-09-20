@@ -1,5 +1,5 @@
 const onRegister = async () => {
-  router.navigate("/register");
+  router.navigate("register");
   const name = document.getElementById("name-lbl").value;
   const email = document.getElementById("email-lbl").value;
   const password = document.getElementById("password-lbl").value;
@@ -10,13 +10,13 @@ const onRegister = async () => {
   };
   const response = await postMethod("master/user", data);
   if (response.id) {
-    router.navigate("/login");
+    router.navigate("login");
   } else {
   }
 };
 
 const onLogin = async () => {
-  router.navigate("/login");
+  router.navigate("login");
   const email = document.getElementById("email-lbl").value;
   const password = document.getElementById("password-lbl").value;
   const data = {
@@ -28,7 +28,7 @@ const onLogin = async () => {
     localStorage.setItem("accessToken", response.access);
     localStorage.setItem("refreshToken", response.refresh);
     localStorage.setItem("email", email);
-    router.navigate("/");
+    router.navigate("");
   }
 };
 
@@ -37,7 +37,7 @@ const openUserHome = async () => {
   const email = localStorage.getItem("email");
   const response = await getMethod("post", accessToken);
   if (!accessToken) {
-    router.navigate("/login");
+    router.navigate("login");
   }
   if (response.detail == "token expired") {
     const refreshToken = localStorage.getItem("refreshToken");
