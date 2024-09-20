@@ -1,17 +1,17 @@
-const router = new Navigo("/");
+const router = new Navigo("/", { hash: true });
 
 const app = document.getElementById("app");
 
 router.on({
-  login: () => {
+  "/login": () => {
     console.log("login");
     Login();
   },
-  register: () => {
+  "/register": () => {
     console.log("register");
     Register();
   },
-  "": () => {
+  "/": () => {
     openUserHome();
   },
 });
