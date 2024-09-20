@@ -3,16 +3,17 @@ const router = new Navigo("/");
 const app = document.getElementById("app");
 
 router.on({
-  "/login": () => {
+  login: () => {
     console.log("login");
     Login();
   },
-  "/register": () => {
+  register: () => {
     console.log("register");
     Register();
   },
-  "/": () => {
-    console.log("post");
-    Posts();
+  "": () => {
+    openUserHome();
   },
 });
+
+router.resolve();

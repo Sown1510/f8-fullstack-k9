@@ -17,7 +17,7 @@ function Register() {
               <label for="password-lbl">Password</label>
             </div>
             <div id="action">
-              <button id="back-btn">Back</button>
+              <button onclick="onLogin()" id="back-btn">Back</button>
               <button onclick="onRegister()" id="register-btn">Register</button>
             </div>
           </div>
@@ -42,7 +42,7 @@ function Login(email, password) {
               <label for="password-lbl">Password</label>
             </div>
             <div id="action">
-              <button id="register-btn">Register</button>
+              <button onclick="onRegister()" id="register-btn">Register</button>
               <button onclick="onLogin()" id="login-btn">Login</button>
             </div>
           </div>
@@ -52,38 +52,48 @@ function Login(email, password) {
   app.innerHTML = data;
 }
 
-function Posts(posts) {
-  const data = `
-        <div class="post-container">
+function Posts(email, posts) {
+  let data = `
+    <div class="post-container">
         <div class="header">
           <a class="logo" href="#">F8-Project</a>
           <div class="user">
-            <a href="#"><i class="fa-solid fa-user"></i>Username</a>
+            <a href="#"><i class="fa-solid fa-user"></i>${email}</a>
+            <button onclick="onSignOut()">Sign out</button>
           </div>
         </div>
+        <input type=text id="title" placeholder="title" required/>
+        <input type=text id="content" placeholder="content" required/>
+        <button onclick="createPost()">Post</button>
         <div class="post-list">
           <h2 class="list-header">List Post</h2>
           <table border="1" style="border-collapse: collapse">
             <tr>
-              <th>stt</th>
+              <th>id</th>
               <th>title</th>
               <th>content</th>
               <th colspan="2">action</th>
             </tr>
+  `;
+  posts.forEach((post) => {
+    data += `
             <tr>
-              <td>1</td>
-              <td>title test 1</td>
-              <td>content test</td>
+              <td>${post.id}</td>
+              <td>${post.title}</td>
+              <td>${post.content}</td>
               <td>
-                <div class="edit"><i class="fa-solid fa-pen-to-square"></i></div>
+                <div onclick="onEdit(${post.id})" class="edit"><i class="fa-solid fa-pen-to-square"></i></div>
               </td>
               <td>
-                <div class="clear"><i class="fa-solid fa-trash"></i></div>
+                <div onclick="onClear(${post.id})" class="clear"><i class="fa-solid fa-trash"></i></div>
               </td>
             </tr>
+    `;
+  });
+  data += `
           </table>
         </div>
-      </div>
-    `;
+    </div>
+  `;
   app.innerHTML = data;
 }

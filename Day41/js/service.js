@@ -1,4 +1,5 @@
 const onRegister = async () => {
+  router.navigate("register");
   const name = document.getElementById("name-lbl").value;
   const email = document.getElementById("email-lbl").value;
   const password = document.getElementById("password-lbl").value;
@@ -9,12 +10,13 @@ const onRegister = async () => {
   };
   const response = await postMethod("master/user", data);
   if (response.id) {
-    router.navigate("/login");
+    router.navigate("login");
   } else {
   }
 };
 
 const onLogin = async () => {
+  router.navigate("login");
   const email = document.getElementById("email-lbl").value;
   const password = document.getElementById("password-lbl").value;
   const data = {
@@ -25,13 +27,53 @@ const onLogin = async () => {
   if (response.access && response.refresh) {
     localStorage.setItem("accessToken", response.access);
     localStorage.setItem("refreshToken", response.refresh);
+    localStorage.setItem("email", email);
     router.navigate("/");
   }
 };
 
 const openUserHome = async () => {
   const accessToken = localStorage.getItem("accessToken");
+  const email = localStorage.getItem("email");
   const response = await getMethod("post", accessToken);
-  Posts(response);
-  console.log(response);
+  if (!accessToken) {
+    router.navigate("login");
+  }
+  if (response.detail == "token expired") {
+    const refreshToken = localStorage.getItem("refreshToken");
+    console.log(refreshToken);
+    const response = await postMethod("login/get_new_token", "", "", refreshToken);
+    localStorage.setItem("accessToken", response.access);
+    localStorage.setItem("refreshToken", response.refresh);
+    openUserHome();
+  } else {
+    Posts(email, response);
+  }
+};
+
+const createPost = async () => {
+  const accessToken = localStorage.getItem("accessToken");
+  const title = document.getElementById("title").value;
+  const content = document.getElementById("content").value;
+  const data = {
+    title: title,
+    content: content,
+  };
+  const response = await postMethod("post", data, accessToken);
+  openUserHome();
+};
+
+const onSignOut = async () => {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+  openUserHome();
+};
+
+const onEdit = (id) => {
+  console.log(id);
+  alert("Chưa làm bạn ei");
+};
+const onClear = (id) => {
+  console.log(id);
+  alert("Chưa làm bạn ei");
 };

@@ -12,10 +12,11 @@ const getMethod = async (endpoint, accessToken = "", refreshToken = "") => {
     return await response.json();
   } catch (error) {
     console.error(error);
+    return null;
   }
 };
 
-const postMethod = async (endpoint, data, accessToken = "", refreshToken = "") => {
+const postMethod = async (endpoint, data = "", accessToken = "", refreshToken = "") => {
   try {
     const response = await fetch(`${baseUrl}/${endpoint}`, {
       method: "POST",
@@ -23,15 +24,16 @@ const postMethod = async (endpoint, data, accessToken = "", refreshToken = "") =
         "Content-Type": "application/json",
         Authorization: `bearer ${accessToken}`,
       },
-      body: JSON.stringify(data),
+      body: refreshToken ? JSON.stringify({ refresh: `${refreshToken}` }) : data ? JSON.stringify(data) : null,
     });
     return await response.json();
   } catch (error) {
     console.error(error);
+    return null;
   }
 };
 
-const putMethod = async (endpoint, data, accessToken = "", refreshToken = "") => {
+const putMethod = async (endpoint, data = "", accessToken = "", refreshToken = "") => {
   try {
     const response = await fetch(`${baseUrl}/${endpoint}`, {
       method: "PUT",
@@ -44,5 +46,6 @@ const putMethod = async (endpoint, data, accessToken = "", refreshToken = "") =>
     return await response.json();
   } catch (error) {
     console.error(error);
+    return null;
   }
 };
