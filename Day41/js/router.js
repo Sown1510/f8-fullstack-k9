@@ -1,4 +1,4 @@
-const router = new Navigo("/", { hash: true });
+const router = new Navigo("/f8-fullstack-k9/", { hash: true });
 
 const app = document.getElementById("app");
 
