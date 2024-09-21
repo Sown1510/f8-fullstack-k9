@@ -17,8 +17,8 @@ function Register() {
               <label for="password-lbl">Password</label>
             </div>
             <div id="action">
-              <button onclick="onLogin()" id="back-btn">Back</button>
-              <button onclick="onRegister()" id="register-btn">Register</button>
+              <button onclick="onLogin(false)" id="back-btn">Back</button>
+              <button onclick="onRegister(true)" id="register-btn">Register</button>
             </div>
           </div>
         </div>
@@ -42,8 +42,8 @@ function Login(email, password) {
               <label for="password-lbl">Password</label>
             </div>
             <div id="action">
-              <button onclick="onRegister()" id="register-btn">Register</button>
-              <button onclick="onLogin()" id="login-btn">Login</button>
+              <button onclick="onRegister(false)" id="register-btn">Register</button>
+              <button onclick="onLogin(true)" id="login-btn">Login</button>
             </div>
           </div>
         </div>

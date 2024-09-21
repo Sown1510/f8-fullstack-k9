@@ -2,7 +2,7 @@ import { router } from "../main.js";
 import { getMethod, postMethod } from "./utils.js";
 import { Posts } from "./views.js";
 
-const onRegister = async () => {
+const onRegister = async (request = true) => {
   router.navigate("register");
   const name = document.getElementById("name-lbl").value;
   const email = document.getElementById("email-lbl").value;
@@ -12,15 +12,21 @@ const onRegister = async () => {
     name: name,
     password: password,
   };
-  const response = await postMethod("master/user", data);
-  if (response.id) {
-    router.navigate("login");
+  if (!request) return;
+  if (data.email && data.name && data.password) {
+    const response = await postMethod("master/user", data);
+    if (response.id) {
+      router.navigate("login");
+    } else {
+    }
   } else {
+    alert("Điền đủ thông tin");
   }
 };
 
-const onLogin = async () => {
+const onLogin = async (request = false) => {
   router.navigate("login");
+  if (!request) return;
   const email = document.getElementById("email-lbl").value;
   const password = document.getElementById("password-lbl").value;
   const data = {
