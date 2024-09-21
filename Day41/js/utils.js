@@ -49,3 +49,5 @@ const putMethod = async (endpoint, data = "", accessToken = "", refreshToken = "
     return null;
   }
 };
+
+export { getMethod, postMethod, putMethod };

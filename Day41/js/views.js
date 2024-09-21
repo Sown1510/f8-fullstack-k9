@@ -97,3 +97,5 @@ function Posts(email, posts) {
   `;
   app.innerHTML = data;
 }
+
+export { Register, Login, Posts };

@@ -1,4 +1,7 @@
-const router = new Navigo("/", { hash: true });
+import { openUserHome } from "./js/service.js";
+import { Login, Register } from "./js/views.js";
+
+export const router = new Navigo("/");
 
 const app = document.getElementById("app");
 

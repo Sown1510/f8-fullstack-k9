@@ -1,3 +1,7 @@
+import { router } from "../main.js";
+import { getMethod, postMethod } from "./utils.js";
+import { Posts } from "./views.js";
+
 const onRegister = async () => {
   router.navigate("register");
   const name = document.getElementById("name-lbl").value;
@@ -41,7 +45,6 @@ const openUserHome = async () => {
   }
   if (response.detail == "token expired") {
     const refreshToken = localStorage.getItem("refreshToken");
-    console.log(refreshToken);
     const response = await postMethod("login/get_new_token", "", "", refreshToken);
     localStorage.setItem("accessToken", response.access);
     localStorage.setItem("refreshToken", response.refresh);
@@ -77,3 +80,12 @@ const onClear = (id) => {
   console.log(id);
   alert("Chưa làm bạn ei");
 };
+
+window.onLogin = onLogin;
+window.onSignOut = onSignOut;
+window.onRegister = onRegister;
+window.onEdit = onEdit;
+window.onClear = onClear;
+window.createPost = createPost;
+
+export { onRegister, onLogin, openUserHome, createPost, onSignOut, onEdit, onClear };
