@@ -33,6 +33,8 @@ const onLogin = async () => {
     localStorage.setItem("refreshToken", response.refresh);
     localStorage.setItem("email", email);
     router.navigate("");
+  } else if (response.detail == "Wrong username or password") {
+    alert("Tài khoản hoặc mật khẩu sai");
   }
 };
 

@@ -29,7 +29,7 @@ const postMethod = async (endpoint, data = "", accessToken = "", refreshToken = 
     return await response.json();
   } catch (error) {
     console.error(error);
-    return null;
+    return error;
   }
 };
 
