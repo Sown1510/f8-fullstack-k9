@@ -1,7 +1,7 @@
 import { openUserHome } from "./js/service.js";
 import { Login, Register } from "./js/views.js";
-
-export const router = new Navigo("/f8-fullstack-k9/Day41/", { hash: true });
+const root = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "/" : "/f8-fullstack-k9/Day41/";
+export const router = new Navigo(root, { hash: true });
 
 const app = document.getElementById("app");
 
