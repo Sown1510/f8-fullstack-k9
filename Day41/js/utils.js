@@ -50,4 +50,20 @@ const putMethod = async (endpoint, data = "", accessToken = "", refreshToken = "
   }
 };
 
-export { getMethod, postMethod, putMethod };
+const deleteMethod = async (endpoint, accessToken = "") => {
+  try {
+    const response = await fetch(`${baseUrl}/${endpoint}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${accessToken}`,
+      },
+    });
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+export { getMethod, postMethod, putMethod, deleteMethod };

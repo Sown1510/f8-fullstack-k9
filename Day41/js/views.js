@@ -60,6 +60,7 @@ function Login() {
 }
 
 function Posts(email = "", posts = []) {
+  posts.sort((a, b) => a.id - b.id);
   let data = `
     <div class="post-container">
         <div class="header">
@@ -69,9 +70,11 @@ function Posts(email = "", posts = []) {
             <button onclick="onSignOut()">Sign out</button>
           </div>
         </div>
-        <input type=text id="title" placeholder="title" required/>
-        <input type=text id="content" placeholder="content" required/>
-        <button onclick="createPost()">Post</button>
+        <form type="" id="content-box">
+          <input type=text id="title" placeholder="title" required/>
+          <input type=text id="content" placeholder="content" required/>
+          <button class="post-btn" type="submit" onclick="createPost()">Post</button>
+        </form>
         <div class="post-list">
           <h2 class="list-header">List Post</h2>
           <table border="1" style="border-collapse: collapse">
@@ -84,10 +87,10 @@ function Posts(email = "", posts = []) {
   `;
   posts.forEach((post) => {
     data += `
-            <tr>
+            <tr data-id="${post.id}">
               <td>${post.id}</td>
-              <td>${post.title}</td>
-              <td>${post.content}</td>
+              <td class="title">${post.title}</td>
+              <td class="content">${post.content}</td>
               <td>
                 <div onclick="onEdit(${post.id})" class="edit"><i class="fa-solid fa-pen-to-square"></i></div>
               </td>
