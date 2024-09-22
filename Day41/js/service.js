@@ -4,23 +4,33 @@ import { Posts } from "./views.js";
 
 const onRegister = async (request = true) => {
   router.navigate("register");
+  if (!request) return;
+
   const name = document.getElementById("name-lbl").value;
   const email = document.getElementById("email-lbl").value;
   const password = document.getElementById("password-lbl").value;
-  const data = {
-    email: email,
-    name: name,
-    password: password,
-  };
-  if (!request) return;
-  if (data.email && data.name && data.password) {
+
+  if (!email || !name || !password) {
+    alert("Vui lòng điền đủ thông tin");
+    return;
+  }
+
+  const data = { email, name, password };
+
+  try {
     const response = await postMethod("master/user", data);
     if (response.id) {
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
       router.navigate("login");
+    } else if (response.detail == "Email already exists") {
+      alert("Email đã tồn tại, vui lòng thử lại");
     } else {
+      alert("Lỗi rồi, vui lòng thử lại sau");
     }
-  } else {
-    alert("Điền đủ thông tin");
+  } catch (error) {
+    console.error("Lỗi khi đăng ký tài khoản: ", error);
+    alert("Lỗi rồi, vui lòng thử lại sau.");
   }
 };
 
@@ -29,18 +39,29 @@ const onLogin = async (request = false) => {
   if (!request) return;
   const email = document.getElementById("email-lbl").value;
   const password = document.getElementById("password-lbl").value;
-  const data = {
-    email: email,
-    password: password,
-  };
-  const response = await postMethod("login", data);
-  if (response.access && response.refresh) {
-    localStorage.setItem("accessToken", response.access);
-    localStorage.setItem("refreshToken", response.refresh);
-    localStorage.setItem("email", email);
-    router.navigate("");
-  } else if (response.detail == "Wrong username or password") {
-    alert("Tài khoản hoặc mật khẩu sai");
+
+  if (!email || !password) {
+    alert("Vui lòng điền đủ thông tin");
+    return;
+  }
+
+  const data = { email, password };
+
+  try {
+    const response = await postMethod("login", data);
+    if (response.access && response.refresh) {
+      localStorage.setItem("accessToken", response.access);
+      localStorage.setItem("refreshToken", response.refresh);
+      localStorage.setItem("email", email);
+      router.navigate("");
+    } else if (response.detail == "Wrong username or password") {
+      alert("Tài khoản hoặc mật khẩu sai");
+    } else {
+      alert("Lỗi rồi, vui lòng thử lại sau");
+    }
+  } catch (error) {
+    console.error("Lỗi khi đăng nhập: ", error);
+    alert("Lỗi rồi, vui lòng thử lại sau.");
   }
 };
 
@@ -77,7 +98,7 @@ const createPost = async () => {
 const onSignOut = async () => {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("refreshToken");
-  openUserHome();
+  onLogin();
 };
 
 const onEdit = (id) => {

@@ -3,7 +3,7 @@ function Register() {
         <div id="overlay" class="">
         <div id="register" class="">
           <h2 class="">Create new account</h2>
-          <div action="" class="form-register">
+          <form action="" class="form-register">
             <div id="name" class="">
               <input type="text" id="name-lbl" required />
               <label for="name-lbl">Name</label>
@@ -17,22 +17,24 @@ function Register() {
               <label for="password-lbl">Password</label>
             </div>
             <div id="action">
-              <button onclick="onLogin(false)" id="back-btn">Back</button>
-              <button onclick="onRegister(true)" id="register-btn">Register</button>
+              <button type="button" onclick="onLogin(false)" id="back-btn">Back</button>
+              <button type="submit" onclick="onRegister(true)" id="register-btn">Register</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     `;
   app.innerHTML = data;
 }
 
-function Login(email, password) {
+function Login() {
+  const email = localStorage.getItem("email") ? localStorage.getItem("email") : "";
+  const password = localStorage.getItem("password") ? localStorage.getItem("password") : "";
   const data = `
         <div id="overlay" class="">
         <div id="login" class="">
           <h2 class="">Login</h2>
-          <div action="" class="form-login">
+          <form action="" class="form-login">
             <div id="email" class="">
               <input type="text" id="email-lbl" value="${email}" required />
               <label for="email-lbl">Email</label>
@@ -42,17 +44,22 @@ function Login(email, password) {
               <label for="password-lbl">Password</label>
             </div>
             <div id="action">
-              <button onclick="onRegister(false)" id="register-btn">Register</button>
-              <button onclick="onLogin(true)" id="login-btn">Login</button>
+              <button type="button" onclick="onRegister(false)" id="register-btn">Register</button>
+              <button type="submit" onclick="onLogin(true)" id="login-btn">Login</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     `;
   app.innerHTML = data;
+  localStorage.removeItem("password");
+  const loginBtn = document.getElementById("login-btn");
+  loginBtn.addEventListener("onclick", (e) => {
+    e.preventDefault();
+  });
 }
 
-function Posts(email, posts) {
+function Posts(email = "", posts = []) {
   let data = `
     <div class="post-container">
         <div class="header">
