@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.pa-1 {
+  padding: 4px;
+}
+.pa-2 {
+  padding: 8px;
+}
+
+.ma-2 {
+  margin: 8px;
+}

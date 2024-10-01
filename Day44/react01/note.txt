@@ -1,0 +1,29 @@
+url http://localhost:3000/
+-> 2 btn (categories, product)
+khi click vào nút "categories" -> chuyển sang url http://localhost:3000/categories
+->> crud
+categories = {
+    {id: 1, name: 'quan ao', orderNum: 2},
+    {id: 2, name: 'dien thoai', orderNum: 1},
+    {id: 3, name: 'do an', orderNum: 3},
+}
+
+dialog
+    - name
+    - stt
+    - save btn
+
+khi click vào nút "product" -> chuyển sang url http://localhost:3000/products
+--> crud 
+products = {
+    {id: 1, categoryId: 2, name: 'iphone13', orderNum: 2},
+    {id: 2, categoryId: 2, name: 'iphone16', orderNum: 3},
+    {id: 3, categoryId: 1, name: 'ao thun', orderNum: 1},
+    {id: 4, categoryId: 2, name: 'iphone 16 pro max', orderNum: 1},
+    {id: 5, categoryId: 2, name: 'samsung s24', orderNum: 4},
+}
+dialog
+    - select box (select option) option la ten cac categories
+    - name
+    - stt (ko dc trung nhau)
+    - save btn
