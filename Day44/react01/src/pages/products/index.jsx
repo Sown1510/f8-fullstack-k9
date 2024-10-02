@@ -1,15 +1,26 @@
-import { FCommonTable, FInput } from "../../components";
+import { FCommonTable, ProductDialog } from "../../components";
 import { useState } from "react";
+import { Button } from "@mui/material";
+import { v4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 export default function () {
   const [products, setProducts] = useState([]);
 
   const [product, setProduct] = useState({
-    id: '', 
-    name: '',
-    categoryId: '',
-    orderNum: ''
-  })
+    id: "",
+    name: "",
+    categoryId: "",
+    orderNum: "",
+  });
+
+  const [isEditting, setIsEditting] = useState(false);
+
+  const naviate = useNavigate();
+
+  const [showDialog, setShowDialog] = useState(false);
+
+  const categories = JSON.parse(localStorage.getItem("categories"));
 
   const columns = [
     {
@@ -34,25 +45,70 @@ export default function () {
     },
   ];
 
-  // const products = [
-  //   { id: 1, name: "Iphone 14", categoryId: 1, orderNum: 1 },
-  //   { id: 2, name: "Ipad 5", categoryId: 2, orderNum: 1 },
-  //   { id: 3, name: "Macbook 2022", categoryId: 3, orderNum: 1 },
-  // ];
-
-  const onDelete = (id) => {
-    console.log("Delete", id);
+  const onInput = (e, key) => {
+    console.log(e.target.value);
+    setProduct({ ...product, [key]: e.target.value });
   };
 
-  const onUpdate = (id) => {
-    console.log("Edit", id);
+  const onClose = () => {
+    setShowDialog(false);
+  };
+
+  const onOpenDialog = () => {
+    setShowDialog(true);
+  };
+
+  const onSave = (e) => {
+    e.preventDefault();
+    if (isEditting) {
+      setProducts(
+        products.map((item) => {
+          if (item.id === product.id) {
+            return (item = product);
+          }
+          return item;
+        })
+      );
+      setIsEditting(false);
+    } else {
+      setProducts([...products, { ...product, id: v4() }]);
+    }
+    setProduct({
+      id: "",
+      name: "",
+      categoryId: "",
+      orderNum: "",
+    });
+    setShowDialog(false);
+  };
+
+  const onDelete = (id) => {
+    setProducts(products.filter((product) => product.id != id));
+  };
+
+  const onUpdate = (product) => {
+    setProduct(product);
+    setShowDialog(true);
+    setIsEditting(true);
+  };
+
+  const goToHome = () => {
+    naviate("/");
   };
 
   return (
     <>
-      <h1>Products</h1>
-      <FInput/>
-      <FCommonTable columns={columns} rows={products} onDelete={onDelete} onUpdate={onUpdate}/>
+      <h1 style={{ textAlign: "center" }}>Products</h1>
+      <div>
+        <Button variant="contained" onClick={goToHome}>
+          Home
+        </Button>
+        <Button variant="contained" onClick={onOpenDialog}>
+          Add Product
+        </Button>
+      </div>
+      <ProductDialog show={showDialog} onClose={onClose} onSave={onSave} product={product} onInput={onInput} categories={categories} />
+      <FCommonTable columns={columns} rows={products} onDelete={onDelete} onUpdate={onUpdate} categories={categories} />
     </>
   );
 }
