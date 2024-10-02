@@ -1,9 +1,16 @@
+import { TextField, Button } from "@mui/material"
 
-
-function finput() {
+function FInput() {
     return (
-      <input type="hi" />
+      <>
+        <form action="submit">
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          <Button type="submit" variant="contained">Contained</Button>
+        </form>
+      </>
     )
   }
   
-  export default finput
+  export default FInput
