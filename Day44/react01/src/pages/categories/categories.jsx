@@ -1,13 +1,12 @@
 import { FCommonTable, CategoryDialog } from "../../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
 export default function () {
-  const lastCategories = JSON.parse(localStorage.getItem("categories"));
-  const [categories, setCategories] = useState(lastCategories ? lastCategories : []);
-
+  const products = JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : [];
+  const [categories, setCategories] = useState(JSON.parse(localStorage.getItem("categories")) ? JSON.parse(localStorage.getItem("categories")) : []);
   const [category, setCategory] = useState({
     id: "",
     name: "",
@@ -51,6 +50,10 @@ export default function () {
     setShowDialog(true);
   };
 
+  useEffect(() => {
+    localStorage.setItem("categories", JSON.stringify(categories));
+  }, [categories]);
+
   const onSave = (e) => {
     e.preventDefault();
     if (isEditting) {
@@ -72,10 +75,15 @@ export default function () {
       orderNum: "",
     });
     setShowDialog(false);
-    localStorage.setItem("categories", JSON.stringify(categories));
   };
 
   const onDelete = (id) => {
+    if (products) {
+      if (products.find((product) => product.categoryId == id)) {
+        alert("Không thể xoá vì Danh mục đang chứa sản phẩm");
+        return;
+      }
+    }
     setCategories(categories.filter((category) => category.id != id));
   };
 

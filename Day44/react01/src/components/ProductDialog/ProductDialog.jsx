@@ -1,12 +1,12 @@
 import React from "react";
-import { DialogTitle, Dialog, DialogContent, DialogActions, Button, DialogContentText, TextField, InputLabel, Select, MenuItem, FormControl } from "@mui/material";
+import { DialogTitle, Dialog, DialogContent, DialogActions, Button, TextField, InputLabel, Select, MenuItem, FormControl } from "@mui/material";
+import DialogContainer from "../DialogContainer";
 
-export default function ({ show, onClose, onSave, product, onInput, categories = [] }) {
+function ProductDialog({ show, onClose, onSave, product, onInput, categories = [] }) {
   return (
     <>
-      <Dialog open={show} onClose={onClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-        <DialogTitle id="alert-dialog-title">{"Add Product"}</DialogTitle>
-        <DialogContent>
+      <DialogContainer show={show} onClose={onClose} onSave={onSave}>
+        <DialogContent style={{ overflow: "visible" }}>
           <TextField style={{ display: "block", marginBottom: "10px" }} id="name" label="Name" variant="outlined" value={product.name} onChange={(e) => onInput(e, "name")} />
           <FormControl fullWidth style={{ marginBottom: "10px" }}>
             <InputLabel id="demo-simple-select-label">Category</InputLabel>
@@ -22,13 +22,9 @@ export default function ({ show, onClose, onSave, product, onInput, categories =
           </FormControl>
           <TextField style={{ display: "block" }} id="orderNum" label="Order Number" variant="outlined" onChange={(e) => onInput(e, "orderNum")} value={product.orderNum} />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={onSave} autoFocus>
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
+      </DialogContainer>
     </>
   );
 }
+
+export default ProductDialog;

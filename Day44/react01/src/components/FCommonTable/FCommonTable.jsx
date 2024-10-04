@@ -5,7 +5,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import "../../index.css";
 import style from "./style.module.css";
 
-const FCommonTable = ({ columns, rows, maxWidth, onUpdate, onDelete, categories }) => {
+const FCommonTable = ({ columns, rows, maxWidth, onUpdate, onDelete, categories = [] }) => {
   return (
     <>
       <TableContainer sx={{ maxWidth: maxWidth, margin: "0 auto" }} component={Paper}>
@@ -25,7 +25,10 @@ const FCommonTable = ({ columns, rows, maxWidth, onUpdate, onDelete, categories 
                 <TableRow key={`${ridx}`}>
                   {columns.map((column) => {
                     if (column.name === "categoryId") {
-                      return <TableCell key={`${ridx}${column.name}`}>{categories.find((category) => category.id == row[column.name]).name}</TableCell>;
+                      const category = categories.find((category) => category.id === row[column.name]);
+                      const categoryName = category ? category.name : "Unknown";
+
+                      return <TableCell key={`${ridx}${column.name}`}>{categoryName}</TableCell>;
                     }
                     if (column.name === "action") {
                       return (

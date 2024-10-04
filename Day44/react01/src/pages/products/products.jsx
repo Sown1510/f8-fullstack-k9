@@ -1,11 +1,12 @@
 import { FCommonTable, ProductDialog } from "../../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
-export default function () {
-  const [products, setProducts] = useState([]);
+function products() {
+  const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : []);
+  const categories = JSON.parse(localStorage.getItem("categories")) ? JSON.parse(localStorage.getItem("categories")) : [];
 
   const [product, setProduct] = useState({
     id: "",
@@ -20,7 +21,9 @@ export default function () {
 
   const [showDialog, setShowDialog] = useState(false);
 
-  const categories = JSON.parse(localStorage.getItem("categories"));
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
 
   const columns = [
     {
@@ -112,3 +115,5 @@ export default function () {
     </>
   );
 }
+
+export default products;
