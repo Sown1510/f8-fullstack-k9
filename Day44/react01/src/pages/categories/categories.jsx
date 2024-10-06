@@ -38,6 +38,16 @@ export default function () {
     },
   ];
 
+  const isDuplicated = () => {
+    if(categories) {
+      const orderNums = categories.map((category) => category.orderNum);
+      if (orderNums.some((id) => id == category.orderNum)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   const onInput = (e, key) => {
     setCategory({ ...category, [key]: e.target.value });
   };
@@ -56,22 +66,32 @@ export default function () {
 
   const onSave = (e) => {
     e.preventDefault();
-    const orderNums = categories.map((category) => category.orderNum);
-    if (orderNums.find((id) => id == category.orderNum)) {
-      alert("Trùng Category Order Number");
-      return;
-    }
     if (isEditting) {
+      let holdDialog = false;
       setCategories(
         categories.map((item) => {
           if (item.id === category.id) {
-            return (item = category);
+            if(item.orderNum != category.orderNum) {
+              if(isDuplicated()) {
+                alert("Trùng Category Order Number");
+                holdDialog = true;
+                return item;
+              } else {
+                holdDialog = false;
+              }
+            }
+            return (category);
           }
           return item;
         })
       );
+      if(holdDialog) return;
       setIsEditting(false);
     } else {
+      if(isDuplicated()) {
+        alert("Trùng Category Order Number");
+        return;
+      }
       setCategories([...categories, { ...category, id: v4() }]);
     }
     setCategory({

@@ -60,27 +60,41 @@ function products() {
     setShowDialog(true);
   };
 
+  const isDuplicated = () => {
+    if(products) {
+      const orderNums = products.map((product) => product.orderNum);
+      if (orderNums.some((id) => id == product.orderNum)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   const onSave = (e) => {
     e.preventDefault();
-    const orderNums = products.map((product) => product.orderNum);
     if (isEditting) {
+      let holdDialog = false;
       setProducts(
         products.map((item) => {
           if (item.id === product.id) {
             if (product.orderNum != item.orderNum) {
-              if (orderNums.find((id) => id == product.orderNum)) {
+              if(isDuplicated()) {
                 alert("Trùng Product Order Number");
+                holdDialog = true;
                 return item;
+              } else {
+                holdDialog = false;
               }
             }
-            return (item = product);
+            return (product);
           }
           return item;
         })
       );
+      if(holdDialog) return;
       setIsEditting(false);
     } else {
-      if (orderNums.find((id) => id == product.orderNum)) {
+      if(isDuplicated()) {
         alert("Trùng Product Order Number");
         return;
       }
