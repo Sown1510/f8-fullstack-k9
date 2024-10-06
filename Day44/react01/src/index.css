@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .pa-1 {
   padding: 4px;
 }
@@ -13,4 +20,11 @@
 
 .ma-2 {
   margin: 8px;
+}
+
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
