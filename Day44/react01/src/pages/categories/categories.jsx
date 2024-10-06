@@ -56,6 +56,11 @@ export default function () {
 
   const onSave = (e) => {
     e.preventDefault();
+    const orderNums = categories.map((category) => category.orderNum);
+    if (orderNums.find((id) => id == category.orderNum)) {
+      alert("Trùng Category Order Number");
+      return;
+    }
     if (isEditting) {
       setCategories(
         categories.map((item) => {

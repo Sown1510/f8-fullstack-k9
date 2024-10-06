@@ -20,7 +20,7 @@ function ProductDialog({ show, onClose, onSave, product, onInput, categories = [
               })}
             </Select>
           </FormControl>
-          <TextField style={{ display: "block" }} id="orderNum" label="Order Number" variant="outlined" onChange={(e) => onInput(e, "orderNum")} value={product.orderNum} />
+          <TextField style={{ display: "block" }} id="orderNum" label="Order Number" variant="outlined" onChange={(e) => onInput(e, "orderNum")} value={product.orderNum} type="number" />
         </DialogContent>
       </DialogContainer>
     </>

@@ -49,7 +49,6 @@ function products() {
   ];
 
   const onInput = (e, key) => {
-    console.log(e.target.value);
     setProduct({ ...product, [key]: e.target.value });
   };
 
@@ -63,10 +62,17 @@ function products() {
 
   const onSave = (e) => {
     e.preventDefault();
+    const orderNums = products.map((product) => product.orderNum);
     if (isEditting) {
       setProducts(
         products.map((item) => {
           if (item.id === product.id) {
+            if (product.orderNum != item.orderNum) {
+              if (orderNums.find((id) => id == product.orderNum)) {
+                alert("Trùng Product Order Number");
+                return item;
+              }
+            }
             return (item = product);
           }
           return item;
@@ -74,6 +80,10 @@ function products() {
       );
       setIsEditting(false);
     } else {
+      if (orderNums.find((id) => id == product.orderNum)) {
+        alert("Trùng Product Order Number");
+        return;
+      }
       setProducts([...products, { ...product, id: v4() }]);
     }
     setProduct({
