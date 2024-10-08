@@ -1,5 +1,5 @@
 import React from "react";
-import { DialogTitle, Dialog, DialogContent, DialogActions, Button, TextField, InputLabel, Select, MenuItem, FormControl } from "@mui/material";
+import { DialogContent, TextField, InputLabel, Select, MenuItem, FormControl } from "@mui/material";
 import DialogContainer from "../DialogContainer";
 
 function ProductDialog({ show, onClose, onSave, product, onInput, categories = [] }) {

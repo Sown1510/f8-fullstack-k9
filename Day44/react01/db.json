@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Category 1",
+      "categoryId": 1,
+      "orderNum": 1
+    },
+    {
+      "id": "fc095da2-d01c-473a-956c-b1cd6b160cf4",
+      "name": "quan ao",
+      "orderNum": "2"
+    },
+    {
+      "id": "27eb1632-c71d-407f-9d0e-0906d3b5f789",
+      "name": "do choi tre em ",
+      "orderNum": "3"
+    }
+  ],
+  "products": [
+    {
+      "id": "b14c",
+      "name": "xxe dap",
+      "categoryId": "27eb1632-c71d-407f-9d0e-0906d3b5f789",
+      "orderNum": "3"
+    }
+  ]
+}

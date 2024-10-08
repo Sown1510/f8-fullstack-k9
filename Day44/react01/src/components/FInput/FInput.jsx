@@ -1,4 +1,4 @@
-import { TextField, Button, Select, InputLabel, MenuItem, FormControl } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 
 function FInput({ onInput, onSave, product }) {
   let categories = [
