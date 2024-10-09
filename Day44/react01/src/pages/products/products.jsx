@@ -1,9 +1,8 @@
 import { FCommonTable, ProductDialog, Loading } from "../../components";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import { deleteMethod, getMethod, postMethod } from "../../utils/api";
+import { deleteMethod, getMethod, postMethod, putMethod } from "../../utils/api";
 import "./style.css";
 
 function products() {
@@ -52,9 +51,19 @@ function products() {
     }
   };
 
+  const putProduct = async (productData) => {
+    try {
+      const { id, ...payload } = productData;
+      const data = await putMethod(`products/${productData.id}`, payload);
+      getProducts();
+    } catch (error) {
+      alert("Lỗi khi sửa sản phẩm");
+      console.error(error);
+    }
+  };
+
   const deleteProduct = async (id) => {
     try {
-      console.log(id);
       const data = await deleteMethod(`products/${id}`);
       getProducts();
     } catch (error) {
@@ -133,6 +142,7 @@ function products() {
                 holdDialog = false;
               }
             }
+            putProduct(product);
             return product;
           }
           return item;

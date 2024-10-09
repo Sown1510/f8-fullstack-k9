@@ -1,9 +1,8 @@
 import { FCommonTable, CategoryDialog, Loading } from "../../components";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import { deleteMethod, getMethod } from "../../utils/api";
+import { deleteMethod, getMethod, postMethod, putMethod } from "../../utils/api";
 import "./style.css";
 
 export default function () {
@@ -39,10 +38,34 @@ export default function () {
     }
   };
 
+  const postCategory = async (categoryData) => {
+    try {
+      const { id, ...payload } = categoryData;
+      const data = await postMethod("categories", payload);
+      getCategories();
+    } catch (error) {
+      alert("Lỗi khi đăng tải sản phẩm");
+      console.error(error);
+    }
+  };
+
+  const putCategory = async (categoryData) => {
+    try {
+      const { id, ...payload } = categoryData;
+      const data = await putMethod(`categories/${categoryData.id}`, payload);
+      getCategories();
+    } catch (error) {
+      alert("Lỗi khi sửa danh mục");
+      console.error(error);
+    }
+  };
+
   const deleteCategory = async (id) => {
     try {
       const data = await deleteMethod(`categories/${id}`);
+      getCategories();
     } catch (error) {
+      alert("Lỗi khi xoá danh mục");
       console.error(error);
     }
   };
@@ -113,6 +136,7 @@ export default function () {
                 holdDialog = false;
               }
             }
+            putCategory(category);
             return category;
           }
           return item;
@@ -125,7 +149,8 @@ export default function () {
         alert("Trùng Category Order Number");
         return;
       }
-      setCategories([...categories, { ...category, id: v4() }]);
+      setCategories([...categories, category]);
+      postCategory(category);
     }
     setCategory({ id: "", name: "", orderNum: "" });
     setShowDialog(false);
