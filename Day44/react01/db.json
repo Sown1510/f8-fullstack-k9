@@ -1,12 +1,6 @@
 {
   "categories": [
     {
-      "id": "1",
-      "name": "Category 1",
-      "categoryId": 1,
-      "orderNum": 1
-    },
-    {
       "id": "fc095da2-d01c-473a-956c-b1cd6b160cf4",
       "name": "quan ao",
       "orderNum": "2"
@@ -19,10 +13,16 @@
   ],
   "products": [
     {
-      "id": "b14c",
-      "name": "xxe dap",
+      "id": "c2c8",
+      "name": "jhkjh",
+      "categoryId": "fc095da2-d01c-473a-956c-b1cd6b160cf4",
+      "orderNum": "4"
+    },
+    {
+      "id": "34b6",
+      "name": "hjkh",
       "categoryId": "27eb1632-c71d-407f-9d0e-0906d3b5f789",
-      "orderNum": "3"
+      "orderNum": "5"
     }
   ]
 }
