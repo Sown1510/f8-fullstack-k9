@@ -2,7 +2,7 @@ import { FCommonTable, ProductDialog, Loading } from "../../components";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { deleteMethod, getMethod, postMethod, putMethod } from "../../utils/api";
+import { deleteMethod, getMethod, postMethod, putMethod } from "../../utils";
 import "./style.css";
 
 function products() {
