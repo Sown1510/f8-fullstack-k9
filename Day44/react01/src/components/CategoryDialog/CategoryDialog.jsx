@@ -1,6 +1,7 @@
 import React from "react";
 import { DialogTitle, Dialog, DialogContent, DialogActions, Button, TextField } from "@mui/material";
 import DialogContainer from "../DialogContainer";
+import "./style.css";
 
 function CategoryDialog({ show, onClose, onSave, category = {}, onInput, categories }) {
   return (
