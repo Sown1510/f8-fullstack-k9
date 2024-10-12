@@ -25,7 +25,7 @@ const FCommonTable = ({ columns, rows, maxWidth, onUpdate, onDelete, categories 
                 <TableRow key={`${ridx}`}>
                   {columns.map((column) => {
                     if (column.name === "categoryId") {
-                      const category = categories.find((category) => category.id === row[column.name]);
+                      const category = categories.find((category) => category.id == row[column.name]);
                       const categoryName = category ? category.name : "Unknown";
 
                       return <TableCell key={`${ridx}${column.name}`}>{categoryName}</TableCell>;
@@ -33,8 +33,18 @@ const FCommonTable = ({ columns, rows, maxWidth, onUpdate, onDelete, categories 
                     if (column.name === "action") {
                       return (
                         <TableCell key={`${ridx}${column.name}`}>
-                          <EditIcon onClick={() => onUpdate(row)} sx={{ color: "green" }} className="ma-2" />
-                          <DeleteOutlineIcon onClick={() => onDelete(row.id)} sx={{ color: "red" }} className="ma-2" />
+                          <EditIcon onClick={() => onUpdate(row)} sx={{ color: "green", cursor: "pointer" }} className="ma-2" />
+                          <DeleteOutlineIcon onClick={() => onDelete(row.id)} sx={{ color: "red", cursor: "pointer" }} className="ma-2" />
+                        </TableCell>
+                      );
+                    }
+                    if (column.name === "images") {
+                      const images = row[column.name];
+                      return (
+                        <TableCell key={`${ridx}${column.name}`} sx={{ display: "flex", gap: "5px" }}>
+                          {images.map((image, index) => (
+                            <img key={`img-${index}`} src={image} style={{ height: "50px", borderRadius: "5px" }} />
+                          ))}
                         </TableCell>
                       );
                     }

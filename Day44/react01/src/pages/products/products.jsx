@@ -4,14 +4,17 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { deleteMethod, getMethod, postMethod, putMethod } from "../../utils";
 import "./style.css";
+import { readFile } from "../../utils";
 
 function products() {
   const categories = JSON.parse(localStorage.getItem("categories")) ? JSON.parse(localStorage.getItem("categories")) : [];
   const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : []);
-  const [product, setProduct] = useState({ id: "", name: "", categoryId: "", orderNum: "" });
+  const initProduct = { id: "", name: "", categoryId: "", orderNum: "", images: [] };
+  const [product, setProduct] = useState({ ...initProduct });
   const [showLoading, setShowLoading] = useState(false);
   const [isEditting, setIsEditting] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+
   const naviate = useNavigate();
 
   const getProducts = async () => {
@@ -79,6 +82,7 @@ function products() {
 
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
+    getProducts;
   }, [products]);
 
   const columns = [
@@ -89,6 +93,10 @@ function products() {
     {
       text: "Name",
       name: "name",
+    },
+    {
+      text: "Images",
+      name: "images",
     },
     {
       text: "Category",
@@ -109,7 +117,9 @@ function products() {
   };
 
   const onClose = () => {
+    setProduct({ ...initProduct });
     setShowDialog(false);
+    getProducts();
   };
 
   const onOpenDialog = () => {
@@ -128,6 +138,10 @@ function products() {
 
   const onSave = (e) => {
     e.preventDefault();
+    if (columns.find((column) => column.name != "id" && column.name != "action" && !product[column.name])) {
+      alert("Vui lòng điền đủ thông tin sản phẩm");
+      return;
+    }
     if (isEditting) {
       let holdDialog = false;
       setProducts(
@@ -158,7 +172,7 @@ function products() {
       setProducts([...products, product]);
       postProduct(product);
     }
-    setProduct({ id: "", name: "", categoryId: "", orderNum: "" });
+    setProduct({ ...initProduct });
     setShowDialog(false);
   };
 
@@ -168,9 +182,41 @@ function products() {
   };
 
   const onUpdate = (product) => {
+    console.log(product);
     setProduct(product);
     setShowDialog(true);
     setIsEditting(true);
+  };
+
+  const onUploadFile = async (event) => {
+    const maxQuantity = 4;
+    const maxFileSize = 1; //MB
+    const filesSelected = [...event.target.files];
+    if (filesSelected.length > 4) {
+      alert(`Quá số lượng ảnh, tối đa ${maxQuantity} ảnh`);
+      return;
+    }
+    const validFiles = filesSelected.filter((file) => {
+      if (file.size > maxFileSize * 1024 * 1024 - 1) {
+        alert(`File ( ${file.name} ) quá giới hạn cho phép, kích thước tối đa ${maxFileSize}MB`);
+        return false;
+      }
+      return true;
+    });
+    const filePromises = validFiles.map((file) => readFile(file));
+
+    try {
+      const payloads = await Promise.all(filePromises);
+      setProduct({ ...product, images: product.images.concat(payloads) });
+    } catch (error) {
+      console.error("Lỗi khi đọc tệp: ", error);
+    }
+  };
+
+  const onDeleteImg = (e) => {
+    const index = Number(e.target.parentElement.dataset.id);
+    product.images.splice(index, 1);
+    setProduct({ ...product });
   };
 
   const goToHome = () => {
@@ -189,7 +235,7 @@ function products() {
           Add Product
         </Button>
       </div>
-      <ProductDialog show={showDialog} onClose={onClose} onSave={onSave} product={product} onInput={onInput} categories={categories} />
+      <ProductDialog show={showDialog} onClose={onClose} onSave={onSave} product={product} onInput={onInput} categories={categories} onUploadFile={onUploadFile} onDeleteImg={onDeleteImg} />
       <FCommonTable columns={columns} rows={products} onDelete={onDelete} onUpdate={onUpdate} categories={categories} />
     </>
   );

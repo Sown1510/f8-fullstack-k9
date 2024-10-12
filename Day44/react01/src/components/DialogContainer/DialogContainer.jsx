@@ -4,7 +4,15 @@ import { DialogTitle, Dialog, DialogActions, Button } from "@mui/material";
 function DialogContainer({ show, onClose, onSave, children }) {
   return (
     <>
-      <Dialog open={show} onClose={onClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+      <Dialog
+        open={show}
+        onClose={onClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        fullWidth
+        maxWidth="xs" // Đặt maxWidth, nhưng mình sẽ ghi đè bằng sx bên dưới
+        sx={{ "& .MuiDialog-paper": { width: "100%", maxWidth: "500px" } }}
+      >
         <DialogTitle id="alert-dialog-title">{"Add Category"}</DialogTitle>
         {children}
         <DialogActions>
