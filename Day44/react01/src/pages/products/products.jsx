@@ -192,7 +192,7 @@ function products() {
     const maxQuantity = 4;
     const maxFileSize = 1; //MB
     const filesSelected = [...event.target.files];
-    if (filesSelected.length > 4) {
+    if (filesSelected.length + product.images.length > 4) {
       alert(`Quá số lượng ảnh, tối đa ${maxQuantity} ảnh`);
       return;
     }
