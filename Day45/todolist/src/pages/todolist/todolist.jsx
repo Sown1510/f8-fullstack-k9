@@ -93,10 +93,6 @@ function todolist() {
   };
 
   const onDone = async (task) => {
-    if (loading) {
-      alert("Bình tĩnh đợi tải dữ liệu đã !!!");
-      return;
-    }
     const updateTask = { ...task, done: !task.done };
     dispatch({ action: task.done ? "tasks/undone" : "tasks/done", payload: { id: task.id } });
     try {
