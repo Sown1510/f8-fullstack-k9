@@ -1,0 +1,19 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-icon {
+  animation: spin 1s linear infinite; /* Điều chỉnh thời gian và kiểu xoay */
+}
+
+.action-icon {
+  font-size: 30px !important;
+  border: solid 1px black;
+  border-radius: 5px;
+  cursor: pointer;
+}

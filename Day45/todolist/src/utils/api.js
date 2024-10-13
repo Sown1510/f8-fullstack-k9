@@ -30,7 +30,6 @@ export const putMethod = async (endpoint, payload) => {
 export const deleteMethod = async (endpoint) => {
   try {
     const { data } = await api.delete(endpoint);
-    console.log(data);
     return data;
   } catch (error) {
     console.error("Lỗi khi gửi dữ liệu: ", error);
