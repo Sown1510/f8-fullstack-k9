@@ -1,6 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Loading = ({ showLoading }) => {
+  console.log("render-loading");
   return (
     <div className="loading" style={{ visibility: `${showLoading ? "visible" : "hidden"} ` }}>
       <p>Loading...</p>
@@ -8,4 +9,4 @@ const Loading = ({ showLoading }) => {
   );
 };
 
-export default Loading;
+export default memo(Loading);

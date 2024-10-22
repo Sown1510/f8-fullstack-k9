@@ -1,0 +1,31 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.nav-bar {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgb(235, 234, 234);
+}
+
+.product-list {
+  margin-top: 30px;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart {
+  position: absolute;
+  right: 0;
+  width: 300px;
+}

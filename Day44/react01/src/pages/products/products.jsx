@@ -1,16 +1,24 @@
 import { FCommonTable, ProductDialog, Loading } from "../../components";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo, useCallback, useMemo } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { deleteMethod, getMethod, postMethod, putMethod } from "../../utils";
 import "./style.css";
 import { readFile } from "../../utils";
 
-function products() {
-  const categories = JSON.parse(localStorage.getItem("categories")) ? JSON.parse(localStorage.getItem("categories")) : [];
-  const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : []);
-  const initProduct = { id: "", name: "", categoryId: "", orderNum: "", images: [] };
+const initProduct = { id: "", name: "", categoryId: "", orderNum: "", images: [] };
+const categories = JSON.parse(localStorage.getItem("categories")) ? JSON.parse(localStorage.getItem("categories")) : [];
+
+function productsTable() {
   const [product, setProduct] = useState({ ...initProduct });
+  return <FCommonTable columns={columns} rows={products} onDelete={onDelete} onUpdate={onUpdate} categories={categories} />;
+}
+
+function products() {
+  console.log("render products");
+  const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : []);
+
+  // const product = useMemo(() => ({...initProduct}), [initProduct])
   const [showLoading, setShowLoading] = useState(false);
   const [isEditting, setIsEditting] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
@@ -47,7 +55,6 @@ function products() {
     try {
       const { id, ...payload } = productData;
       const data = await postMethod("products", payload);
-      getProducts();
     } catch (error) {
       alert("Lỗi khi đăng tải sản phẩm");
       console.error(error);
@@ -58,7 +65,6 @@ function products() {
     try {
       const { id, ...payload } = productData;
       const data = await putMethod(`products/${productData.id}`, payload);
-      getProducts();
     } catch (error) {
       alert("Lỗi khi sửa sản phẩm");
       console.error(error);
@@ -68,7 +74,6 @@ function products() {
   const deleteProduct = async (id) => {
     try {
       const data = await deleteMethod(`products/${id}`);
-      getProducts();
     } catch (error) {
       alert("Lỗi khi xoá sản phẩm");
       console.error(error);
@@ -76,13 +81,12 @@ function products() {
   };
 
   useEffect(() => {
-    getCategories();
     getProducts();
+    getCategories();
   }, []);
 
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
-    getProducts;
   }, [products]);
 
   const columns = [
@@ -112,15 +116,14 @@ function products() {
     },
   ];
 
-  const onInput = (e, key) => {
+  const onInput = useCallback((e, key) => {
     setProduct({ ...product, [key]: e.target.value });
-  };
+  });
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setProduct({ ...initProduct });
     setShowDialog(false);
-    getProducts();
-  };
+  });
 
   const onOpenDialog = () => {
     setShowDialog(true);
@@ -136,7 +139,7 @@ function products() {
     return false;
   };
 
-  const onSave = (e) => {
+  const onSave = useCallback((e) => {
     e.preventDefault();
     if (columns.find((column) => column.name != "id" && column.name != "action" && !product[column.name])) {
       alert("Vui lòng điền đủ thông tin sản phẩm");
@@ -174,21 +177,21 @@ function products() {
     }
     setProduct({ ...initProduct });
     setShowDialog(false);
-  };
+  });
 
-  const onDelete = (id) => {
+  const onDelete = useCallback((id) => {
     setProducts(products.filter((product) => product.id != id));
     deleteProduct(id);
-  };
+  });
 
-  const onUpdate = (product) => {
+  const onUpdate = useCallback((product) => {
     console.log(product);
     setProduct(product);
     setShowDialog(true);
     setIsEditting(true);
-  };
+  });
 
-  const onUploadFile = async (event) => {
+  const onUploadFile = useCallback(async (event) => {
     const maxQuantity = 4;
     const maxFileSize = 1; //MB
     const filesSelected = [...event.target.files];
@@ -211,13 +214,13 @@ function products() {
     } catch (error) {
       console.error("Lỗi khi đọc tệp: ", error);
     }
-  };
+  });
 
-  const onDeleteImg = (e) => {
+  const onDeleteImg = useCallback((e) => {
     const index = Number(e.target.parentElement.dataset.id);
     product.images.splice(index, 1);
     setProduct({ ...product });
-  };
+  });
 
   const goToHome = () => {
     naviate("/");
@@ -236,9 +239,8 @@ function products() {
         </Button>
       </div>
       <ProductDialog show={showDialog} onClose={onClose} onSave={onSave} product={product} onInput={onInput} categories={categories} onUploadFile={onUploadFile} onDeleteImg={onDeleteImg} />
-      <FCommonTable columns={columns} rows={products} onDelete={onDelete} onUpdate={onUpdate} categories={categories} />
     </>
   );
 }
 
-export default products;
+export default memo(products);

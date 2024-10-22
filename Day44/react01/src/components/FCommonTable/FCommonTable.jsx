@@ -4,8 +4,10 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import "../../index.css";
 import style from "./style.module.css";
+import { memo } from "react";
 
-const FCommonTable = ({ columns, rows, maxWidth, onUpdate, onDelete, categories = [] }) => {
+const FCommonTable = ({ columns = [], rows = [], maxWidth, onUpdate, onDelete, categories = [] }) => {
+  console.log('render-FCommontable');
   return (
     <>
       <TableContainer sx={{ maxWidth: maxWidth, margin: "0 auto" }} component={Paper}>
@@ -60,4 +62,4 @@ const FCommonTable = ({ columns, rows, maxWidth, onUpdate, onDelete, categories 
   );
 };
 
-export default FCommonTable;
+export default memo(FCommonTable);

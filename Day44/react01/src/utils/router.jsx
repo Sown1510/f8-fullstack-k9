@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App_old.jsx";
-import {Home, Categories, Products} from "../pages";
+import { Home, Categories, Products } from "../pages";
 
 export const router = createBrowserRouter([
   {
@@ -9,10 +8,10 @@ export const router = createBrowserRouter([
   },
   {
     path: "/categories",
-    element: <Categories/>,
+    element: <Categories />,
   },
   {
     path: "/products",
-    element: <Products/>,
+    element: <Products />,
   },
 ]);

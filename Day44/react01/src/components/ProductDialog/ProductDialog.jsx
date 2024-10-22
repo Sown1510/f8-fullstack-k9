@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { memo } from "react";
 import { DialogContent, TextField, InputLabel, Select, MenuItem, FormControl, Button } from "@mui/material";
 import DialogContainer from "../DialogContainer";
 import { styled } from "@mui/material/styles";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 function ProductDialog({ show, onClose, onSave, product, onInput, categories = [], onUploadFile, onDeleteImg }) {
+  console.log("render-productDialog");
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
     clipPath: "inset(50%)",
@@ -79,4 +80,4 @@ function ProductDialog({ show, onClose, onSave, product, onInput, categories = [
   );
 }
 
-export default ProductDialog;
+export default memo(ProductDialog);

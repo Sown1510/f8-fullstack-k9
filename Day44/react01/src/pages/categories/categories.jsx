@@ -6,6 +6,8 @@ import { deleteMethod, getMethod, postMethod, putMethod } from "../../utils";
 import "./style.css";
 
 export default function () {
+  console.log("render-categories");
+
   const products = JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : [];
   const [categories, setCategories] = useState(JSON.parse(localStorage.getItem("categories")) ? JSON.parse(localStorage.getItem("categories")) : []);
   const [category, setCategory] = useState({ id: "", name: "", orderNum: "" });
