@@ -1,13 +1,14 @@
 import "./productItem.css";
 
-export default function () {
+export default function ProductItem({ product }) {
+  console.log(product);
   return (
     <>
       <div className="product-card">
-        <img className="product-image" src="https://picsum.photos/200/200" alt="Product Image" />
+        <img className="product-image" src={product.imageUrl} alt="Product Image" />
         <div className="product-title">
-          <h3 className="title">Product Title</h3>
-          <p className="price">$99.99</p>
+          <h3 className="title">{product.name}</h3>
+          <p className="price">${product.price}</p>
         </div>
         <div className="product-action">
           <button className="buy-now-btn">Buy now</button>

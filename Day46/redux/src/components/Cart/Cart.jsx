@@ -1,7 +1,7 @@
 import CartItem from "../CartItem/CartItem";
 import "./Cart.css";
 
-export default function () {
+export default function Cart() {
   return (
     <>
       <ul className="cart-list">
