@@ -1,14 +1,23 @@
+import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { getProducts } from "../../store";
+
 export default function ProductDetail() {
+  const [searchParams] = useSearchParams();
+  const productId = searchParams.get("id");
+  const products = useSelector(getProducts);
+  const product = products.find((product) => product.id == productId);
+
   return (
     <>
       <div className="product-detail">
         <div className="product-image">
-          <img src="https://picsum.photos/200/200" alt="product-image" />
+          <img src={product.imageUrl} alt="product-image" />
         </div>
         <div className="product-info">
-          <h1 className="product-name">Tên sản phẩm</h1>
-          <p className="product-price">$99.99</p>
-          <p className="product-short-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laboriosam autem harum illo? Nostrum dignissimos nihil perspiciatis ipsam necessitatibus! Porro magni dignissimos sit voluptates placeat vitae, ea ipsum consequatur ad?</p>
+          <h1 className="product-name">{product.name}</h1>
+          <p className="product-price">{product.price}</p>
+          <p className="product-short-description">{product.desc}</p>
         </div>
       </div>
     </>

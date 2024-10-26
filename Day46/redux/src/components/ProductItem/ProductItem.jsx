@@ -1,7 +1,13 @@
+import { useDispatch } from "react-redux";
 import "./productItem.css";
+import { addToCartAction } from "../../store";
 
 export default function ProductItem({ product }) {
-  console.log(product);
+  const dispatch = useDispatch();
+  const onUpdate = (e, product) => {
+    e.stopPropagation();
+    dispatch(addToCartAction(product));
+  };
   return (
     <>
       <div className="product-card">
@@ -12,7 +18,9 @@ export default function ProductItem({ product }) {
         </div>
         <div className="product-action">
           <button className="buy-now-btn">Buy now</button>
-          <button className="add-to-cart-btn">Add to Cart</button>
+          <button className="add-to-cart-btn" onClick={(e) => onUpdate(e, product)}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </>

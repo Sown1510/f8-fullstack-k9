@@ -1,22 +1,22 @@
 import ProductItem from "../../components/ProductItem/ProductItem";
 import "./ProductList.css";
-
-const products = [
-  { id: 1, name: "Product Name", price: 100, imageUrl: "https://picsum.photos/200/200", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, provident. Eligendi numquam accusantium laboriosam. Repellat fugiat reprehenderit perferendis laudantium accusantium ad voluptatem tempore, fugit rem quas non deleniti animi dicta!" },
-  { id: 2, name: "Product Name", price: 100, imageUrl: "https://picsum.photos/200/200", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, provident. Eligendi numquam accusantium laboriosam. Repellat fugiat reprehenderit perferendis laudantium accusantium ad voluptatem tempore, fugit rem quas non deleniti animi dicta!" },
-  { id: 3, name: "Product Name", price: 100, imageUrl: "https://picsum.photos/200/200", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, provident. Eligendi numquam accusantium laboriosam. Repellat fugiat reprehenderit perferendis laudantium accusantium ad voluptatem tempore, fugit rem quas non deleniti animi dicta!" },
-  { id: 4, name: "Product Name", price: 100, imageUrl: "https://picsum.photos/200/200", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, provident. Eligendi numquam accusantium laboriosam. Repellat fugiat reprehenderit perferendis laudantium accusantium ad voluptatem tempore, fugit rem quas non deleniti animi dicta!" },
-  { id: 5, name: "Product Name", price: 100, imageUrl: "https://picsum.photos/200/200", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, provident. Eligendi numquam accusantium laboriosam. Repellat fugiat reprehenderit perferendis laudantium accusantium ad voluptatem tempore, fugit rem quas non deleniti animi dicta!" },
-  { id: 6, name: "Product Name", price: 100, imageUrl: "https://picsum.photos/200/200", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, provident. Eligendi numquam accusantium laboriosam. Repellat fugiat reprehenderit perferendis laudantium accusantium ad voluptatem tempore, fugit rem quas non deleniti animi dicta!" },
-];
+import { getProducts } from "../../store";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductList() {
-  function onClick() {}
+  const products = useSelector(getProducts);
+  const navigate = useNavigate();
+
+  const onShowDetail = (product) => {
+    navigate(`/product-detail?id=${product.id}`);
+  };
+
   return (
     <>
       <ul className="product-list">
         {products.map((product) => (
-          <li key={product.id} className="product-item">
+          <li key={product.id} className="product-item" onClick={() => onShowDetail(product)}>
             <ProductItem product={product} />
           </li>
         ))}

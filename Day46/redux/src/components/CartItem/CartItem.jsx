@@ -1,16 +1,31 @@
+import { useDispatch } from "react-redux";
 import "./CartItem.css";
+import { removeFromCartAction } from "../../store";
 
-export default function CartItem() {
+export default function CartItem(product) {
+  const dispatch = useDispatch();
+  console.log(product);
+
+  const onRemoveFromCart = (product) => {
+    dispatch(removeFromCartAction(product));
+  };
   return (
     <>
       <div className="cart-item-card">
-        <img className="cart-item-image" src="https://picsum.photos/200/200" alt="cart-item Image" />
+        <img className="cart-item-image" src={product.imageUrl} alt="cart-item Image" />
         <div className="cart-item-title">
-          <h3 className="title">Product Title</h3>
-          <p className="price">$99.99</p>
+          <h3 className="title">{product.name}</h3>
+          <p className="price">${product.price}</p>
         </div>
         <div className="cart-item-action">
-          <button className="buy-now-btn">Remove</button>
+          <button
+            onClick={() => {
+              onRemoveFromCart(product);
+            }}
+            className="remove-btn"
+          >
+            Remove
+          </button>
         </div>
       </div>
     </>
