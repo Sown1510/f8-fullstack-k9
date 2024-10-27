@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import "./productItem.css";
+import "./ProductItem.css";
 import { addToCartAction } from "../../store";
 
 export default function ProductItem({ product }) {
