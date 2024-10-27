@@ -11,13 +11,34 @@
     }
   }
 
+  .logo {
+    cursor: pointer;
+  }
+
   .cart-icon {
     position: relative;
     cursor: pointer;
+  }
+
+  .cart-quantity {
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    align-content: center;
+    font-weight: 800;
+    color: white;
+  }
+
+  .hidden {
+    visibility: hidden;
   }
   
   .cart {
     position: absolute;
     right: 0;
-    width: 300px;
+    width: 500px;
   }

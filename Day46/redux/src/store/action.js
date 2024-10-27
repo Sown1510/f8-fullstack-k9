@@ -12,4 +12,11 @@ const removeFromCartAction = (payload = {}) => {
   };
 };
 
-export { addToCartAction, removeFromCartAction };
+const decreaseFromCartAction = (payload = {}) => {
+  return {
+    type: "cart/DECREASE_FROM_CART",
+    payload: payload,
+  };
+};
+
+export { addToCartAction, removeFromCartAction, decreaseFromCartAction };

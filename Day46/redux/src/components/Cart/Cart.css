@@ -10,4 +10,20 @@
         border-radius: 10px;
         overflow: hidden;
     }
+
+    .cart-value {
+        margin-top: 10px;
+    }
+
+    .cart-checkout {
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: 20px;
+        background: #d41830;
+        color: #ffffff;
+        border: none;
+    }
 }
+

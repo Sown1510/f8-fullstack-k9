@@ -25,6 +25,12 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    .cart-item-decrease,.cart-item-increase {
+        width: 40px;
+        height: 40px;
+        font-weight: 800;
+        cursor: pointer;
+    }
     .remove-btn,.add-to-cart-btn  {
         padding: 5px;
         height: fit-content;
