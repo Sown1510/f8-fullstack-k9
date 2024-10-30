@@ -1,23 +1,22 @@
 .product_banner {
 
     border-radius: 5px;
-    a {
-      display: block;
-      text-align: center;
-      img {
-       
-        border-radius: 5px;
-      }
-      h3 {
-        font-size: 2rem;
-        padding: 10px;
-      }
-      p {
-        padding: 10px;
-        font-size: 1.5rem;
-      }
+    display: block;
+    text-align: center;
+    img {
+      
+      border-radius: 5px;
     }
-  }
+    h3 {
+      font-size: 2rem;
+      padding: 10px;
+    }
+    p {
+      padding: 10px;
+      font-size: 1.5rem;
+    }
+}
+  
 
   .product_banner:hover {
     background: rgba(128, 128, 128, 0.278);
