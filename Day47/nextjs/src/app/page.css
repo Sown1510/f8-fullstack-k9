@@ -1,0 +1,10 @@
+.product_btn {
+    margin-top: 40px;
+    border-radius: 5px;
+    display: block;
+    width: fit-content;
+    margin-bottom: 10px;
+    color: #fff;
+    padding: 5px;
+    background: green;
+}

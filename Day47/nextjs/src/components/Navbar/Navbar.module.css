@@ -1,0 +1,41 @@
+.nav_bar {
+    background: #fc5831;
+}
+  
+.nav_bar_content {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    height: 30px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+      
+
+.button {
+    background: #f9a03f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+
