@@ -15,7 +15,7 @@ export default function Product() {
     <>
       <ul className="product-list">
         {products.map((product) => (
-          <ProductsItem key={product.id} href={`product/${product.id}`} imgSrc={product.imgSrc} title={product.title} price={product.price} />
+          <ProductsItem key={product.id} index={product.id} href={`product/${product.id}`} imgSrc={product.imgSrc} title={product.title} price={product.price} />
         ))}
       </ul>
     </>
