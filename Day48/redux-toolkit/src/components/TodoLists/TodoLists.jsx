@@ -42,7 +42,7 @@ export default function TodoLists() {
               <MenuItem defaultChecked value="medium">
                 Medium
               </MenuItem>
-              <MenuItem value="hgih">High</MenuItem>
+              <MenuItem value="high">High</MenuItem>
             </Select>
           </FormControl>
           <Button variant="contained" color="primary" onClick={handleSave}>
